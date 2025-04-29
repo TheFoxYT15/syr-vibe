@@ -52,6 +52,10 @@
             border-radius: 8px;
             cursor: pointer;
             transition: background 0.3s, transform 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .home-text:hover {
             background: linear-gradient(45deg, #0056b3, #00a2cc);
@@ -70,6 +74,7 @@
             gap: 0.5rem;
             transition: background 0.3s, transform 0.3s;
             overflow: hidden;
+            text-decoration: none;
         }
         .donation-btn:hover {
             background: linear-gradient(45deg, #e84150, #f75b70);
@@ -181,12 +186,14 @@
         </div>
         <h1>SYR I VIBE</h1>
         <div class="header-buttons">
-            <div class="home-text" onclick="location.href='index.html'">الصفحة الرئيسية</div>
-            <div class="donation-btn" onclick="window.open('donate.html', '_blank')">
+            <a href="https://thefoxyt15.github.io/syr-vibe/" class="home-text">
+                <i class="fas fa-home"></i> الصفحة الرئيسية
+            </a>
+            <a href="https://thefoxyt15.github.io/syr-vibe-donation/" class="donation-btn">
                 <i class="fas fa-heart"></i>
                 <span>Donation</span>
                 <div class="hearts-container" id="heartsContainer"></div>
-            </div>
+            </a>
         </div>
     </header>
     <main>
