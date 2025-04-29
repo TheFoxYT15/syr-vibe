@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYR I VIBE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { 
+            background: url('https://k.top4top.io/p_3405vm4cc1.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            color: #333; 
+            line-height: 1.6; 
+            backdrop-filter: blur(3px); 
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+        }
+        header {
+            background: rgba(44, 62, 80, 0.8); 
+            color: #fff; 
+            padding: 1rem; 
+            text-align: center; 
+            position: relative; 
+        }
+        header h1 { display: inline-block; }
+        .social-icons { position: absolute; top: 50%; transform: translateY(-50%); left: 1rem; display: flex; gap: 1rem; }
+        .social-icons a { display: inline-block; transition: transform 0.3s ease; font-size: 2.5rem; }
+        .social-icons a:hover { transform: scale(1.3); }
+
+        .header-buttons {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .home-text {
+            color: #fff;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #007bff, #00c3ff);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .home-text:hover {
+            background: linear-gradient(45deg, #0056b3, #00a2cc);
+            transform: scale(1.05);
+        }
+        .donation-btn {
+            position: relative;
+            color: #fff;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #ff4b5c, #ff6b81);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s, transform 0.3s;
+            overflow: hidden;
+        }
+        .donation-btn:hover {
+            background: linear-gradient(45deg, #e84150, #f75b70);
+            transform: scale(1.05);
+        }
+
+        /* تأثير القلوب */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 16px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(0) rotate(0deg) scale(0.3);
+            animation: heartFloat 1.5s ease-out forwards;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(0.3);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-60px) rotate(360deg) scale(1.5);
+            }
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .card h3 { margin-bottom: 0.5rem; }
+        .card p { margin-bottom: 1rem; }
+        .card .price { color: green; font-weight: bold; }
+        .card .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .card button {
+            background: #e67e22;
+            border: none;
+            padding: 0.5rem 1rem;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .card button:hover {
+            background: #d35400;
+            transform: scale(1.1);
+        }
+        .card .free-btn {
+            background: #00ffe5;
+            color: #000;
+        }
+        .card .free-btn:hover {
+            opacity: 0.9;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="social-icons">
+            <a href="https://discord.gg/hmweKEHDJR" target="_blank" style="color:#5865F2;"><i class="fab fa-discord"></i></a>
+            <a href="https://www.youtube.com/@syrvibe" target="_blank" style="color:red;"><i class="fab fa-youtube"></i></a>
+        </div>
+        <h1>SYR I VIBE</h1>
+        <div class="header-buttons">
+            <div class="home-text" onclick="location.href='index.html'">الصفحة الرئيسية</div>
+            <div class="donation-btn" onclick="window.open('donate.html', '_blank')">
+                <i class="fas fa-heart"></i>
+                <span>Donation</span>
+                <div class="hearts-container" id="heartsContainer"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="products">
+            <div class="card">
+                <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster">
+                <h3>Driver Booster Pro 12.0.0</h3>
+                <p>برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://linkvertise.com/1342787/syrvibe-driverbooster?o=sharing', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://f.top4top.io/p_340636fzo1.jpg" alt="MTA Cheat">
+                <h3>MTA Cheat</h3>
+                <p>سكريبت غش قوي للعبة MTA مع مميزات متعددة</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://direct-link.net/1342787/syrvibe-mtacheat', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://b.top4top.io/p_3406pt01z1.jpg" alt="Premium Package">
+                <h3>Premium Package</h3>
+                <p>أدوات مدفوعة مميزة وحصريات حقيقية مع التفعيل</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://example.com/free-premium', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://c.top4top.io/p_3406gy0m22.jpg" alt="VIP All Access">
+                <h3>VIP All Access</h3>
+                <p>احصل على كل شيء مع وصول كامل للبرامج والدورات</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://example.com/vip-all-access', '_blank')">GET FREE</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="payment-popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 2rem; border-radius: 12px; font-size: 1.5rem; font-weight: bold; color: #333;">
+            يرجى الانتظار...
+        </div>
+    </div>
+
+    <audio id="notification-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_52cc1fa3ab.mp3" preload="auto"></audio>
+
+    <script>
+        function showPopup(link) {
+            const popup = document.getElementById('payment-popup');
+            const sound = document.getElementById('notification-sound');
+            popup.style.display = 'flex';
+            sound.play();
+            setTimeout(() => {
+                popup.style.display = 'none';
+                window.open(link, 'نافذة الدفع', 'width=600,height=700,scrollbars=yes');
+            }, 3000);
+        }
+
+        // إنشاء القلوب عند hover على زر التبرع
+        const donationBtn = document.querySelector('.donation-btn');
+        const heartsContainer = document.getElementById('heartsContainer');
+
+        donationBtn.addEventListener('mouseenter', function() {
+            // إزالة أي قلوب موجودة مسبقاً
+            heartsContainer.innerHTML = '';
+            
+            // إنشاء 4 قلوب في مواقع مختلفة
+            const heartPositions = [
+                { left: '20%', delay: '0s' },
+                { left: '40%', delay: '0.2s' },
+                { left: '60%', delay: '0.4s' },
+                { left: '80%', delay: '0.6s' }
+            ];
+            
+            heartPositions.forEach(pos => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                heart.style.left = pos.left;
+                heart.style.animationDelay = pos.delay;
+                heartsContainer.appendChild(heart);
+            });
+            
+            // إزالة القلوب بعد انتهاء الأنيميشن
+            setTimeout(() => {
+                heartsContainer.innerHTML = '';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
