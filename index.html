@@ -109,6 +109,41 @@
             }
         }
 
+        /* شريط البحث الجديد */
+        .search-container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .search-bar {
+            width: 100%;
+            padding: 15px 20px;
+            padding-right: 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6e48aa;
+            font-size: 1.3rem;
+        }
+
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -189,6 +224,13 @@
             </div>
         </div>
     </header>
+
+    <!-- شريط البحث المضاف -->
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput">
+        <i class="fas fa-search search-icon"></i>
+    </div>
+
     <main>
         <section class="products">
             <div class="card">
@@ -255,10 +297,8 @@
         const heartsContainer = document.getElementById('heartsContainer');
 
         donationBtn.addEventListener('mouseenter', function() {
-            // إزالة أي قلوب موجودة مسبقاً
             heartsContainer.innerHTML = '';
             
-            // إنشاء 4 قلوب في مواقع مختلفة
             const heartPositions = [
                 { left: '20%', delay: '0s' },
                 { left: '40%', delay: '0.2s' },
@@ -275,10 +315,28 @@
                 heartsContainer.appendChild(heart);
             });
             
-            // إزالة القلوب بعد انتهاء الأنيميشن
             setTimeout(() => {
                 heartsContainer.innerHTML = '';
             }, 1500);
+        });
+
+        // وظيفة البحث الجديدة
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.card');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         });
     </script>
 </body>
