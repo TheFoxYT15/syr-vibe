@@ -150,6 +150,7 @@
             gap: 1rem;
             padding: 2rem;
             animation: fadeIn 1.5s ease;
+            justify-items: center; /* توسيط الكروت أفقياً */
         }
         .card {
             background: rgba(255, 255, 255, 0.9);
@@ -160,6 +161,12 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.3s;
+            width: 280px; /* عرض ثابت للكروت */
+            margin: 0 auto; /* توسيط الكروت */
+            display: block; /* إظهار الكروت بشكل افتراضي */
+        }
+        .card.hidden {
+            display: none; /* إخفاء الكروت التي لا تطابق البحث */
         }
         .card:hover {
             transform: scale(1.05);
@@ -217,7 +224,7 @@
         <h1>SYR I VIBE</h1>
         <div class="header-buttons">
             <div class="home-text" onclick="location.href='https://thefoxyt15.github.io/syr-vibe'">الصفحة الرئيسية</div>
-            <div class="donation-btn" onclick="window.open('https://thefoxyt15.github.io/syr-vibe-donation/', '_blank')">
+            <div class="donation-btn" a href="https://thefoxyt15.github.io/syr-vibe-donation/"
                 <i class="fas fa-heart"></i>
                 <span>Donation</span>
                 <div class="hearts-container" id="heartsContainer"></div>
@@ -225,7 +232,7 @@
         </div>
     </header>
 
-    <!-- شريط البحث المضاف -->
+    <!-- شريط البحث -->
     <div class="search-container">
         <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput">
         <i class="fas fa-search search-icon"></i>
@@ -233,16 +240,17 @@
 
     <main>
         <section class="products">
-            <div class="card">
+            <!-- الكروت الأصلية -->
+            <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام">
                 <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster">
                 <h3>Driver Booster Pro 12.0.0</h3>
                 <p>برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://linkvertise.com/1342787/syrvibe-driverbooster?o=sharing', '_blank')">GET FREE</button>
+                    <button class="free-btn" onclick="window.open('https://linkvertise.com/1342787/syrvibe-driverbooster?o=sharing' GET FREE</button>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة">
                 <img src="https://f.top4top.io/p_340636fzo1.jpg" alt="MTA Cheat">
                 <h3>MTA Cheat</h3>
                 <p>سكريبت غش قوي للعبة MTA مع مميزات متعددة</p>
@@ -251,7 +259,7 @@
                     <button class="free-btn" onclick="window.open('https://direct-link.net/1342787/syrvibe-mtacheat', '_blank')">GET FREE</button>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" data-search="premium package أدوات مدفوعة مميزة وحصريات حقيقية مع التفعيل">
                 <img src="https://b.top4top.io/p_3406pt01z1.jpg" alt="Premium Package">
                 <h3>Premium Package</h3>
                 <p>أدوات مدفوعة مميزة وحصريات حقيقية مع التفعيل</p>
@@ -260,13 +268,51 @@
                     <button class="free-btn" onclick="window.open('https://example.com/free-premium', '_blank')">GET FREE</button>
                 </div>
             </div>
-            <div class="card">
+            <div class="card" data-search="vip all access احصل على كل شيء مع وصول كامل للبرامج والدورات">
                 <img src="https://c.top4top.io/p_3406gy0m22.jpg" alt="VIP All Access">
                 <h3>VIP All Access</h3>
                 <p>احصل على كل شيء مع وصول كامل للبرامج والدورات</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://example.com/vip-all-access', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            
+            <!-- الكروت الجديدة المضافة -->
+            <div class="card" data-search="winrar فك ضغط الملفات برنامج ضغط ملفات">
+                <img src="https://d.top4top.io/p_3406abcde1.jpg" alt="WinRAR">
+                <h3>WinRAR 6.23</h3>
+                <p>برنامج ضغط وفك ضغط الملفات مع دعم جميع الصيغ</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://example.com/winrar-free', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            <div class="card" data-search="photoshop تحرير الصور تصميم جرافيك">
+                <img src="https://e.top4top.io/p_3406fghij1.jpg" alt="Photoshop">
+                <h3>Adobe Photoshop 2024</h3>
+                <p>برنامج تحرير الصور والتصميم الجرافيكي الاحترافي</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://example.com/photoshop-free', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            <div class="card" data-search="vpn شبكة خاصة افتراضية تصفح آمن">
+                <img src="https://g.top4top.io/p_3406klmno1.jpg" alt="VPN">
+                <h3>Premium VPN</h3>
+                <p>خدمة VPN مميزة للتصفح الآمن وتجاوز القيود</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://example.com/vpn-free', '_blank')">GET FREE</button>
+                </div>
+            </div>
+            <div class="card" data-search="office حزمة أوفيس معالجة نصوص جداول بيانات">
+                <img src="https://h.top4top.io/p_3406pqrst1.jpg" alt="Microsoft Office">
+                <h3>Microsoft Office 2024</h3>
+                <p>حزمة أوفيس كاملة مع تفعيل مدى الحياة</p>
+                <p class="price">Free</p>
+                <div class="btn-container">
+                    <button class="free-btn" onclick="window.open('https://example.com/office-free', '_blank')">GET FREE</button>
                 </div>
             </div>
         </section>
@@ -320,21 +366,20 @@
             }, 1500);
         });
 
-        // وظيفة البحث الجديدة
+        // وظيفة البحث المعدلة
         const searchInput = document.getElementById('searchInput');
         const cards = document.querySelectorAll('.card');
 
         searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+            const searchTerm = this.value.toLowerCase().trim();
             
             cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
+                const searchData = card.getAttribute('data-search').toLowerCase();
                 
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.style.display = 'block';
+                if (searchTerm === '' || searchData.includes(searchTerm)) {
+                    card.classList.remove('hidden');
                 } else {
-                    card.style.display = 'none';
+                    card.classList.add('hidden');
                 }
             });
         });
