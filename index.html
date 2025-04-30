@@ -11,6 +11,7 @@
             background-size: cover; 
             color: #333; 
             line-height: 1.6; 
+            backdrop-filter: blur(3px); 
             position: relative;
         }
         body::before {
@@ -108,72 +109,6 @@
             }
         }
 
-        /* شريط البحث الجديد */
-        .search-container {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 600px;
-            position: relative;
-        }
-        
-        .search-bar {
-            width: 100%;
-            padding: 15px 20px;
-            padding-right: 50px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .search-bar:focus {
-            outline: none;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 1);
-        }
-        
-        .search-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6e48aa;
-            font-size: 1.3rem;
-        }
-
-        /* قائمة الأقسام الجديدة في الأسفل */
-        .categories-menu {
-            display: flex;
-            justify-content: center;
-            background: rgba(44, 62, 80, 0.8);
-            padding: 15px 0;
-            margin-top: 20px;
-            border-radius: 8px;
-            width: 80%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .categories-menu a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .categories-menu a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-        }
-
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -190,8 +125,6 @@
             position: relative;
             overflow: hidden;
             transition: transform 0.3s;
-            max-width: 300px;
-            margin: 0 auto;
         }
         .card:hover {
             transform: scale(1.05);
@@ -246,27 +179,18 @@
             <a href="https://discord.gg/hmweKEHDJR" target="_blank" style="color:#5865F2;"><i class="fab fa-discord"></i></a>
             <a href="https://www.youtube.com/@syrvibe" target="_blank" style="color:red;"><i class="fab fa-youtube"></i></a>
         </div>
-        
         <h1>SYR I VIBE</h1>
         <div class="header-buttons">
             <div class="home-text" onclick="location.href='https://thefoxyt15.github.io/syr-vibe'">الصفحة الرئيسية</div>
-            <div class="donation-btn" onclick="location.href='https://thefoxyt15.github.io/syr-vibe-donation/'
+            <div class="donation-btn" onclick="window.open('https://thefoxyt15.github.io/syr-vibe-donation/', '_blank')">
                 <i class="fas fa-heart"></i>
                 <span>Donation</span>
                 <div class="hearts-container" id="heartsContainer"></div>
             </div>
         </div>
     </header>
-
-    <!-- شريط البحث -->
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput">
-        <i class="fas fa-search search-icon"></i>
-    </div>
-
     <main>
-        <!-- محتوى الصفحة الرئيسية -->
-        <section id="main-content" class="products">
+        <section class="products">
             <div class="card">
                 <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster">
                 <h3>Driver Booster Pro 12.0.0</h3>
@@ -306,13 +230,6 @@
         </section>
     </main>
 
-    <!-- قائمة الأقسام الجديدة في الأسفل -->
-    <div class="categories-menu">
-        <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
-        <a href="games.html"><i class="fas fa-gamepad"></i> الألعاب (Games)</a>
-        <a href="apps.html"><i class="fas fa-laptop-code"></i> التطبيقات (Application-Crack)</a>
-    </div>
-
     <div id="payment-popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
         <div style="background: white; padding: 2rem; border-radius: 12px; font-size: 1.5rem; font-weight: bold; color: #333;">
             يرجى الانتظار...
@@ -338,8 +255,10 @@
         const heartsContainer = document.getElementById('heartsContainer');
 
         donationBtn.addEventListener('mouseenter', function() {
+            // إزالة أي قلوب موجودة مسبقاً
             heartsContainer.innerHTML = '';
             
+            // إنشاء 4 قلوب في مواقع مختلفة
             const heartPositions = [
                 { left: '20%', delay: '0s' },
                 { left: '40%', delay: '0.2s' },
@@ -356,28 +275,10 @@
                 heartsContainer.appendChild(heart);
             });
             
+            // إزالة القلوب بعد انتهاء الأنيميشن
             setTimeout(() => {
                 heartsContainer.innerHTML = '';
             }, 1500);
-        });
-
-        // وظيفة البحث
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
-
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            
-            cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
         });
     </script>
 </body>
