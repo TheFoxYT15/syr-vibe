@@ -5,29 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYR I VIBE</title>
     <style>
+        :root {
+            --primary-bg: url('https://k.top4top.io/p_3405vm4cc1.jpg');
+            --overlay-color: rgba(0, 0, 0, 0.3);
+            --header-bg: rgba(44, 62, 80, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --text-color: #333;
+            --search-bg: rgba(255, 255, 255, 0.9);
+            --price-color: #27ae60;
+            --btn-primary: #e67e22;
+            --btn-primary-hover: #d35400;
+            --btn-secondary: #00ffe5;
+        }
+
+        /* ثيم Trello (أزرق) */
+        .theme-trello {
+            --primary-bg: linear-gradient(to bottom right, #0079bf, #5ba4cf);
+            --overlay-color: rgba(0, 0, 0, 0.1);
+            --header-bg: rgba(0, 121, 191, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #172b4d;
+            --search-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        /* ثيم داكن */
+        .theme-dark {
+            --primary-bg: linear-gradient(to bottom right, #1d2125, #2b3137);
+            --overlay-color: rgba(0, 0, 0, 0.5);
+            --header-bg: rgba(29, 33, 37, 0.9);
+            --card-bg: rgba(40, 46, 51, 0.9);
+            --text-color: #f4f5f7;
+            --search-bg: rgba(40, 46, 51, 0.9);
+            --price-color: #2ecc71;
+        }
+
+        /* ثيم أخضر (طبيعي) */
+        .theme-nature {
+            --primary-bg: linear-gradient(to bottom right, #3a5f0b, #6b8e23);
+            --overlay-color: rgba(0, 0, 0, 0.2);
+            --header-bg: rgba(58, 95, 11, 0.9);
+            --card-bg: rgba(245, 245, 220, 0.9);
+            --text-color: #2e3d1a;
+            --search-bg: rgba(245, 245, 220, 0.9);
+            --price-color: #16a085;
+        }
+
+        /* ثيم بنفسجي */
+        .theme-purple {
+            --primary-bg: linear-gradient(to bottom right, #5e35b1, #9575cd);
+            --overlay-color: rgba(0, 0, 0, 0.2);
+            --header-bg: rgba(94, 53, 177, 0.9);
+            --card-bg: rgba(243, 229, 245, 0.9);
+            --text-color: #311b92;
+            --search-bg: rgba(243, 229, 245, 0.9);
+            --price-color: #8e44ad;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
         body { 
-            background: url('https://k.top4top.io/p_3405vm4cc1.jpg') no-repeat center center fixed; 
+            background: var(--primary-bg) no-repeat center center fixed; 
             background-size: cover; 
-            color: #333; 
+            color: var(--text-color); 
             line-height: 1.6; 
             backdrop-filter: blur(3px); 
             position: relative;
+            transition: all 0.3s ease;
         }
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: var(--overlay-color);
             pointer-events: none;
             box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
         }
         header {
-            background: rgba(44, 62, 80, 0.8); 
+            background: var(--header-bg); 
             color: #fff; 
             padding: 1rem; 
             text-align: center; 
             position: relative; 
+            transition: all 0.3s ease;
         }
         header h1 { display: inline-block; }
         .social-icons { position: absolute; top: 50%; transform: translateY(-50%); left: 1rem; display: flex; gap: 1rem; }
@@ -37,7 +96,7 @@
         .header-buttons {
             position: absolute;
             top: 50%;
-            right: 1rem;
+            right: 5rem;
             transform: translateY(-50%);
             display: flex;
             gap: 1rem;
@@ -109,7 +168,7 @@
             }
         }
 
-        /* شريط البحث الجديد */
+        /* شريط البحث */
         .search-container {
             margin: 20px auto;
             width: 90%;
@@ -124,15 +183,16 @@
             border: none;
             border-radius: 30px;
             font-size: 1.1rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--search-bg);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            color: var(--text-color);
         }
         
         .search-bar:focus {
             outline: none;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 1);
+            background: var(--search-bg);
         }
         
         .search-icon {
@@ -155,7 +215,7 @@
         }
         
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--card-bg);
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             padding: 1.5rem;
@@ -168,7 +228,7 @@
             height: 100%;
         }
         .card.hidden {
-            display: none;
+            display: none !important;
         }
         .card:hover {
             transform: translateY(-5px) scale(1.02);
@@ -184,15 +244,16 @@
         .card h3 { 
             margin-bottom: 0.8rem; 
             font-size: 1.4rem;
-            color: #2c3e50;
+            color: var(--text-color);
         }
         .card p { 
             margin-bottom: 1.5rem; 
-            color: #555;
+            color: var(--text-color);
             flex-grow: 1;
+            opacity: 0.8;
         }
         .card .price { 
-            color: #27ae60; 
+            color: var(--price-color); 
             font-weight: bold;
             font-size: 1.3rem;
             margin-bottom: 1rem;
@@ -204,7 +265,7 @@
             flex-wrap: wrap;
         }
         .card button {
-            background: #e67e22;
+            background: var(--btn-primary);
             border: none;
             padding: 0.7rem 1.5rem;
             color: #fff;
@@ -215,11 +276,11 @@
             font-weight: bold;
         }
         .card button:hover {
-            background: #d35400;
+            background: var(--btn-primary-hover);
             transform: scale(1.05);
         }
         .card .free-btn {
-            background: #00ffe5;
+            background: var(--btn-secondary);
             color: #000;
         }
         .card .free-btn:hover {
@@ -229,6 +290,58 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* نظام اختيار الثيمات */
+        .theme-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .theme-trigger {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #6e48aa, #9d50bb);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-trigger:hover {
+            transform: scale(1.1);
+        }
+        
+        .theme-options {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .theme-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: transform 0.3s;
+        }
+        
+        .theme-option:hover {
+            transform: scale(1.1);
         }
         
         /* التكيف مع الشاشات الصغيرة */
@@ -241,6 +354,10 @@
         @media (max-width: 900px) {
             .products {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header-buttons {
+                right: 1rem;
             }
         }
         
@@ -266,11 +383,39 @@
             header {
                 padding-bottom: 1.5rem;
             }
+            
+            .theme-selector {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .theme-trigger {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .theme-options {
+                top: 50px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="theme-default">
+    <!-- نظام اختيار الثيمات -->
+    <div class="theme-selector">
+        <div class="theme-trigger" id="themeTrigger">
+            <i class="fas fa-palette"></i>
+        </div>
+        <div class="theme-options" id="themeOptions">
+            <div class="theme-option" style="background: linear-gradient(to bottom right, #0079bf, #5ba4cf);" data-theme="trello" title="Trello"></div>
+            <div class="theme-option" style="background: linear-gradient(to bottom right, #1d2125, #2b3137);" data-theme="dark" title="Dark"></div>
+            <div class="theme-option" style="background: linear-gradient(to bottom right, #3a5f0b, #6b8e23);" data-theme="nature" title="Nature"></div>
+            <div class="theme-option" style="background: linear-gradient(to bottom right, #5e35b1, #9575cd);" data-theme="purple" title="Purple"></div>
+            <div class="theme-option" style="background: url('https://k.top4top.io/p_3405vm4cc1.jpg') center/cover;" data-theme="default" title="Default"></div>
+        </div>
+    </div>
+
     <header>
         <div class="social-icons">
             <a href="https://discord.gg/hmweKEHDJR" target="_blank" style="color:#5865F2;"><i class="fab fa-discord"></i></a>
@@ -382,6 +527,37 @@
     <audio id="notification-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_52cc1fa3ab.mp3" preload="auto"></audio>
 
     <script>
+        // نظام الثيمات
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeTrigger = document.getElementById('themeTrigger');
+            const themeOptions = document.getElementById('themeOptions');
+            const body = document.body;
+            
+            // تحميل الثيم المحفوظ
+            const savedTheme = localStorage.getItem('selectedTheme') || 'default';
+            body.className = 'theme-' + savedTheme;
+            
+            // فتح/إغلاق خيارات الثيمات
+            themeTrigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                themeOptions.style.display = themeOptions.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // اختيار ثيم جديد
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    body.className = 'theme-' + theme;
+                    localStorage.setItem('selectedTheme', theme);
+                });
+            });
+            
+            // إغلاق خيارات الثيمات عند النقر خارجها
+            document.addEventListener('click', function() {
+                themeOptions.style.display = 'none';
+            });
+        });
+
         function showPopup(link) {
             const popup = document.getElementById('payment-popup');
             const sound = document.getElementById('notification-sound');
@@ -430,8 +606,13 @@
             
             cards.forEach(card => {
                 const searchData = card.getAttribute('data-search').toLowerCase();
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
                 
-                if (searchTerm === '' || searchData.includes(searchTerm)) {
+                if (searchTerm === '' || 
+                    searchData.includes(searchTerm) || 
+                    title.includes(searchTerm) || 
+                    description.includes(searchTerm)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
