@@ -834,31 +834,45 @@
                 }
             });
 
-            // عداد الزوار
+            // عداد الزوار المحسن
             const counterElement = document.getElementById('counter-number');
-            const storageKey = 'site_visitors';
-            const visitorKey = 'visitor_id';
+            const storageKey = 'site_visitors_v2'; // تغيير المفتاح لتفادي مشاكل التخزين القديم
+            const visitorKey = 'visitor_data_v2'; // تغيير المفتاح لتفادي مشاكل التخزين القديم
             
             // جلب عدد الزوار الحالي من localStorage أو البدء بصفر
             let totalVisitors = parseInt(localStorage.getItem(storageKey)) || 0;
             
-            // التحقق إذا كان الزائر قد تم حسابه من قبل
-            if (!localStorage.getItem(visitorKey)) {
-                // إنشاء معرف فريد للزائر
-                const visitorId = 'visitor_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
-                localStorage.setItem(visitorKey, visitorId);
+            // جلب بيانات الزائر الحالي
+            const visitorData = JSON.parse(localStorage.getItem(visitorKey)) || {};
+            
+            // تاريخ اليوم (بدون وقت) لتتبع الزيارات اليومية
+            const today = new Date().toISOString().split('T')[0];
+            
+            // إذا لم يكن هناك بيانات للزائر أو كان آخر زيارة قبل اليوم الحالي
+            if (!visitorData.id || visitorData.lastVisit !== today) {
+                // إنشاء/تحديث بيانات الزائر
+                const newVisitorData = {
+                    id: visitorData.id || 'visitor_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now(),
+                    firstVisit: visitorData.firstVisit || today,
+                    lastVisit: today,
+                    visitCount: (visitorData.visitCount || 0) + 1
+                };
                 
-                // زيادة العداد فقط إذا كان زائر جديد
-                totalVisitors++;
-                localStorage.setItem(storageKey, totalVisitors);
+                localStorage.setItem(visitorKey, JSON.stringify(newVisitorData));
+                
+                // زيادة العداد فقط إذا كانت هذه أول زيارة اليوم
+                if (visitorData.lastVisit !== today) {
+                    totalVisitors++;
+                    localStorage.setItem(storageKey, totalVisitors);
+                }
             }
             
             // عرض عدد الزوار
             counterElement.textContent = totalVisitors.toLocaleString();
             
-            // يمكنك إضافة هذه البيانات إلى console.log للتحقق
+            // تسجيل البيانات في الكونسول للتحقق
             console.log('إجمالي الزوار:', totalVisitors);
-            console.log('معرف الزائر الحالي:', localStorage.getItem(visitorKey));
+            console.log('بيانات الزائر الحالي:', JSON.parse(localStorage.getItem(visitorKey)));
         });
 
         function showPopup(link) {
