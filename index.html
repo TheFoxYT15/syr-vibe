@@ -18,8 +18,6 @@
             --btn-secondary: #00ffe5;
             --hamburger-btn-bg: linear-gradient(45deg, #6e48aa, #9d50bb);
             --hamburger-btn-hover: linear-gradient(45deg, #5e35b1, #8e44ad);
-            --counter-bg: rgba(0,0,0,0.7);
-            --counter-text: white;
         }
 
         /* ثيم Trello (أزرق) */
@@ -32,8 +30,6 @@
             --search-bg: rgba(255, 255, 255, 0.95);
             --hamburger-btn-bg: linear-gradient(45deg, #005b9f, #3a8fd9);
             --hamburger-btn-hover: linear-gradient(45deg, #004a80, #2d7bb8);
-            --counter-bg: rgba(0, 121, 191, 0.9);
-            --counter-text: white;
         }
 
         /* ثيم داكن */
@@ -47,8 +43,6 @@
             --price-color: #2ecc71;
             --hamburger-btn-bg: linear-gradient(45deg, #6e48aa, #9d50bb);
             --hamburger-btn-hover: linear-gradient(45deg, #5e35b1, #8e44ad);
-            --counter-bg: rgba(40, 46, 51, 0.9);
-            --counter-text: #f4f5f7;
         }
 
         /* ثيم أخضر (طبيعي) */
@@ -62,8 +56,6 @@
             --price-color: #16a085;
             --hamburger-btn-bg: linear-gradient(45deg, #4a8f29, #6b8e23);
             --hamburger-btn-hover: linear-gradient(45deg, #3a7f19, #5b7e13);
-            --counter-bg: rgba(58, 95, 11, 0.9);
-            --counter-text: white;
         }
 
         /* ثيم بنفسجي */
@@ -77,8 +69,6 @@
             --price-color: #8e44ad;
             --hamburger-btn-bg: linear-gradient(45deg, #7e55d1, #ae75fd);
             --hamburger-btn-hover: linear-gradient(45deg, #6e45c1, #9e65ed);
-            --counter-bg: rgba(94, 53, 177, 0.9);
-            --counter-text: white;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
@@ -300,6 +290,8 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 1.5rem;
+            position: relative;
+            cursor: pointer;
         }
         .card h3 { 
             margin-bottom: 0.8rem; 
@@ -347,25 +339,68 @@
             opacity: 0.9;
         }
 
-        /* عداد الزوار */
-        .visitor-counter {
-            position: fixed;
-            bottom: 10px;
+        /* حجم اللعبة */
+        .game-size {
+            position: absolute;
+            top: 10px;
             left: 10px;
-            background: var(--counter-bg);
-            color: var(--counter-text);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            z-index: 2;
         }
 
-        .visitor-counter i {
-            margin-left: 8px;
+        /* مواصفات اللعبة عند hover */
+        .game-specs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 3;
+            text-align: center;
+        }
+
+        .card:hover .game-specs {
+            opacity: 1;
+        }
+
+        .game-specs h4 {
+            margin-bottom: 10px;
+            color: #00ffe5;
+        }
+
+        .game-specs ul {
+            list-style-type: none;
+            text-align: right;
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .game-specs li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-right: 15px;
+        }
+
+        .game-specs li:before {
+            content: "•";
+            color: #00ffe5;
+            position: absolute;
+            right: 0;
         }
 
         @keyframes fadeIn {
@@ -523,6 +558,17 @@
             color: #ffd700;
         }
         
+        /* حقوق النشر */
+        .copyright {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            font-size: 0.9rem;
+            direction: ltr;
+        }
+        
         /* التكيف مع الشاشات الصغيرة */
         @media (max-width: 1200px) {
             .products {
@@ -594,13 +640,6 @@
                 left: 10px;
                 width: 200px;
             }
-
-            .visitor-counter {
-                font-size: 12px;
-                padding: 6px 12px;
-                bottom: 5px;
-                left: 5px;
-            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -618,12 +657,6 @@
             <div class="theme-option" style="background: linear-gradient(to bottom right, #5e35b1, #9575cd);" data-theme="purple" title="Purple"></div>
             <div class="theme-option" style="background: url('https://k.top4top.io/p_3405vm4cc1.jpg') center/cover;" data-theme="default" title="Default"></div>
         </div>
-    </div>
-
-    <!-- عداد الزوار -->
-    <div class="visitor-counter" id="visitorCounter">
-        <i class="fas fa-users"></i>
-        <span id="counter-number">0</span> زائر
     </div>
 
     <header>
@@ -665,7 +698,18 @@
         <section class="products">
             <!-- الصف الأول -->
             <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام">
+                <div class="game-size">1.2GB</div>
                 <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10/11</li>
+                        <li>المعالج: 1GHz أو أعلى</li>
+                        <li>الذاكرة: 1GB RAM</li>
+                        <li>مساحة التخزين: 2GB متوفرة</li>
+                        <li>الاتصال بالإنترنت مطلوب للتحديث</li>
+                    </ul>
+                </div>
                 <h3>Driver Booster Pro 12.0.0</h3>
                 <p>برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام</p>
                 <p class="price">Free</p>
@@ -674,7 +718,17 @@
                 </div>
             </div>
             <div class="card" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة">
+                <div class="game-size">5.8MB</div>
                 <img src="https://f.top4top.io/p_340636fzo1.jpg" alt="MTA Cheat">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10/11</li>
+                        <li>MTA San Andreas مثبت مسبقاً</li>
+                        <li>الذاكرة: 2GB RAM</li>
+                        <li>مساحة التخزين: 10MB متوفرة</li>
+                    </ul>
+                </div>
                 <h3>MTA Cheat</h3>
                 <p>سكريبت غش قوي للعبة MTA مع مميزات متعددة</p>
                 <p class="price">Free</p>
@@ -683,7 +737,17 @@
                 </div>
             </div>
             <div class="card" data-search="lightshot">
+                <div class="game-size">8.5MB</div>
                 <img src="https://c.top4top.io/p_3413ye91n1.jpg" alt="Lightshot">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10/11 أو Mac OS X</li>
+                        <li>المعالج: 1GHz أو أعلى</li>
+                        <li>الذاكرة: 512MB RAM</li>
+                        <li>مساحة التخزين: 20MB متوفرة</li>
+                    </ul>
+                </div>
                 <h3>Lightshot 5.5.0.7</h3>
                 <p>screenshot win/mac|اداة التقاط شاشة</p>
                 <p class="price">Free</p>
@@ -692,7 +756,18 @@
                 </div>
             </div>
             <div class="card" data-search="Mcenter">
+                <div class="game-size">15.7MB</div>
                 <img src="https://i.top4top.io/p_3408km6461.jpg" alt="mcenter">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10/11</li>
+                        <li>Minecraft مثبت مسبقاً</li>
+                        <li>الذاكرة: 2GB RAM</li>
+                        <li>مساحة التخزين: 50MB متوفرة</li>
+                        <li>Java 8 أو أحدث</li>
+                    </ul>
+                </div>
                 <h3>Mcenter</h3>
                 <p>full Access Minecraft|احصل على كل شيء مع وصول كامل في ماين كرافت</p>
                 <p class="price">Free</p>
@@ -703,7 +778,19 @@
             
             <!-- الصف الثاني - الكروت الجديدة -->
             <div class="card" data-search="Outlast 2">
+                <div class="game-size">30GB</div>
                 <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
+                        <li>المعالج: Intel Core i3-530 أو AMD Phenom II X4 810</li>
+                        <li>الذاكرة: 4GB RAM</li>
+                        <li>كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 6850</li>
+                        <li>مساحة التخزين: 30GB متوفرة</li>
+                        <li>DirectX: الإصدار 11</li>
+                    </ul>
+                </div>
                 <h3>Outlast 2</h3>
                 <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
                 <p class="price">Free</p>
@@ -712,7 +799,19 @@
                 </div>
             </div>
             <div class="card" data-search="Outlast">
+                <div class="game-size">5.1GB</div>
                 <img src="https://a.top4top.io/p_3408ia7y61.jpg" alt="outlast">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows XP/Vista/7/8/10</li>
+                        <li>المعالج: 2.2GHz Dual Core CPU</li>
+                        <li>الذاكرة: 2GB RAM</li>
+                        <li>كرت الشاشة: 512MB NVIDIA GeForce 9800GTX أو ATI Radeon HD 3xxx series</li>
+                        <li>مساحة التخزين: 5GB متوفرة</li>
+                        <li>DirectX: الإصدار 9.0c</li>
+                    </ul>
+                </div>
                 <h3>Outlst</h3>
                 <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
                 <p class="price">Free</p>
@@ -721,7 +820,19 @@
                 </div>
             </div>
             <div class="card" data-search="araya">
+                <div class="game-size">4.2GB</div>
                 <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="Araya">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
+                        <li>المعالج: Intel Core i5-2500K أو AMD FX-6300</li>
+                        <li>الذاكرة: 6GB RAM</li>
+                        <li>كرت الشاشة: NVIDIA GeForce GTX 560 Ti أو AMD Radeon HD 7850</li>
+                        <li>مساحة التخزين: 5GB متوفرة</li>
+                        <li>DirectX: الإصدار 11</li>
+                    </ul>
+                </div>
                 <h3>Araya</h3>
                 <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
                 <p class="price">Free</p>
@@ -730,7 +841,19 @@
                 </div>
             </div>
             <div class="card" data-search="GTA SA|جي تي اي سان اندريس">
+                <div class="game-size">4.7GB</div>
                 <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="GTA">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 2000/XP/Vista/7/8/10</li>
+                        <li>المعالج: Intel Pentium 4 1.5GHz أو AMD Athlon XP 1500+</li>
+                        <li>الذاكرة: 256MB RAM</li>
+                        <li>كرت الشاشة: 64MB NVIDIA GeForce 3 أو ATI Radeon 8500</li>
+                        <li>مساحة التخزين: 5GB متوفرة</li>
+                        <li>DirectX: الإصدار 9.0</li>
+                    </ul>
+                </div>
                 <h3>GTA SAN ANDREAS</h3>
                 <p>لعبة عالم مفتوح وجريمة في شوارع سان أندرياس.</p>
                 <p class="price">Free</p>
@@ -741,7 +864,17 @@
 
             <!-- الكروت الإضافية الأربعة -->
             <div class="card" data-search="Discord">
+                <div class="game-size">2.3MB</div>
                 <img src="https://i.top4top.io/p_3443u5hl20.png" alt="WinRAR">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10/11</li>
+                        <li>الذاكرة: 1GB RAM</li>
+                        <li>مساحة التخزين: 10MB متوفرة</li>
+                        <li>اتصال بالإنترنت مطلوب</li>
+                    </ul>
+                </div>
                 <h3>Discord Unlocker</h3>
                 <p>تنزيل ديسكورد-فك حظر-Discord-Unlocker</p>
                 <p class="price">Free</p>
@@ -750,7 +883,18 @@
                 </div>
             </div>
             <div class="card" data-search="MKGold">
+                <div class="game-size">650MB</div>
                 <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="Mortal Kombat">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows 7/8/10</li>
+                        <li>المعالج: 1GHz أو أعلى</li>
+                        <li>الذاكرة: 1GB RAM</li>
+                        <li>كرت الشاشة: 128MB مع دعم DirectX 9.0c</li>
+                        <li>مساحة التخزين: 1GB متوفرة</li>
+                    </ul>
+                </div>
                 <h3>MK Gold</h3>
                 <p>قتال-حماس-Combat-skills</p>
                 <p class="price">Free</p>
@@ -759,7 +903,19 @@
                 </div>
             </div>
             <div class="card" data-search="Blur">
+                <div class="game-size">5.8GB</div>
                 <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="بلور">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows XP/Vista/7</li>
+                        <li>المعالج: Intel Core 2 Duo 2.0GHz أو AMD Athlon X2 3800+</li>
+                        <li>الذاكرة: 2GB RAM</li>
+                        <li>كرت الشاشة: 256MB NVIDIA GeForce 7900 أو ATI Radeon X1950</li>
+                        <li>مساحة التخزين: 6GB متوفرة</li>
+                        <li>DirectX: الإصدار 9.0c</li>
+                    </ul>
+                </div>
                 <h3>Blur</h3>
                 <p>سيارات سباق-Car-Rcing</p>
                 <p class="price">Free</p>
@@ -768,7 +924,19 @@
                 </div>
             </div>
             <div class="card" data-search="MK9">
+                <div class="game-size">9.2GB</div>
                 <img src="https://c.top4top.io/p_3444lxk6b1.jpg" alt="Mortal Kombat">
+                <div class="game-specs">
+                    <h4>مواصفات التشغيل</h4>
+                    <ul>
+                        <li>نظام التشغيل: Windows Vista/7/8/10</li>
+                        <li>المعالج: Intel Core Duo 2.4GHz أو AMD Athlon X2 2.8GHz</li>
+                        <li>الذاكرة: 2GB RAM</li>
+                        <li>كرت الشاشة: 512MB NVIDIA GeForce 8800 GTS أو ATI Radeon 3850</li>
+                        <li>مساحة التخزين: 10GB متوفرة</li>
+                        <li>DirectX: الإصدار 9.0c</li>
+                    </ul>
+                </div>
                 <h3>mortal kombat komplete</h3>
                 <p>قتال-حماس-Combat-skills</p>
                 <p class="price">Free</p>
@@ -778,6 +946,11 @@
             </div>
         </section>
     </main>
+
+    <!-- حقوق النشر -->
+    <footer class="copyright">
+        جميع الحقوق محفوظة &copy; 2023 لفريق عمل SYR I VIBE
+    </footer>
 
     <div id="payment-popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
         <div style="background: white; padding: 2rem; border-radius: 12px; font-size: 1.5rem; font-weight: bold; color: #333;">
@@ -833,46 +1006,6 @@
                     hamburgerContent.style.display = 'none';
                 }
             });
-
-            // عداد الزوار المحسن
-            const counterElement = document.getElementById('counter-number');
-            const storageKey = 'site_visitors_v2'; // تغيير المفتاح لتفادي مشاكل التخزين القديم
-            const visitorKey = 'visitor_data_v2'; // تغيير المفتاح لتفادي مشاكل التخزين القديم
-            
-            // جلب عدد الزوار الحالي من localStorage أو البدء بصفر
-            let totalVisitors = parseInt(localStorage.getItem(storageKey)) || 0;
-            
-            // جلب بيانات الزائر الحالي
-            const visitorData = JSON.parse(localStorage.getItem(visitorKey)) || {};
-            
-            // تاريخ اليوم (بدون وقت) لتتبع الزيارات اليومية
-            const today = new Date().toISOString().split('T')[0];
-            
-            // إذا لم يكن هناك بيانات للزائر أو كان آخر زيارة قبل اليوم الحالي
-            if (!visitorData.id || visitorData.lastVisit !== today) {
-                // إنشاء/تحديث بيانات الزائر
-                const newVisitorData = {
-                    id: visitorData.id || 'visitor_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now(),
-                    firstVisit: visitorData.firstVisit || today,
-                    lastVisit: today,
-                    visitCount: (visitorData.visitCount || 0) + 1
-                };
-                
-                localStorage.setItem(visitorKey, JSON.stringify(newVisitorData));
-                
-                // زيادة العداد فقط إذا كانت هذه أول زيارة اليوم
-                if (visitorData.lastVisit !== today) {
-                    totalVisitors++;
-                    localStorage.setItem(storageKey, totalVisitors);
-                }
-            }
-            
-            // عرض عدد الزوار
-            counterElement.textContent = totalVisitors.toLocaleString();
-            
-            // تسجيل البيانات في الكونسول للتحقق
-            console.log('إجمالي الزوار:', totalVisitors);
-            console.log('بيانات الزائر الحالي:', JSON.parse(localStorage.getItem(visitorKey)));
         });
 
         function showPopup(link) {
