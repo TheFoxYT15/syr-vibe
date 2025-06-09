@@ -284,15 +284,53 @@
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-        .card img {
+        
+        .card-img-container {
+            position: relative;
             width: 100%;
             height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
             margin-bottom: 1.5rem;
-            position: relative;
-            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
         }
+        
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            transform: translateX(100%);
+        }
+        
+        .carousel-slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 1;
+        }
+        
+        .carousel-slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        .carousel-slide.next {
+            transform: translateX(100%);
+        }
+        
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
         .card h3 { 
             margin-bottom: 0.8rem; 
             font-size: 1.4rem;
@@ -368,14 +406,15 @@
             padding: 15px;
             border-radius: 8px;
             opacity: 0;
-            transition: opacity 0.5s;
             pointer-events: none;
             z-index: 3;
             text-align: center;
+            transition: opacity 0.5s ease;
         }
 
-        .card:hover .game-specs {
+        .game-specs.show {
             opacity: 1;
+            pointer-events: auto;
         }
 
         .game-specs h4 {
@@ -401,6 +440,60 @@
             color: #00ffe5;
             position: absolute;
             right: 0;
+        }
+
+        /* أيقونة إغلاق المواصفات */
+        .close-specs {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: url('https://i.top4top.io/p_3447adg6c1.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 4;
+        }
+
+        .game-specs.show ~ .close-specs {
+            opacity: 1;
+        }
+
+        /* أسهم التنقل بين الصور */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 4;
+            opacity: 0;
+            transition: opacity 0.3s, background 0.3s;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .card-img-container:hover .nav-arrow {
+            opacity: 1;
+        }
+
+        .nav-arrow.left {
+            left: 10px;
+        }
+
+        .nav-arrow.right {
+            right: 10px;
         }
 
         @keyframes fadeIn {
@@ -698,17 +791,32 @@
         <section class="products">
             <!-- الصف الأول -->
             <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام">
-                <div class="game-size">1.2GB</div>
-                <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10/11</li>
-                        <li>المعالج: 1GHz أو أعلى</li>
-                        <li>الذاكرة: 1GB RAM</li>
-                        <li>مساحة التخزين: 2GB متوفرة</li>
-                        <li>الاتصال بالإنترنت مطلوب للتحديث</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">1.2GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://d.top4top.io/p_3447z79jn2.jpg" alt="Driver Booster 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://c.top4top.io/p_3447eeacm1.png" alt="Driver Booster 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10/11</li>
+                            <li>المعالج: 1GHz أو أعلى</li>
+                            <li>الذاكرة: 1GB RAM</li>
+                            <li>مساحة التخزين: 2GB متوفرة</li>
+                            <li>الاتصال بالإنترنت مطلوب للتحديث</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Driver Booster Pro 12.0.0</h3>
                 <p>برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام</p>
@@ -717,17 +825,33 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/1kqg4owsh3pmvvf/IODRBO_12.0.0.zip/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة">
-                <div class="game-size">5.8MB</div>
-                <img src="https://f.top4top.io/p_340636fzo1.jpg" alt="MTA Cheat">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10/11</li>
-                        <li>MTA San Andreas مثبت مسبقاً</li>
-                        <li>الذاكرة: 2GB RAM</li>
-                        <li>مساحة التخزين: 10MB متوفرة</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">5MB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://f.top4top.io/p_340636fzo1.jpg" alt="MTA Cheat 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://c.top4top.io/p_3447duhop2.jpg" alt="MTA Cheat 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://b.top4top.io/p_3447pbps21.jpg" alt="MTA Cheat 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10/11</li>
+                            <li>يجب تثبيت لعبة MTA أولاً</li>
+                            <li>الذاكرة: 1GB RAM</li>
+                            <li>مساحة التخزين: 10MB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>MTA Cheat</h3>
                 <p>سكريبت غش قوي للعبة MTA مع مميزات متعددة</p>
@@ -736,17 +860,33 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/re6nx3widcaj5n9/MTA_Cheat.zip/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="lightshot">
-                <div class="game-size">8.5MB</div>
-                <img src="https://c.top4top.io/p_3413ye91n1.jpg" alt="Lightshot">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10/11 أو Mac OS X</li>
-                        <li>المعالج: 1GHz أو أعلى</li>
-                        <li>الذاكرة: 512MB RAM</li>
-                        <li>مساحة التخزين: 20MB متوفرة</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">10MB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://c.top4top.io/p_3413ye91n1.jpg" alt="Lightshot 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://a.top4top.io/p_3447gbi9j2.jpg" alt="Lightshot 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://k.top4top.io/p_3447hfuvb1.jpg" alt="Lightshot 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10/11 أو Mac</li>
+                            <li>المعالج: 1GHz أو أعلى</li>
+                            <li>الذاكرة: 512MB RAM</li>
+                            <li>مساحة التخزين: 20MB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Lightshot 5.5.0.7</h3>
                 <p>screenshot win/mac|اداة التقاط شاشة</p>
@@ -755,18 +895,33 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/pad98lrd70uxy68/Lightshot.zip/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="Mcenter">
-                <div class="game-size">15.7MB</div>
-                <img src="https://i.top4top.io/p_3408km6461.jpg" alt="mcenter">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10/11</li>
-                        <li>Minecraft مثبت مسبقاً</li>
-                        <li>الذاكرة: 2GB RAM</li>
-                        <li>مساحة التخزين: 50MB متوفرة</li>
-                        <li>Java 8 أو أحدث</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">50MB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://i.top4top.io/p_3408km6461.jpg" alt="Mcenter 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://c.top4top.io/p_3447482xc1.png" alt="Mcenter 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://d.top4top.io/p_34474yxnj2.png" alt="Mcenter 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10/11</li>
+                            <li>يجب تثبيت لعبة Minecraft أولاً</li>
+                            <li>الذاكرة: 2GB RAM</li>
+                            <li>مساحة التخزين: 100MB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Mcenter</h3>
                 <p>full Access Minecraft|احصل على كل شيء مع وصول كامل في ماين كرافت</p>
@@ -778,18 +933,32 @@
             
             <!-- الصف الثاني - الكروت الجديدة -->
             <div class="card" data-search="Outlast 2">
-                <div class="game-size">30GB</div>
-                <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
-                        <li>المعالج: Intel Core i3-530 أو AMD Phenom II X4 810</li>
-                        <li>الذاكرة: 4GB RAM</li>
-                        <li>كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 6850</li>
-                        <li>مساحة التخزين: 30GB متوفرة</li>
-                        <li>DirectX: الإصدار 11</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">30GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://i.top4top.io/p_3408km6461.jpg" alt="Outlast 2 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://c.top4top.io/p_3413ye91n1.jpg" alt="Outlast 2 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10/11 64-bit</li>
+                            <li>المعالج: Intel Core i5-2400 أو AMD FX-8320</li>
+                            <li>الذاكرة: 8GB RAM</li>
+                            <li>كرت الشاشة: NVIDIA GTX 660 أو AMD Radeon HD 7870</li>
+                            <li>مساحة التخزين: 30GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Outlast 2</h3>
                 <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
@@ -798,19 +967,34 @@
                     <button class="free-btn" onclick="window.open('https://drive.google.com/file/d/1g5mtjPRn5oEkDTfXf3teinix7InygBqT/view?usp=drive_link', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="Outlast">
-                <div class="game-size">5.1GB</div>
-                <img src="https://a.top4top.io/p_3408ia7y61.jpg" alt="outlast">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows XP/Vista/7/8/10</li>
-                        <li>المعالج: 2.2GHz Dual Core CPU</li>
-                        <li>الذاكرة: 2GB RAM</li>
-                        <li>كرت الشاشة: 512MB NVIDIA GeForce 9800GTX أو ATI Radeon HD 3xxx series</li>
-                        <li>مساحة التخزين: 5GB متوفرة</li>
-                        <li>DirectX: الإصدار 9.0c</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">5GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://a.top4top.io/p_3408ia7y61.jpg" alt="Outlast 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://i.top4top.io/p_3408km6461.jpg" alt="Outlast 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows XP/Vista/7/8/10</li>
+                            <li>المعالج: 2.2GHz Dual Core</li>
+                            <li>الذاكرة: 2GB RAM</li>
+                            <li>كرت الشاشة: 512MB NVIDIA GeForce 9800GTX</li>
+                            <li>مساحة التخزين: 5GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Outlst</h3>
                 <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
@@ -819,19 +1003,34 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/mug8p9mobijflle/OutlastWhistleblowerDLC%255Bfoxy15studio%255D.zip/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="araya">
-                <div class="game-size">4.2GB</div>
-                <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="Araya">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
-                        <li>المعالج: Intel Core i5-2500K أو AMD FX-6300</li>
-                        <li>الذاكرة: 6GB RAM</li>
-                        <li>كرت الشاشة: NVIDIA GeForce GTX 560 Ti أو AMD Radeon HD 7850</li>
-                        <li>مساحة التخزين: 5GB متوفرة</li>
-                        <li>DirectX: الإصدار 11</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">3GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="Araya 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://a.top4top.io/p_3408ia7y61.jpg" alt="Araya 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Araya 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
+                            <li>المعالج: Intel Core i3-2100 أو AMD Phenom II X4 965</li>
+                            <li>الذاكرة: 4GB RAM</li>
+                            <li>كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 5850</li>
+                            <li>مساحة التخزين: 3GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Araya</h3>
                 <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
@@ -840,19 +1039,34 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/gyqkqv5c30y0lil/araya%255Bfoxy15studio%255D.rar/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="GTA SA|جي تي اي سان اندريس">
-                <div class="game-size">4.7GB</div>
-                <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="GTA">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 2000/XP/Vista/7/8/10</li>
-                        <li>المعالج: Intel Pentium 4 1.5GHz أو AMD Athlon XP 1500+</li>
-                        <li>الذاكرة: 256MB RAM</li>
-                        <li>كرت الشاشة: 64MB NVIDIA GeForce 3 أو ATI Radeon 8500</li>
-                        <li>مساحة التخزين: 5GB متوفرة</li>
-                        <li>DirectX: الإصدار 9.0</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">4GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="GTA SA 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="GTA SA 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://a.top4top.io/p_3408ia7y61.jpg" alt="GTA SA 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 2000/XP/Vista/7/8/10</li>
+                            <li>المعالج: Intel Pentium III 1GHz أو AMD Athlon 1GHz</li>
+                            <li>الذاكرة: 256MB RAM</li>
+                            <li>كرت الشاشة: 64MB NVIDIA GeForce 3 أو ATI Radeon 8500</li>
+                            <li>مساحة التخزين: 4GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>GTA SAN ANDREAS</h3>
                 <p>لعبة عالم مفتوح وجريمة في شوارع سان أندرياس.</p>
@@ -864,16 +1078,31 @@
 
             <!-- الكروت الإضافية الأربعة -->
             <div class="card" data-search="Discord">
-                <div class="game-size">2.3MB</div>
-                <img src="https://i.top4top.io/p_3443u5hl20.png" alt="WinRAR">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10/11</li>
-                        <li>الذاكرة: 1GB RAM</li>
-                        <li>مساحة التخزين: 10MB متوفرة</li>
-                        <li>اتصال بالإنترنت مطلوب</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">2MB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://i.top4top.io/p_3443u5hl20.png" alt="Discord Unlocker 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="Discord Unlocker 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="Discord Unlocker 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10/11</li>
+                            <li>يجب تثبيت برنامج Discord أولاً</li>
+                            <li>الذاكرة: 1GB RAM</li>
+                            <li>مساحة التخزين: 5MB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Discord Unlocker</h3>
                 <p>تنزيل ديسكورد-فك حظر-Discord-Unlocker</p>
@@ -882,18 +1111,34 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/tvxuo82bvq3cxgj/Discord_Unlocker.zip/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="MKGold">
-                <div class="game-size">650MB</div>
-                <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="Mortal Kombat">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows 7/8/10</li>
-                        <li>المعالج: 1GHz أو أعلى</li>
-                        <li>الذاكرة: 1GB RAM</li>
-                        <li>كرت الشاشة: 128MB مع دعم DirectX 9.0c</li>
-                        <li>مساحة التخزين: 1GB متوفرة</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">500MB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="MK Gold 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://i.top4top.io/p_3443u5hl20.png" alt="MK Gold 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="MK Gold 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10</li>
+                            <li>المعالج: 1GHz أو أعلى</li>
+                            <li>الذاكرة: 1GB RAM</li>
+                            <li>كرت الشاشة: 128MB مع دايركت إكس 9.0c</li>
+                            <li>مساحة التخزين: 1GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>MK Gold</h3>
                 <p>قتال-حماس-Combat-skills</p>
@@ -902,19 +1147,34 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/yf1enbaniua604y/%255BCDI%255D_Mortal_Kombat_Gold_%2528US%2529%2528Re-release%2529%255BDCCM%255D.7z/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="Blur">
-                <div class="game-size">5.8GB</div>
-                <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="بلور">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows XP/Vista/7</li>
-                        <li>المعالج: Intel Core 2 Duo 2.0GHz أو AMD Athlon X2 3800+</li>
-                        <li>الذاكرة: 2GB RAM</li>
-                        <li>كرت الشاشة: 256MB NVIDIA GeForce 7900 أو ATI Radeon X1950</li>
-                        <li>مساحة التخزين: 6GB متوفرة</li>
-                        <li>DirectX: الإصدار 9.0c</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">8GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="Blur 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="Blur 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://i.top4top.io/p_3443u5hl20.png" alt="Blur 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows XP/Vista/7</li>
+                            <li>المعالج: Intel Core 2 Duo 2GHz أو AMD Athlon 64 X2 2GHz</li>
+                            <li>الذاكرة: 2GB RAM</li>
+                            <li>كرت الشاشة: 256MB NVIDIA GeForce 8600 أو ATI Radeon X1900</li>
+                            <li>مساحة التخزين: 8GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Blur</h3>
                 <p>سيارات سباق-Car-Rcing</p>
@@ -923,19 +1183,34 @@
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/ndli25mu94tn7e4/Blur%255Bfoxy15studio%255D.rar/file', '_blank')">GET FREE</button>
                 </div>
             </div>
+            
             <div class="card" data-search="MK9">
-                <div class="game-size">9.2GB</div>
-                <img src="https://c.top4top.io/p_3444lxk6b1.jpg" alt="Mortal Kombat">
-                <div class="game-specs">
-                    <h4>مواصفات التشغيل</h4>
-                    <ul>
-                        <li>نظام التشغيل: Windows Vista/7/8/10</li>
-                        <li>المعالج: Intel Core Duo 2.4GHz أو AMD Athlon X2 2.8GHz</li>
-                        <li>الذاكرة: 2GB RAM</li>
-                        <li>كرت الشاشة: 512MB NVIDIA GeForce 8800 GTS أو ATI Radeon 3850</li>
-                        <li>مساحة التخزين: 10GB متوفرة</li>
-                        <li>DirectX: الإصدار 9.0c</li>
-                    </ul>
+                <div class="card-img-container">
+                    <div class="game-size">15GB</div>
+                    <div class="carousel">
+                        <div class="carousel-slide active">
+                            <img src="https://c.top4top.io/p_3444lxk6b1.jpg" alt="MK9 1">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="MK9 2">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="MK9 3">
+                        </div>
+                    </div>
+                    <div class="game-specs">
+                        <h4>مواصفات التشغيل</h4>
+                        <ul>
+                            <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
+                            <li>المعالج: Intel Core i5-750 أو AMD Phenom II X4 965</li>
+                            <li>الذاكرة: 3GB RAM</li>
+                            <li>كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 5850</li>
+                            <li>مساحة التخزين: 15GB متوفرة</li>
+                        </ul>
+                    </div>
+                    <div class="close-specs" onclick="hideSpecs(this)"></div>
+                    <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
+                    <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>mortal kombat komplete</h3>
                 <p>قتال-حماس-Combat-skills</p>
@@ -1006,7 +1281,61 @@
                     hamburgerContent.style.display = 'none';
                 }
             });
+
+            // إضافة تأثير hover للصور مع تأخير 5 ثواني
+            const cardImgContainers = document.querySelectorAll('.card-img-container');
+            
+            cardImgContainers.forEach(container => {
+                let hoverTimer;
+                
+                container.addEventListener('mouseenter', function() {
+                    const specs = this.querySelector('.game-specs');
+                    const closeBtn = this.querySelector('.close-specs');
+                    
+                    hoverTimer = setTimeout(() => {
+                        specs.classList.add('show');
+                    }, 5000); // 5 ثواني
+                });
+                
+                container.addEventListener('mouseleave', function() {
+                    clearTimeout(hoverTimer);
+                    const specs = this.querySelector('.game-specs');
+                    specs.classList.remove('show');
+                });
+            });
         });
+
+        // إخفاء مواصفات التشغيل عند النقر على الأيقونة
+        function hideSpecs(icon) {
+            const specs = icon.previousElementSibling;
+            specs.classList.remove('show');
+        }
+
+        // تغيير الشرائح في الكاروسل
+        function changeSlide(arrow, direction) {
+            const container = arrow.closest('.card-img-container');
+            const carousel = container.querySelector('.carousel');
+            const slides = carousel.querySelectorAll('.carousel-slide');
+            let activeIndex = 0;
+            
+            // العثور على الشريحة النشطة الحالية
+            slides.forEach((slide, index) => {
+                if (slide.classList.contains('active')) {
+                    activeIndex = index;
+                    slide.classList.remove('active');
+                    slide.classList.add(direction === 1 ? 'prev' : 'next');
+                }
+            });
+            
+            // حساب الفهرس الجديد
+            let newIndex = activeIndex + direction;
+            if (newIndex < 0) newIndex = slides.length - 1;
+            if (newIndex >= slides.length) newIndex = 0;
+            
+            // إظهار الشريحة الجديدة
+            slides[newIndex].classList.remove('prev', 'next');
+            slides[newIndex].classList.add('active');
+        }
 
         function showPopup(link) {
             const popup = document.getElementById('payment-popup');
