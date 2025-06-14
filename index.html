@@ -353,6 +353,7 @@
             justify-content: center;
             gap: 0.8rem;
             flex-wrap: wrap;
+            position: relative;
         }
         .card button {
             background: var(--btn-primary);
@@ -734,6 +735,45 @@
                 width: 200px;
             }
         }
+
+        /* الأيقونات الجديدة */
+        .specs-icon {
+            width: 30px;
+            height: 30px;
+            background: url('https://d.top4top.io/p_34521nzh51.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            z-index: 2;
+        }
+
+        .mobile-icon {
+            width: 60px;
+            height: 60px;
+            background: url('https://l.top4top.io/p_3452s8h391.png') no-repeat center center;
+            background-size: contain;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            z-index: 2;
+        }
+
+        .mobile-text {
+            position: absolute;
+            right: 10px;
+            bottom: -15px;
+            font-size: 0.7rem;
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .specs-container {
+            position: relative;
+            display: inline-block;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -765,10 +805,8 @@
                 <a href="https://thefoxyt15.github.io/about/" oneclick="_blank"><i class="fas fa-info-circle"></i> حول الموقع</a>
                 <a href="https://thefoxyt15.github.io/support/" oneclick="_blank"><i class="fas fa-envelope"></i> اتصل بنا</a>
             </div>
-            <div class="social-icons">
-                <a href="https://discord.gg/hmweKEHDJR" target="_blank" class="discord"><i class="fab fa-discord"></i></a>
-                <a href="https://www.youtube.com/@syrvibe" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
             </div>
+            
         </div>
         <h1>SYR I VIBE</h1>
         <div class="header-buttons">
@@ -823,6 +861,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/1kqg4owsh3pmvvf/IODRBO_12.0.0.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -858,6 +897,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/re6nx3widcaj5n9/MTA_Cheat.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -893,6 +933,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/pad98lrd70uxy68/Lightshot.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -928,6 +969,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/wzckv875k91856n/MCenters.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -965,6 +1007,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://drive.google.com/file/d/1g5mtjPRn5oEkDTfXf3teinix7InygBqT/view?usp=drive_link', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -1001,6 +1044,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/mug8p9mobijflle/OutlastWhistleblowerDLC%255Bfoxy15studio%255D.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -1037,6 +1081,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/gyqkqv5c30y0lil/araya%255Bfoxy15studio%255D.rar/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -1067,12 +1112,16 @@
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
                     <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
+                    <!-- إضافة الأيقونة للهاتف لكرت GTA -->
+                    <div class="mobile-icon" onclick="window.open('https://www.mediafire.com/file/t3d52mdtwbr21eo/GTA_SA.zip/file', '_blank')"></div>
+                    <div class="mobile-text">متوفر نسخة للهاتف</div>
                 </div>
                 <h3>GTA SAN ANDREAS</h3>
                 <p>لعبة عالم مفتوح وجريمة في شوارع سان أندرياس.</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/ck49btn79egpx22/GTA.San.Andreas%255Bfoxy15studio%255D.rar/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
 
@@ -1103,12 +1152,16 @@
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
                     <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
+                    <!-- إضافة الأيقونة للهاتف لكرت Discord -->
+                    <div class="mobile-icon" onclick="window.open('https://discord.com/download', '_blank')"></div>
+                    <div class="mobile-text">متوفر نسخة للهاتف</div>
                 </div>
                 <h3>Discord Unlocker</h3>
                 <p>تنزيل ديسكورد-فك حظر-Discord-Unlocker</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/tvxuo82bvq3cxgj/Discord_Unlocker.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -1145,6 +1198,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/yf1enbaniua604y/%255BCDI%255D_Mortal_Kombat_Gold_%2528US%2529%2528Re-release%2529%255BDCCM%255D.7z/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -1181,6 +1235,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/xh1sb7eip3buqoi/Blur_Setup.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
@@ -1217,6 +1272,7 @@
                 <p class="price">Free</p>
                 <div class="btn-container">
                     <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/q6ubofi59i5eotw/Mortal-Kombat-Komplete-Edition.zip/file', '_blank')">GET FREE</button>
+                    <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
         </section>
@@ -1281,34 +1337,31 @@
                     hamburgerContent.style.display = 'none';
                 }
             });
-
-            // إضافة تأثير hover للصور مع تأخير 5 ثواني
-            const cardImgContainers = document.querySelectorAll('.card-img-container');
-            
-            cardImgContainers.forEach(container => {
-                let hoverTimer;
-                
-                container.addEventListener('mouseenter', function() {
-                    const specs = this.querySelector('.game-specs');
-                    const closeBtn = this.querySelector('.close-specs');
-                    
-                    hoverTimer = setTimeout(() => {
-                        specs.classList.add('show');
-                    }, 0500); // 5 ثواني
-                });
-                
-                container.addEventListener('mouseleave', function() {
-                    clearTimeout(hoverTimer);
-                    const specs = this.querySelector('.game-specs');
-                    specs.classList.remove('show');
-                });
-            });
         });
 
-        // إخفاء مواصفات التشغيل عند النقر على الأيقونة
+        // إظهار المواصفات عند hover على الأيقونة
+        function showSpecs(icon) {
+            const card = icon.closest('.card');
+            const specs = card.querySelector('.game-specs');
+            const closeBtn = card.querySelector('.close-specs');
+            specs.classList.add('show');
+            closeBtn.style.opacity = '1';
+        }
+
+        // إخفاء المواصفات عند إزالة الماوس من الأيقونة
+        function hideSpecsIcon(icon) {
+            const card = icon.closest('.card');
+            const specs = card.querySelector('.game-specs');
+            const closeBtn = card.querySelector('.close-specs');
+            specs.classList.remove('show');
+            closeBtn.style.opacity = '0';
+        }
+
+        // إخفاء المواصفات عند النقر على الأيقونة
         function hideSpecs(icon) {
             const specs = icon.previousElementSibling;
             specs.classList.remove('show');
+            icon.style.opacity = '0';
         }
 
         // تغيير الشرائح في الكاروسل
