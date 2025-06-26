@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="monetag" content="87c8f0c3efaf601ca8dec6cdc60de70a">
     <title>SYR I VIBE</title>
     <style>
         :root {
@@ -91,6 +90,35 @@
             box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
         }
+        
+        /* أنماط الإعلانات الجديدة */
+        .ad-container {
+            margin: 15px auto;
+            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .vertical-ad {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+        }
+        
+        .sticky-ad {
+            position: sticky;
+            top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .vertical-ad {
+                display: none;
+            }
+        }
+
         header {
             background: var(--header-bg); 
             color: #fff; 
@@ -779,6 +807,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="theme-default">
+    <!-- إعلان Popunder -->
+    <script type='text/javascript' src='//rightyclasp.com/8f/19/35/8f1935399ce8134c3666014bde7f01b5.js'></script>
+
     <!-- نظام اختيار الثيمات -->
     <div class="theme-selector">
         <div class="theme-trigger" id="themeTrigger">
@@ -793,16 +824,29 @@
         </div>
     </div>
 
+    <!-- إعلان أفقي 728x90 في الهيدر -->
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '8de1ef727e7204ead14d9368be30693c',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="//rightyclasp.com/8de1ef727e7204ead14d9368be30693c/invoke.js"></scr' + 'ipt>');
+        </script>
+    </div>
+
     <header>
         <div class="social-container">
             <button class="hamburger-btn" id="hamburgerBtn">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="hamburger-content" id="hamburgerContent">
-                <a href="https://thefoxyt15.github.io/syr-vibe" target="_blank"><i class="fas fa-home"></i> الصفحة الرئيسية</a>
-                <a href="https://example.com/games" target="_blank"><i class="fas fa-gamepad"></i> الألعاب</a>
-                <a href="https://example.com/apps" target="_blank"><i class="fas fa-mobile-alt"></i> التطبيقات</a>
-                <a href="https://example.com/tools" target="_blank"><i class="fas fa-tools"></i> الأدوات</a>
+                <a href="https://example.com/games" oneclick="_blank"><i class="fas fa-desktop"></i>الألعاب</a>
+               <a href="https://example.com/tools" oneclick="_blank"><i class="fas fa-tools"></i> الأدوات</a>
+                  <a href="https://example.com/apps" oneclick="_blank"><i class="fas fa-mobile-alt"></i>العاب_تطبيقات_الأدوات</a>
                 <a href="https://thefoxyt15.github.io/about/" oneclick="_blank"><i class="fas fa-info-circle"></i> حول الموقع</a>
                 <a href="https://thefoxyt15.github.io/support/" oneclick="_blank"><i class="fas fa-envelope"></i> اتصل بنا</a>
             </div>
@@ -827,6 +871,11 @@
     </div>
 
     <main>
+        <!-- إعلان Social Bar -->
+        <div class="ad-container" style="grid-column: 1 / -1; margin: 20px auto;">
+            <script type='text/javascript' src='//rightyclasp.com/c4/8a/0c/c48a0c08645cd3da80326f7ba476902a.js'></script>
+        </div>
+
         <section class="products">
             <!-- الصف الأول -->
             <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام">
@@ -1154,8 +1203,7 @@
                     <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                     <!-- إضافة الأيقونة للهاتف لكرت Discord -->
-                    <div class="mobile-icon" onclick="window.open('https://discord.com/download', '_blank')"></div>
-                    <div class="mobile-text">متوفر نسخة للهاتف</div>
+                    
                 </div>
                 <h3>Discord Unlocker</h3>
                 <p>تنزيل ديسكورد-فك حظر-Discord-Unlocker</p>
@@ -1279,8 +1327,34 @@
         </section>
     </main>
 
-    <!-- حقوق النشر -->
+    <!-- إعلان عامودي 160x600 -->
+    <div class="vertical-ad">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '60243a8f88efa823fae79d811e2e8eac',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="//rightyclasp.com/60243a8f88efa823fae79d811e2e8eac/invoke.js"></scr' + 'ipt>');
+        </script>
+    </div>
+
+    <!-- إعلان 300x250 في الفوتر -->
     <footer class="copyright">
+        <div class="ad-container" style="margin-bottom: 20px;">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '2dc11e023b2bef698eefcf0cc984bc2b',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="//rightyclasp.com/2dc11e023b2bef698eefcf0cc984bc2b/invoke.js"></scr' + 'ipt>');
+            </script>
+        </div>
         جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE
     </footer>
 
