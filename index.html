@@ -16,8 +16,8 @@
             --btn-primary: #e67e22;
             --btn-primary-hover: #d35400;
             --btn-secondary: #00ffe5;
-            --hamburger-btn-bg: linear-gradient(45deg, #6e48aa, #9d50bb);
-            --hamburger-btn-hover: linear-gradient(45deg, #5e35b1, #8e44ad);
+            --hamburger-btn-bg: linear-gradient(45deg, #ffc107, #ff9800);
+            --hamburger-btn-hover: linear-gradient(45deg, #ffa000, #ff6d00);
         }
 
         /* ثيم Trello (أزرق) */
@@ -803,6 +803,65 @@
             position: relative;
             display: inline-block;
         }
+
+        /* زر تبديل اللغة الجديد */
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--hamburger-btn-bg);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            z-index: 102;
+            margin-left: 10px;
+        }
+
+        .language-switcher:hover {
+            transform: scale(1.05);
+            background: var(--hamburger-btn-hover);
+        }
+
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            vertical-align: middle;
+        }
+
+        .language-dropdown {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: rgba(0,0,0,0.9);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 150px;
+            z-index: 1000;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .language-option {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .language-option:hover {
+            background: rgba(255,255,255,0.1);
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -844,21 +903,39 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="hamburger-content" id="hamburgerContent">
-                <a href="https://example.com/games" oneclick="_blank"><i class="fas fa-desktop"></i>الألعاب</a>
-               <a href="https://example.com/tools" oneclick="_blank"><i class="fas fa-tools"></i> الأدوات</a>
-                  <a href="https://example.com/apps" oneclick="_blank"><i class="fas fa-mobile-alt"></i>العاب_تطبيقات_الأدوات</a>
-                <a href="https://thefoxyt15.github.io/about/" oneclick="_blank"><i class="fas fa-info-circle"></i> حول الموقع</a>
-                <a href="https://thefoxyt15.github.io/support/" oneclick="_blank"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                <a href="https://example.com/games" oneclick="_blank" data-translate="menu.games"><i class="fas fa-desktop"></i><span class="translate">الألعاب</span></a>
+                <a href="https://example.com/tools" oneclick="_blank" data-translate="menu.tools"><i class="fas fa-tools"></i><span class="translate">الأدوات</span></a>
+                <a href="https://example.com/apps" oneclick="_blank" data-translate="menu.apps"><i class="fas fa-mobile-alt"></i><span class="translate">العاب_تطبيقات_الأدوات</span></a>
+                <a href="https://thefoxyt15.github.io/about/" oneclick="_blank" data-translate="menu.about"><i class="fas fa-info-circle"></i><span class="translate">حول الموقع</span></a>
+                <a href="https://thefoxyt15.github.io/support/" oneclick="_blank" data-translate="menu.contact"><i class="fas fa-envelope"></i><span class="translate">اتصل بنا</span></a>
             </div>
+
+            <!-- زر تبديل اللغة الجديد -->
+            <div class="language-switcher" id="languageSwitcher">
+                <span class="current-language" id="currentLanguage">العربية</span>
+                <img src="https://g.top4top.io/p_3465fesbx1.png" class="language-flag" id="currentFlag">
             </div>
-            
+            <div class="language-dropdown" id="languageDropdown">
+                <a href="#" class="language-option" onclick="changeLanguage('ar')">
+                    <span>العربية</span>
+                    <img src="https://g.top4top.io/p_3465fesbx1.png" class="language-flag">
+                </a>
+                <a href="#" class="language-option" onclick="changeLanguage('en')">
+                    <span>English</span>
+                    <img src="https://flagcdn.com/w20/gb.png" class="language-flag">
+                </a>
+                <a href="#" class="language-option" onclick="changeLanguage('tr')">
+                    <span>Türkçe</span>
+                    <img src="https://flagcdn.com/w20/tr.png" class="language-flag">
+                </a>
+            </div>
         </div>
         <h1>SYR I VIBE</h1>
         <div class="header-buttons">
-            <div class="home-text" onclick="location.href='https://thefoxyt15.github.io/syr-vibe'">الصفحة الرئيسية</div>
-            <div class="donation-btn" onclick="location.href='https://thefoxyt15.github.io/syr-vibe-donation/'">
+            <div class="home-text" onclick="location.href='https://thefoxyt15.github.io/syr-vibe'" data-translate="menu.home"><span class="translate">الصفحة الرئيسية</span></div>
+            <div class="donation-btn" onclick="location.href='https://thefoxyt15.github.io/syr-vibe-donation/'" data-translate="menu.donate">
                 <i class="fas fa-heart"></i>
-                <span>Donation</span>
+                <span class="translate">تبرع</span>
                 <div class="hearts-container" id="heartsContainer"></div>
             </div>
         </div>
@@ -866,7 +943,7 @@
 
     <!-- شريط البحث -->
     <div class="search-container">
-        <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput">
+        <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput" data-translate="search.placeholder">
         <i class="fas fa-search search-icon"></i>
     </div>
 
@@ -878,7 +955,7 @@
 
         <section class="products">
             <!-- الصف الأول -->
-            <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام">
+            <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام driver updater protection from malfunctions system acceleration sürücü güncelleyici arızalardan koruma sistem hızlandırma">
                 <div class="card-img-container">
                     <div class="game-size">Size_24MB</div>
                     <div class="carousel">
@@ -893,13 +970,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10/11</li>
-                            <li>المعالج: 1GHz أو أعلى</li>
-                            <li>الذاكرة: 1GB RAM</li>
-                            <li>مساحة التخزين: 2GB متوفرة</li>
-                            <li>الاتصال بالإنترنت مطلوب للتحديث</li>
+                            <li class="translate" data-translate="specs.os">نظام التشغيل: Windows 7/8/10/11</li>
+                            <li class="translate" data-translate="specs.processor">المعالج: 1GHz أو أعلى</li>
+                            <li class="translate" data-translate="specs.memory">الذاكرة: 1GB RAM</li>
+                            <li class="translate" data-translate="specs.storage">مساحة التخزين: 2GB متوفرة</li>
+                            <li class="translate" data-translate="specs.internet">الاتصال بالإنترنت مطلوب للتحديث</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -907,15 +984,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Driver Booster Pro 12.0.0</h3>
-                <p>برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.driver">برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/1kqg4owsh3pmvvf/IODRBO_12.0.0.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/1kqg4owsh3pmvvf/IODRBO_12.0.0.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة">
+            <div class="card" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة mta cheat script strong cheat for mta game with multiple features mta hile betik güçlü hile mta oyunu için çoklu özellikler">
                 <div class="card-img-container">
                     <div class="game-size">Size_5.09MB</div>
                     <div class="carousel">
@@ -930,12 +1007,12 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10/11</li>
-                            <li>يجب تثبيت لعبة MTA أولاً</li>
-                            <li>الذاكرة: 1GB RAM</li>
-                            <li>مساحة التخزين: 10MB متوفرة</li>
+                            <li class="translate" data-translate="specs.os">نظام التشغيل: Windows 7/8/10/11</li>
+                            <li class="translate" data-translate="specs.mta">يجب تثبيت لعبة MTA أولاً</li>
+                            <li class="translate" data-translate="specs.memory">الذاكرة: 1GB RAM</li>
+                            <li class="translate" data-translate="specs.storage">مساحة التخزين: 10MB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -943,15 +1020,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>MTA Cheat</h3>
-                <p>سكريبت غش قوي للعبة MTA مع مميزات متعددة</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.mta">سكريبت غش قوي للعبة MTA مع مميزات متعددة</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/re6nx3widcaj5n9/MTA_Cheat.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/re6nx3widcaj5n9/MTA_Cheat.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="lightshot">
+            <div class="card" data-search="lightshot لقطة شاشة screenshot ekran görüntüsü">
                 <div class="card-img-container">
                     <div class="game-size">Size_2.31MB</div>
                     <div class="carousel">
@@ -966,12 +1043,12 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10/11 أو Mac</li>
-                            <li>المعالج: 1GHz أو أعلى</li>
-                            <li>الذاكرة: 512MB RAM</li>
-                            <li>مساحة التخزين: 20MB متوفرة</li>
+                            <li class="translate" data-translate="specs.os">نظام التشغيل: Windows 7/8/10/11 أو Mac</li>
+                            <li class="translate" data-translate="specs.processor">المعالج: 1GHz أو أعلى</li>
+                            <li class="translate" data-translate="specs.memory">الذاكرة: 512MB RAM</li>
+                            <li class="translate" data-translate="specs.storage">مساحة التخزين: 20MB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -979,15 +1056,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Lightshot 5.5.0.7</h3>
-                <p>screenshot win/mac|اداة التقاط شاشة</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.lightshot">اداة التقاط شاشة</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/pad98lrd70uxy68/Lightshot.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/pad98lrd70uxy68/Lightshot.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="Mcenter">
+            <div class="card" data-search="Mcenter ماين كرافت minecraft">
                 <div class="card-img-container">
                     <div class="game-size">Size_173.78KB</div>
                     <div class="carousel">
@@ -1002,12 +1079,12 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10/11</li>
-                            <li>يجب تثبيت لعبة Minecraft أولاً</li>
-                            <li>الذاكرة: 2GB RAM</li>
-                            <li>مساحة التخزين: 100MB متوفرة</li>
+                            <li class="translate" data-translate="specs.os">نظام التشغيل: Windows 7/8/10/11</li>
+                            <li class="translate" data-translate="specs.minecraft">يجب تثبيت لعبة Minecraft أولاً</li>
+                            <li class="translate" data-translate="specs.memory">الذاكرة: 2GB RAM</li>
+                            <li class="translate" data-translate="specs.storage">مساحة التخزين: 100MB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1015,16 +1092,16 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Mcenter</h3>
-                <p>full Access Minecraft|احصل على كل شيء مع وصول كامل في ماين كرافت</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.mcenter">احصل على كل شيء مع وصول كامل في ماين كرافت</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/wzckv875k91856n/MCenters.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/wzckv875k91856n/MCenters.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
             <!-- الصف الثاني - الكروت الجديدة -->
-            <div class="card" data-search="Outlast 2">
+            <div class="card" data-search="Outlast 2 رعب horror korku">
                 <div class="card-img-container">
                     <div class="game-size">Size_12.83GB</div>
                     <div class="carousel">
@@ -1039,13 +1116,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10/11 64-bit</li>
-                            <li>المعالج: Intel Core i5-2400 أو AMD FX-8320</li>
-                            <li>الذاكرة: 8GB RAM</li>
-                            <li>كرت الشاشة: NVIDIA GTX 660 أو AMD Radeon HD 7870</li>
-                            <li>مساحة التخزين: 30GB متوفرة</li>
+                            <li class="translate" data-translate="specs.os64">نظام التشغيل: Windows 7/8/10/11 64-bit</li>
+                            <li class="translate" data-translate="specs.processor2">المعالج: Intel Core i5-2400 أو AMD FX-8320</li>
+                            <li class="translate" data-translate="specs.memory8">الذاكرة: 8GB RAM</li>
+                            <li class="translate" data-translate="specs.gpu">كرت الشاشة: NVIDIA GTX 660 أو AMD Radeon HD 7870</li>
+                            <li class="translate" data-translate="specs.storage30">مساحة التخزين: 30GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1053,15 +1130,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Outlast 2</h3>
-                <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.outlast">رعب | تختيم | استكشاف</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://drive.google.com/file/d/1g5mtjPRn5oEkDTfXf3teinix7InygBqT/view?usp=drive_link', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://drive.google.com/file/d/1g5mtjPRn5oEkDTfXf3teinix7InygBqT/view?usp=drive_link', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="Outlast">
+            <div class="card" data-search="Outlast رعب horror korku">
                 <div class="card-img-container">
                     <div class="game-size">Size_4.97GB</div>
                     <div class="carousel">
@@ -1076,13 +1153,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows XP/Vista/7/8/10</li>
-                            <li>المعالج: 2.2GHz Dual Core</li>
-                            <li>الذاكرة: 2GB RAM</li>
-                            <li>كرت الشاشة: 512MB NVIDIA GeForce 9800GTX</li>
-                            <li>مساحة التخزين: 5GB متوفرة</li>
+                            <li class="translate" data-translate="specs.osold">نظام التشغيل: Windows XP/Vista/7/8/10</li>
+                            <li class="translate" data-translate="specs.processor2">المعالج: 2.2GHz Dual Core</li>
+                            <li class="translate" data-translate="specs.memory2">الذاكرة: 2GB RAM</li>
+                            <li class="translate" data-translate="specs.gpuold">كرت الشاشة: 512MB NVIDIA GeForce 9800GTX</li>
+                            <li class="translate" data-translate="specs.storage5">مساحة التخزين: 5GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1090,15 +1167,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Outlst</h3>
-                <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.outlast">رعب | تختيم | استكشاف</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/mug8p9mobijflle/OutlastWhistleblowerDLC%255Bfoxy15studio%255D.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/mug8p9mobijflle/OutlastWhistleblowerDLC%255Bfoxy15studio%255D.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="araya">
+            <div class="card" data-search="araya رعب horror korku">
                 <div class="card-img-container">
                     <div class="game-size">Size_3.35GB</div>
                     <div class="carousel">
@@ -1113,13 +1190,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10 64-bit</li>
-                            <li>المعالج: Intel Core i3-2100 أو AMD Phenom II X4 965</li>
-                            <li>الذاكرة: 4GB RAM</li>
-                            <li>كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 5850</li>
-                            <li>مساحة التخزين: 3GB متوفرة</li>
+                            <li class="translate" data-translate="specs.os64">نظام التشغيل: Windows 7/8/10 64-bit</li>
+                            <li class="translate" data-translate="specs.processor2">المعالج: Intel Core i3-2100 أو AMD Phenom II X4 965</li>
+                            <li class="translate" data-translate="specs.memory4">الذاكرة: 4GB RAM</li>
+                            <li class="translate" data-translate="specs.gpu">كرت الشاشة: NVIDIA GeForce GTX 460 أو AMD Radeon HD 5850</li>
+                            <li class="translate" data-translate="specs.storage3">مساحة التخزين: 3GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1127,15 +1204,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Araya</h3>
-                <p>horror|game|Explore|لعبة رعب|استكشاف|غموض</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.araya">رعب | تختيم | استكشاف</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/gyqkqv5c30y0lil/araya%255Bfoxy15studio%255D.rar/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/gyqkqv5c30y0lil/araya%255Bfoxy15studio%255D.rar/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="GTA SA|جي تي اي سان اندريس">
+            <div class="card" data-search="GTA SA|جي تي اي سان اندريس|grand theft auto san andreas|gta san andreas">
                 <div class="card-img-container">
                     <div class="game-size">Size_801MB</div>
                     <div class="carousel">
@@ -1150,13 +1227,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 2000/XP/Vista/7/8/10</li>
-                            <li>المعالج: Intel Pentium III 1GHz أو AMD Athlon 1GHz</li>
-                            <li>الذاكرة: 256MB RAM</li>
-                            <li>كرت الشاشة: 64MB NVIDIA GeForce 3 أو ATI Radeon 8500</li>
-                            <li>مساحة التخزين: 4GB متوفرة</li>
+                            <li class="translate" data-translate="specs.osold">نظام التشغيل: Windows 2000/XP/Vista/7/8/10</li>
+                            <li class="translate" data-translate="specs.processor1">المعالج: Intel Pentium III 1GHz أو AMD Athlon 1GHz</li>
+                            <li class="translate" data-translate="specs.memory256">الذاكرة: 256MB RAM</li>
+                            <li class="translate" data-translate="specs.gpuold">كرت الشاشة: 64MB NVIDIA GeForce 3 أو ATI Radeon 8500</li>
+                            <li class="translate" data-translate="specs.storage4">مساحة التخزين: 4GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1164,19 +1241,19 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                     <!-- إضافة الأيقونة للهاتف لكرت GTA -->
                     <div class="mobile-icon" onclick="window.open('https://www.mediafire.com/file/t3d52mdtwbr21eo/GTA_SA.zip/file', '_blank')"></div>
-                    <div class="mobile-text">متوفر نسخة للهاتف</div>
+                    <div class="mobile-text translate" data-translate="card.mobile">متوفر نسخة للهاتف</div>
                 </div>
                 <h3>GTA SAN ANDREAS</h3>
-                <p>لعبة عالم مفتوح وجريمة في شوارع سان أندرياس.</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.gta">عالم مفتوح | استكشاف | طور قصة</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/ck49btn79egpx22/GTA.San.Andreas%255Bfoxy15studio%255D.rar/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/ck49btn79egpx22/GTA.San.Andreas%255Bfoxy15studio%255D.rar/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
 
             <!-- الكروت الإضافية الأربعة -->
-            <div class="card" data-search="Discord">
+            <div class="card" data-search="Discord ديسكورد discord">
                 <div class="card-img-container">
                     <div class="game-size">Size_126.84MB</div>
                     <div class="carousel">
@@ -1191,12 +1268,12 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10/11</li>
-                            <li>يجب تثبيت برنامج Discord أولاً</li>
-                            <li>الذاكرة: 1GB RAM</li>
-                            <li>مساحة التخزين: 5MB متوفرة</li>
+                            <li class="translate" data-translate="specs.os">نظام التشغيل: Windows 7/8/10/11</li>
+                            <li class="translate" data-translate="specs.discord">يجب تثبيت برنامج Discord أولاً</li>
+                            <li class="translate" data-translate="specs.memory">الذاكرة: 1GB RAM</li>
+                            <li class="translate" data-translate="specs.storage5">مساحة التخزين: 5MB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1206,15 +1283,15 @@
                     
                 </div>
                 <h3>Discord Unlocker</h3>
-                <p>تنزيل ديسكورد-فك حظر-Discord-Unlocker</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.discord">تنزيل ديسكورد | فك حظر | دردشة</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/tvxuo82bvq3cxgj/Discord_Unlocker.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/tvxuo82bvq3cxgj/Discord_Unlocker.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="MKGold">
+            <div class="card" data-search="MKGold|mortal kombat gold|ölümcül dövüş altın">
                 <div class="card-img-container">
                     <div class="game-size">Size_450MB</div>
                     <div class="carousel">
@@ -1229,13 +1306,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10</li>
-                            <li>المعالج: 1GHz أو أعلى</li>
-                            <li>الذاكرة: 1GB RAM</li>
-                            <li>كرت الشاشة: 128MB مع دايركت إكس 9.0c</li>
-                            <li>مساحة التخزين: 1GB متوفرة</li>
+                            <li class="translate" data-translate="specs.os">نظام التشغيل: Windows 7/8/10</li>
+                            <li class="translate" data-translate="specs.processor1">المعالج: 1GHz أو أعلى</li>
+                            <li class="translate" data-translate="specs.memory">الذاكرة: 1GB RAM</li>
+                            <li class="translate" data-translate="specs.gpu128">كرت الشاشة: 128MB مع دايركت إكس 9.0c</li>
+                            <li class="translate" data-translate="specs.storage1">مساحة التخزين: 1GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1243,15 +1320,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>MK Gold</h3>
-                <p>قتال-حماس-Combat-skills</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.mk">قتال | استراجية | مهارات</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/yf1enbaniua604y/%255BCDI%255D_Mortal_Kombat_Gold_%2528US%2529%2528Re-release%2529%255BDCCM%255D.7z/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/yf1enbaniua604y/%255BCDI%255D_Mortal_Kombat_Gold_%2528US%2529%2528Re-release%2529%255BDCCM%255D.7z/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="Blur">
+            <div class="card" data-search="Blur|سباق|race|yarış">
                 <div class="card-img-container">
                     <div class="game-size">Size_5.18GB</div>
                     <div class="carousel">
@@ -1266,13 +1343,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows XP/Vista/7</li>
-                            <li>المعالج: Intel Core 2 Duo 2GHz أو AMD Athlon 64 X2 2GHz</li>
-                            <li>الذاكرة: 2GB RAM</li>
-                            <li>كرت الشاشة: 256MB NVIDIA GeForce 8600 أو ATI Radeon X1900</li>
-                            <li>مساحة التخزين: 8GB متوفرة</li>
+                            <li class="translate" data-translate="specs.osold">نظام التشغيل: Windows XP/Vista/7</li>
+                            <li class="translate" data-translate="specs.processor2">المعالج: Intel Core 2 Duo 2GHz أو AMD Athlon 64 X2 2GHz</li>
+                            <li class="translate" data-translate="specs.memory2">الذاكرة: 2GB RAM</li>
+                            <li class="translate" data-translate="specs.gpu256">كرت الشاشة: 256MB NVIDIA GeForce 8600 أو ATI Radeon X1900</li>
+                            <li class="translate" data-translate="specs.storage8">مساحة التخزين: 8GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1280,15 +1357,15 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>Blur</h3>
-                <p>سيارات سباق-Car-Rcing</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.blur">سباق | سيارات | سرعة</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/xh1sb7eip3buqoi/Blur_Setup.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/xh1sb7eip3buqoi/Blur_Setup.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-search="MK9">
+            <div class="card" data-search="MK9|mortal kombat komplete|ölümcül dövüş tam">
                 <div class="card-img-container">
                     <div class="game-size">Size_8.66GB</div>
                     <div class="carousel">
@@ -1303,13 +1380,13 @@
                         </div>
                     </div>
                     <div class="game-specs">
-                        <h4>مواصفات التشغيل</h4>
+                        <h4 class="translate" data-translate="specs.title">مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10 32/64-bit</li>
-                            <li>Intel Core 2 Duo @ 2.4 GHz</li>
-                            <li>الذاكرة: 3GB RAM</li>
-                            <li>NVIDIA GeForce 8800 GTS أو AMD Radeon 3850</li>
-                            <li>مساحة التخزين: 15GB متوفرة</li>
+                            <li class="translate" data-translate="specs.os64">نظام التشغيل: Windows 7/8/10 32/64-bit</li>
+                            <li class="translate" data-translate="specs.processor2">Intel Core 2 Duo @ 2.4 GHz</li>
+                            <li class="translate" data-translate="specs.memory3">الذاكرة: 3GB RAM</li>
+                            <li class="translate" data-translate="specs.gpunv">NVIDIA GeForce 8800 GTS أو AMD Radeon 3850</li>
+                            <li class="translate" data-translate="specs.storage15">مساحة التخزين: 15GB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
@@ -1317,10 +1394,10 @@
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
                 <h3>mortal kombat komplete</h3>
-                <p>قتال-حماس-Combat-skills</p>
-                <p class="price">Free</p>
+                <p class="translate" data-translate="card.mk">قتال | استراجية | مهارات</p>
+                <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://www.mediafire.com/file/q6ubofi59i5eotw/Mortal-Kombat-Komplete-Edition.zip/file', '_blank')">GET FREE</button>
+                    <button class="free-btn translate" onclick="window.open('https://www.mediafire.com/file/q6ubofi59i5eotw/Mortal-Kombat-Komplete-Edition.zip/file', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
@@ -1355,7 +1432,7 @@
                 document.write('<scr' + 'ipt type="text/javascript" src="//rightyclasp.com/2dc11e023b2bef698eefcf0cc984bc2b/invoke.js"></scr' + 'ipt>');
             </script>
         </div>
-        جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE
+        <span class="translate" data-translate="copyright">جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE</span>
     </footer>
 
     <div id="payment-popup" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 9999; display: none; justify-content: center; align-items: center;">
@@ -1367,6 +1444,172 @@
     <audio id="notification-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_52cc1fa3ab.mp3" preload="auto"></audio>
 
     <script>
+        // نظام الترجمة
+        const translations = {
+            'ar': {
+                'menu.home': 'الصفحة الرئيسية',
+                'menu.donate': 'تبرع',
+                'menu.games': 'الألعاب',
+                'menu.tools': 'الأدوات',
+                'menu.apps': 'العاب_تطبيقات_الأدوات',
+                'menu.about': 'حول الموقع',
+                'menu.contact': 'اتصل بنا',
+                'search.placeholder': 'ابحث عن التطبيقات أو الألعاب...',
+                'card.free': 'مجاناً',
+                'card.get': 'احصل عليه مجانًا',
+                'card.driver': 'برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام',
+                'card.mta': 'سكريبت غش قوي للعبة MTA مع مميزات متعددة',
+                'card.lightshot': 'اداة التقاط شاشة',
+                'card.mcenter': 'احصل على كل شيء مع وصول كامل في ماين كرافت',
+                'card.outlast': 'رعب | تختيم | استكشاف',
+                'card.araya': 'رعب | تختيم | استكشاف',
+                'card.gta': 'عالم مفتوح | استكشاف | طور قصة',
+                'card.discord': 'تنزيل ديسكورد | فك حظر | دردشة',
+                'card.mk': 'قتال | استراجية | مهارات',
+                'card.blur': 'سباق | سيارات | سرعة',
+                'card.mobile': 'متوفر نسخة للهاتف',
+                'specs.title': 'مواصفات التشغيل',
+                'specs.os': 'نظام التشغيل: Windows 7/8/10/11',
+                'specs.os64': 'نظام التشغيل: Windows 7/8/10/11 64-bit',
+                'specs.osold': 'نظام التشغيل: Windows 2000/XP/Vista/7/8/10',
+                'specs.processor': 'المعالج: 1GHz أو أعلى',
+                'specs.processor1': 'المعالج: 1GHz أو أعلى',
+                'specs.processor2': 'المعالج: Intel Core i5-2400 أو AMD FX-8320',
+                'specs.memory': 'الذاكرة: 1GB RAM',
+                'specs.memory2': 'الذاكرة: 2GB RAM',
+                'specs.memory3': 'الذاكرة: 3GB RAM',
+                'specs.memory4': 'الذاكرة: 4GB RAM',
+                'specs.memory8': 'الذاكرة: 8GB RAM',
+                'specs.memory256': 'الذاكرة: 256MB RAM',
+                'specs.storage': 'مساحة التخزين: 2GB متوفرة',
+                'specs.storage1': 'مساحة التخزين: 1GB متوفرة',
+                'specs.storage3': 'مساحة التخزين: 3GB متوفرة',
+                'specs.storage4': 'مساحة التخزين: 4GB متوفرة',
+                'specs.storage5': 'مساحة التخزين: 5GB متوفرة',
+                'specs.storage8': 'مساحة التخزين: 8GB متوفرة',
+                'specs.storage15': 'مساحة التخزين: 15GB متوفرة',
+                'specs.storage30': 'مساحة التخزين: 30GB متوفرة',
+                'specs.internet': 'الاتصال بالإنترنت مطلوب للتحديث',
+                'specs.mta': 'يجب تثبيت لعبة MTA أولاً',
+                'specs.minecraft': 'يجب تثبيت لعبة Minecraft أولاً',
+                'specs.discord': 'يجب تثبيت برنامج Discord أولاً',
+                'specs.gpu': 'كرت الشاشة: NVIDIA GTX 660 أو AMD Radeon HD 7870',
+                'specs.gpuold': 'كرت الشاشة: 64MB NVIDIA GeForce 3 أو ATI Radeon 8500',
+                'specs.gpu128': 'كرت الشاشة: 128MB مع دايركت إكس 9.0c',
+                'specs.gpu256': 'كرت الشاشة: 256MB NVIDIA GeForce 8600 أو ATI Radeon X1900',
+                'specs.gpunv': 'NVIDIA GeForce 8800 GTS أو AMD Radeon 3850',
+                'copyright': 'جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE'
+            },
+            'en': {
+                'menu.home': 'Home',
+                'menu.donate': 'Donate',
+                'menu.games': 'Games',
+                'menu.tools': 'Tools',
+                'menu.apps': 'Games_Apps_Tools',
+                'menu.about': 'About',
+                'menu.contact': 'Contact Us',
+                'search.placeholder': 'Search for apps or games...',
+                'card.free': 'Free',
+                'card.get': 'Get it for free',
+                'card.driver': 'Driver updater | Protection from malfunctions | System acceleration',
+                'card.mta': 'Strong cheat script for MTA game with multiple features',
+                'card.lightshot': 'Screenshot tool',
+                'card.mcenter': 'Get everything with full access in Minecraft',
+                'card.outlast': 'Horror | Completion | Exploration',
+                'card.araya': 'Horror | Completion | Exploration',
+                'card.gta': 'Open world | Exploration | Story mode',
+                'card.discord': 'Download Discord | Unblock | Chat',
+                'card.mk': 'Fighting | Strategy | Skills',
+                'card.blur': 'Racing | Cars | Speed',
+                'card.mobile': 'Mobile version available',
+                'specs.title': 'System Requirements',
+                'specs.os': 'OS: Windows 7/8/10/11',
+                'specs.os64': 'OS: Windows 7/8/10/11 64-bit',
+                'specs.osold': 'OS: Windows 2000/XP/Vista/7/8/10',
+                'specs.processor': 'Processor: 1GHz or higher',
+                'specs.processor1': 'Processor: 1GHz or higher',
+                'specs.processor2': 'Processor: Intel Core i5-2400 or AMD FX-8320',
+                'specs.memory': 'Memory: 1GB RAM',
+                'specs.memory2': 'Memory: 2GB RAM',
+                'specs.memory3': 'Memory: 3GB RAM',
+                'specs.memory4': 'Memory: 4GB RAM',
+                'specs.memory8': 'Memory: 8GB RAM',
+                'specs.memory256': 'Memory: 256MB RAM',
+                'specs.storage': 'Storage: 2GB available',
+                'specs.storage1': 'Storage: 1GB available',
+                'specs.storage3': 'Storage: 3GB available',
+                'specs.storage4': 'Storage: 4GB available',
+                'specs.storage5': 'Storage: 5GB available',
+                'specs.storage8': 'Storage: 8GB available',
+                'specs.storage15': 'Storage: 15GB available',
+                'specs.storage30': 'Storage: 30GB available',
+                'specs.internet': 'Internet connection required for updates',
+                'specs.mta': 'MTA game must be installed first',
+                'specs.minecraft': 'Minecraft game must be installed first',
+                'specs.discord': 'Discord must be installed first',
+                'specs.gpu': 'Graphics: NVIDIA GTX 660 or AMD Radeon HD 7870',
+                'specs.gpuold': 'Graphics: 64MB NVIDIA GeForce 3 or ATI Radeon 8500',
+                'specs.gpu128': 'Graphics: 128MB with DirectX 9.0c',
+                'specs.gpu256': 'Graphics: 256MB NVIDIA GeForce 8600 or ATI Radeon X1900',
+                'specs.gpunv': 'NVIDIA GeForce 8800 GTS or AMD Radeon 3850',
+                'copyright': 'All rights reserved &copy; 2025 SYR I VIBE Team'
+            },
+            'tr': {
+                'menu.home': 'Ana Sayfa',
+                'menu.donate': 'Bağış Yap',
+                'menu.games': 'Oyunlar',
+                'menu.tools': 'Araçlar',
+                'menu.apps': 'Oyunlar_Uygulamalar_Araçlar',
+                'menu.about': 'Hakkında',
+                'menu.contact': 'Bize Ulaşın',
+                'search.placeholder': 'Uygulama veya oyun ara...',
+                'card.free': 'Ücretsiz',
+                'card.get': 'Ücretsiz Edinin',
+                'card.driver': 'Sürücü güncelleyici | Arızalardan koruma | Sistem hızlandırma',
+                'card.mta': 'MTA oyunu için çoklu özelliklerle güçlü hile betiği',
+                'card.lightshot': 'Ekran görüntüsü aracı',
+                'card.mcenter': 'Minecraft\'ta tam erişimle her şeyi alın',
+                'card.outlast': 'Korku | Tamamlama | Keşif',
+                'card.araya': 'Korku | Tamamlama | Keşif',
+                'card.gta': 'Açık dünya | Keşif | Hikaye modu',
+                'card.discord': 'Discord indir | Engeli kaldır | Sohbet',
+                'card.mk': 'Dövüş | Strateji | Beceriler',
+                'card.blur': 'Yarış | Arabalar | Hız',
+                'card.mobile': 'Mobil sürüm mevcut',
+                'specs.title': 'Sistem Gereksinimleri',
+                'specs.os': 'İşletim Sistemi: Windows 7/8/10/11',
+                'specs.os64': 'İşletim Sistemi: Windows 7/8/10/11 64-bit',
+                'specs.osold': 'İşletim Sistemi: Windows 2000/XP/Vista/7/8/10',
+                'specs.processor': 'İşlemci: 1GHz veya daha yüksek',
+                'specs.processor1': 'İşlemci: 1GHz veya daha yüksek',
+                'specs.processor2': 'İşlemci: Intel Core i5-2400 veya AMD FX-8320',
+                'specs.memory': 'Bellek: 1GB RAM',
+                'specs.memory2': 'Bellek: 2GB RAM',
+                'specs.memory3': 'Bellek: 3GB RAM',
+                'specs.memory4': 'Bellek: 4GB RAM',
+                'specs.memory8': 'Bellek: 8GB RAM',
+                'specs.memory256': 'Bellek: 256MB RAM',
+                'specs.storage': 'Depolama: 2GB kullanılabilir',
+                'specs.storage1': 'Depolama: 1GB kullanılabilir',
+                'specs.storage3': 'Depolama: 3GB kullanılabilir',
+                'specs.storage4': 'Depolama: 4GB kullanılabilir',
+                'specs.storage5': 'Depolama: 5GB kullanılabilir',
+                'specs.storage8': 'Depolama: 8GB kullanılabilir',
+                'specs.storage15': 'Depolama: 15GB kullanılabilir',
+                'specs.storage30': 'Depolama: 30GB kullanılabilir',
+                'specs.internet': 'Güncellemeler için internet bağlantısı gereklidir',
+                'specs.mta': 'Önce MTA oyunu yüklenmelidir',
+                'specs.minecraft': 'Önce Minecraft oyunu yüklenmelidir',
+                'specs.discord': 'Önce Discord yüklenmelidir',
+                'specs.gpu': 'Grafik: NVIDIA GTX 660 veya AMD Radeon HD 7870',
+                'specs.gpuold': 'Grafik: 64MB NVIDIA GeForce 3 veya ATI Radeon 8500',
+                'specs.gpu128': 'Grafik: 128MB DirectX 9.0c',
+                'specs.gpu256': 'Grafik: 256MB NVIDIA GeForce 8600 veya ATI Radeon X1900',
+                'specs.gpunv': 'NVIDIA GeForce 8800 GTS veya AMD Radeon 3850',
+                'copyright': 'Tüm hakları saklıdır &copy; 2025 SYR I VIBE Ekibi'
+            }
+        };
+
         // نظام الثيمات
         document.addEventListener('DOMContentLoaded', function() {
             const themeTrigger = document.getElementById('themeTrigger');
@@ -1412,7 +1655,66 @@
                     hamburgerContent.style.display = 'none';
                 }
             });
+
+            // نظام تبديل اللغة
+            const languageSwitcher = document.getElementById('languageSwitcher');
+            const languageDropdown = document.getElementById('languageDropdown');
+            const currentLanguage = document.getElementById('currentLanguage');
+            const currentFlag = document.getElementById('currentFlag');
+
+            languageSwitcher.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageDropdown.style.display = languageDropdown.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // إغلاق قائمة اللغة عند النقر خارجها
+            document.addEventListener('click', function(e) {
+                if (!languageDropdown.contains(e.target) && e.target !== languageSwitcher) {
+                    languageDropdown.style.display = 'none';
+                }
+            });
+
+            // تحميل اللغة المحفوظة
+            const savedLang = localStorage.getItem('language') || 'ar';
+            changeLanguage(savedLang);
         });
+
+        // وظيفة تغيير اللغة
+        function changeLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang;
+            
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.getElementById('currentLanguage').textContent = 'العربية';
+                document.getElementById('currentFlag').src = 'https://g.top4top.io/p_3465fesbx1.png';
+            } else if (lang === 'en') {
+                document.documentElement.dir = 'ltr';
+                document.getElementById('currentLanguage').textContent = 'English';
+                document.getElementById('currentFlag').src = 'https://flagcdn.com/w20/gb.png';
+            } else if (lang === 'tr') {
+                document.documentElement.dir = 'ltr';
+                document.getElementById('currentLanguage').textContent = 'Türkçe';
+                document.getElementById('currentFlag').src = 'https://flagcdn.com/w20/tr.png';
+            }
+            
+            // تحديث جميع العناصر المترجمة
+            document.querySelectorAll('.translate').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (key && translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // تحديث placeholder البحث
+            const searchInput = document.getElementById('searchInput');
+            if (translations[lang] && translations[lang]['search.placeholder']) {
+                searchInput.placeholder = translations[lang]['search.placeholder'];
+            }
+            
+            // إغلاق القائمة المنسدلة
+            document.getElementById('languageDropdown').style.display = 'none';
+        }
 
         // إظهار المواصفات عند hover على الأيقونة
         function showSpecs(icon) {
