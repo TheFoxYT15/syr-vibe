@@ -862,6 +862,57 @@
         .language-option:hover {
             background: rgba(255,255,255,0.1);
         }
+
+        /* أنماط زر تحميل المزيد */
+        .load-more-container {
+            text-align: center;
+            margin: 30px 0;
+            grid-column: 1 / -1;
+        }
+        
+        .load-more-btn {
+            background: var(--btn-primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .load-more-btn:hover {
+            background: var(--btn-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        
+        .load-more-btn .spinner {
+            display: none;
+            animation: spin 1s linear infinite;
+        }
+        
+        .load-more-btn.loading .spinner {
+            display: inline-block;
+        }
+        
+        .load-more-btn.loading .text {
+            display: none;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* تعديلات للكروت المخفية */
+        .card.hidden {
+            display: none !important;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -904,10 +955,11 @@
             </button>
             <div class="hamburger-content" id="hamburgerContent">
                 <a href="https://example.com/games" oneclick="_blank" data-translate="menu.games"><i class="fas fa-desktop"></i><span class="translate">الألعاب</span></a>
+                <a href="https://thefoxyt15.github.io/mini_games/" oneclick="_blank" data-translate="menu.games"><i class="fas fa-gamepad"></i><span class="translate">العاب سريعة</span></a>
                 <a href="https://example.com/tools" oneclick="_blank" data-translate="menu.tools"><i class="fas fa-tools"></i><span class="translate">الأدوات</span></a>
                 <a href="https://example.com/apps" oneclick="_blank" data-translate="menu.apps"><i class="fas fa-mobile-alt"></i><span class="translate">العاب_تطبيقات_الأدوات</span></a>
                 <a href="https://thefoxyt15.github.io/about/" oneclick="_blank" data-translate="menu.about"><i class="fas fa-info-circle"></i><span class="translate">حول الموقع</span></a>
-                <a href="https://thefoxyt15.github.io/support/" oneclick="_blank" data-translate="menu.contact"><i class="fas fa-envelope"></i><span class="translate">اتصل بنا</span></a>
+                <a href="https://thefoxyt15.github.io/support/" oneclick="_blank" data-translate="menu.contact"><i class="fas fa-headset"></i><span class="translate">اتصل بنا</span></a>
             </div>
 
             <!-- زر تبديل اللغة الجديد -->
@@ -1133,7 +1185,7 @@
                 <p class="translate" data-translate="card.outlast">رعب | تختيم | استكشاف</p>
                 <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
-                    <button class="free-btn translate" onclick="window.open('https://thefoxyt15.github.io/games/', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
+                    <button class="free-btn translate" onclick="window.open('https://drive.google.com/file/d/1g5mtjPRn5oEkDTfXf3teinix7InygBqT/view?usp=drive_link', '_blank')" data-translate="card.get">احصل عليه مجانًا</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
@@ -1166,7 +1218,7 @@
                     <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
-                <h3>Outlast</h3>
+                <h3>Outlst</h3>
                 <p class="translate" data-translate="card.outlast">رعب | تختيم | استكشاف</p>
                 <p class="price translate" data-translate="card.free">مجاناً</p>
                 <div class="btn-container">
@@ -1402,6 +1454,14 @@
                 </div>
             </div>
         </section>
+
+        <!-- زر تحميل المزيد -->
+        <div class="load-more-container">
+            <button class="load-more-btn" id="loadMoreBtn">
+                <span class="text translate" data-translate="loadmore">تحميل المزيد</span>
+                <i class="fas fa-spinner spinner"></i>
+            </button>
+        </div>
     </main>
 
     <!-- إعلان عامودي 160x600 -->
@@ -1498,7 +1558,8 @@
                 'specs.gpu128': 'كرت الشاشة: 128MB مع دايركت إكس 9.0c',
                 'specs.gpu256': 'كرت الشاشة: 256MB NVIDIA GeForce 8600 أو ATI Radeon X1900',
                 'specs.gpunv': 'NVIDIA GeForce 8800 GTS أو AMD Radeon 3850',
-                'copyright': 'جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE'
+                'copyright': 'جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE',
+                'loadmore': 'تحميل المزيد'
             },
             'en': {
                 'menu.home': 'Home',
@@ -1552,7 +1613,8 @@
                 'specs.gpu128': 'Graphics: 128MB with DirectX 9.0c',
                 'specs.gpu256': 'Graphics: 256MB NVIDIA GeForce 8600 or ATI Radeon X1900',
                 'specs.gpunv': 'NVIDIA GeForce 8800 GTS or AMD Radeon 3850',
-                'copyright': 'All rights reserved &copy; 2025 SYR I VIBE Team'
+                'copyright': 'All rights reserved &copy; 2025 SYR I VIBE Team',
+                'loadmore': 'Load More'
             },
             'tr': {
                 'menu.home': 'Ana Sayfa',
@@ -1606,7 +1668,8 @@
                 'specs.gpu128': 'Grafik: 128MB DirectX 9.0c',
                 'specs.gpu256': 'Grafik: 256MB NVIDIA GeForce 8600 veya ATI Radeon X1900',
                 'specs.gpunv': 'NVIDIA GeForce 8800 GTS veya AMD Radeon 3850',
-                'copyright': 'Tüm hakları saklıdır &copy; 2025 SYR I VIBE Ekibi'
+                'copyright': 'Tüm hakları saklıdır &copy; 2025 SYR I VIBE Ekibi',
+                'loadmore': 'Daha Fazla Yükle'
             }
         };
 
@@ -1677,6 +1740,9 @@
             // تحميل اللغة المحفوظة
             const savedLang = localStorage.getItem('language') || 'ar';
             changeLanguage(savedLang);
+
+            // تهيئة نظام التحميل التدريجي
+            initLazyLoading();
         });
 
         // وظيفة تغيير اللغة
@@ -1812,6 +1878,7 @@
 
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase().trim();
+            let hasResults = false;
             
             cards.forEach(card => {
                 const searchData = card.getAttribute('data-search').toLowerCase();
@@ -1823,11 +1890,70 @@
                     title.includes(searchTerm) || 
                     description.includes(searchTerm)) {
                     card.classList.remove('hidden');
+                    hasResults = true;
                 } else {
                     card.classList.add('hidden');
                 }
             });
+            
+            // إظهار/إخفاء زر تحميل المزيد بناءً على نتائج البحث
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            if (searchTerm === '') {
+                loadMoreBtn.style.display = hasResults ? 'inline-flex' : 'none';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
         });
+
+        // تهيئة نظام التحميل التدريجي
+        function initLazyLoading() {
+            let currentBatch = 1;
+            const batchSize = 8; // عدد الكروت في كل دفعة
+            const allCards = Array.from(document.querySelectorAll('.card'));
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+
+            // أخفي جميع الكروت في البداية
+            allCards.forEach((card, index) => {
+                if (index >= batchSize) {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // إخفاء زر تحميل المزيد إذا كانت كل الكروت معروضة
+            if (allCards.length <= batchSize) {
+                loadMoreBtn.style.display = 'none';
+            }
+
+            // دالة تحميل المزيد من الكروت
+            function loadMoreCards() {
+                const btn = document.getElementById('loadMoreBtn');
+                btn.classList.add('loading');
+                
+                // محاكاة تأخير الشبكة
+                setTimeout(() => {
+                    const startIndex = currentBatch * batchSize;
+                    const endIndex = startIndex + batchSize;
+                    
+                    // عرض الدفعة التالية من الكروت
+                    for (let i = startIndex; i < endIndex && i < allCards.length; i++) {
+                        allCards[i].classList.remove('hidden');
+                        allCards[i].style.animation = 'fadeIn 0.5s ease';
+                    }
+                    
+                    currentBatch++;
+                    
+                    // إخفاء الزر إذا تم تحميل كل الكروت
+                    if (endIndex >= allCards.length) {
+                        btn.style.display = 'none';
+                    }
+                    
+                    btn.classList.remove('loading');
+                }, 800);
+            }
+
+            // إضافة مستمع الحدث للزر
+            loadMoreBtn.addEventListener('click', loadMoreCards);
+        }
     </script>
 </body>
 </html>
