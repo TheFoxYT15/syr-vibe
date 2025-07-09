@@ -383,6 +383,11 @@
             gap: 0.8rem;
             flex-wrap: wrap;
             position: relative;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card:hover .btn-container {
+            opacity: 1;
         }
         .card button {
             background: var(--btn-primary);
@@ -776,6 +781,12 @@
             left: 10px;
             bottom: 10px;
             z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover .specs-icon {
+            opacity: 1;
         }
 
         .mobile-icon {
