@@ -924,6 +924,232 @@
         .card.hidden {
             display: none !important;
         }
+
+        /* أنماط رسالة الجمعة الدينية */
+        .friday-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 2px solid #ffd700;
+            font-family: 'Arial', sans-serif;
+            animation: fadeInScale 0.5s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .friday-message::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://f.top4top.io/p_3481dq2af1.png') center/cover;
+            opacity: 0.1;
+            z-index: -1;
+            border-radius: 12px;
+        }
+
+        .friday-message h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffd700;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .friday-message h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            right: 25%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #ffd700, transparent);
+        }
+
+        .friday-message p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .friday-message .typing-text {
+            border-right: 2px solid white;
+            animation: blinkCursor 0.7s infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        .friday-message .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .friday-message .close-btn:hover {
+            background: rgba(255, 215, 0, 0.5);
+            transform: rotate(90deg);
+        }
+
+        .friday-message .next-btn {
+            background: linear-gradient(to right, #ffd700, #ffa500);
+            color: #1e3c72;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .friday-message .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .friday-message .islamic-decoration {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+        }
+
+        .friday-message .decoration-1 {
+            top: 10px;
+            left: 10px;
+            background: url('https://h.top4top.io/p_34812rkz21.png') center/contain no-repeat;
+            transform: rotate(45deg);
+        }
+
+        .friday-message .decoration-2 {
+            bottom: 10px;
+            right: 10px;
+            background: url('https://g.top4top.io/p_3481vbrpc1.png') center/contain no-repeat;
+            transform: rotate(-45deg);
+        }
+
+        /* تأثيرات النيون */
+        .neon-text {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ffd700, 0 0 20px #ffd700;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ffd700, 0 0 20px #ffd700;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffd700, 0 0 40px #ffd700;
+            }
+        }
+
+        /* التأثير الكتابي */
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 1px;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ffd700 }
+        }
+
+        /* التأثير المحو */
+        .erase-effect {
+            animation: typing 3s steps(40, end), 
+                       blink-caret 0.75s step-end infinite,
+                       erase 3s steps(40, end) 6s forwards;
+        }
+
+        @keyframes erase {
+            from { width: 100% }
+            to { width: 0 }
+        }
+
+        /* التأثير التدريجي */
+        .fade-effect {
+            animation: fadeInOut 10s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0 }
+            20%, 80% { opacity: 1 }
+        }
+
+        /* التأثير المتدحرج */
+        .roll-effect {
+            animation: rollIn 2s ease-out, rollOut 2s ease-in 7s forwards;
+        }
+
+        @keyframes rollIn {
+            0% { transform: translateX(-100%) rotate(-120deg); opacity: 0 }
+            100% { transform: translateX(0) rotate(0deg); opacity: 1 }
+        }
+
+        @keyframes rollOut {
+            0% { transform: translateX(0) rotate(0deg); opacity: 1 }
+            100% { transform: translateX(100%) rotate(120deg); opacity: 0 }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -1513,7 +1739,21 @@
         </div>
     </div>
 
+    <!-- رسالة الجمعة الدينية -->
+    <div class="friday-message" id="fridayMessage">
+        <div class="close-btn" id="closeFridayMessage"><i class="fas fa-times"></i></div>
+        <div class="islamic-decoration decoration-1"></div>
+        <div class="islamic-decoration decoration-2"></div>
+        <h2 class="neon-text translate" data-translate="friday.title">يوم الجمعة المبارك</h2>
+        <p id="fridayText" class="typing-text"></p>
+        <button class="next-btn" id="nextMessageBtn">
+            <span class="translate" data-translate="friday.next">التالي</span>
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
     <audio id="notification-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_52cc1fa3ab.mp3" preload="auto"></audio>
+    <audio id="adhan-sound" src="https://d.top4top.io/m_3481l9vns1.mp3" preload="auto"></audio>
 
     <script>
         // نظام الترجمة
@@ -1564,7 +1804,19 @@
                 'specs.gpu256': 'كرت الشاشة: 256MB NVIDIA GeForce 8600 أو ATI Radeon X1900',
                 'specs.gpunv': 'NVIDIA GeForce 8800 GTS أو AMD Radeon 3850',
                 'copyright': 'جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE',
-                'loadmore': 'تحميل المزيد'
+                'loadmore': 'تحميل المزيد',
+                'friday.title': 'يوم الجمعة المبارك',
+                'friday.next': 'التالي',
+                'friday.messages': [
+                    {text: 'إن الله وملائكته يصلون على النبي يا أيها الذين آمنوا صلوا عليه وسلموا تسليماً', duration: 8000},
+                    {text: 'أكثروا من الصلاة على النبي صلى الله عليه وسلم، فإن الصلاة عليه نور في القبر ونور على الصراط ونور في الجنة', duration: 10000},
+                    {text: 'من صلى علي صلاة واحدة صلى الله عليه بها عشراً', duration: 6000},
+                    {text: 'اللهم صل وسلم وبارك على سيدنا محمد وعلى آله وصحبه أجمعين', duration: 7000},
+                    {text: 'أحمد الله تعالى على نعمة الإسلام وكفى بها نعمة', duration: 5000},
+                    {text: 'اللهم اجعلنا من الذاكرين الشاكرين، واغفر لنا وارحمنا يا أرحم الراحمين', duration: 9000},
+                    {text: 'يوم الجمعة سيد الأيام، فيه خلق آدم، وفيه أدخل الجنة، وفيه أخرج منها', duration: 8000},
+                    {text: 'من قال: سبحان الله وبحمده، غرست له بها نخلة في الجنة', duration: 6000}
+                ]
             },
             'en': {
                 'search.placeholder': 'Search for apps or games...',
@@ -1612,7 +1864,19 @@
                 'specs.gpu256': 'Graphics: 256MB NVIDIA GeForce 8600 or ATI Radeon X1900',
                 'specs.gpunv': 'NVIDIA GeForce 8800 GTS or AMD Radeon 3850',
                 'copyright': 'All rights reserved &copy; 2025 SYR I VIBE Team',
-                'loadmore': 'Load More'
+                'loadmore': 'Load More',
+                'friday.title': 'Blessed Friday',
+                'friday.next': 'Next',
+                'friday.messages': [
+                    {text: 'Indeed, Allah confers blessing upon the Prophet, and His angels [ask Him to do so]. O you who have believed, ask [Allah to confer] blessing upon him and ask [Allah to grant him] peace.', duration: 8000},
+                    {text: 'Increase your prayers upon the Prophet (peace be upon him), for praying upon him is light in the grave, light on the Bridge, and light in Paradise.', duration: 10000},
+                    {text: 'Whoever sends one prayer upon me, Allah will send ten blessings upon him.', duration: 6000},
+                    {text: 'O Allah, send Your blessings, peace, and mercy upon our Master Muhammad and upon his family and all his companions.', duration: 7000},
+                    {text: 'Praise be to Allah for the blessing of Islam, and sufficient is that as a blessing.', duration: 5000},
+                    {text: 'O Allah, make us among those who remember You and thank You, and forgive us and have mercy upon us, O Most Merciful of those who show mercy.', duration: 9000},
+                    {text: 'Friday is the master of days, on it Adam was created, on it he was admitted to Paradise, and on it he was expelled from it.', duration: 8000},
+                    {text: 'Whoever says: "Glory be to Allah and praise be to Him," a palm tree is planted for him in Paradise.', duration: 6000}
+                ]
             },
             'tr': {
                 'search.placeholder': 'Uygulama veya oyun ara...',
@@ -1660,7 +1924,19 @@
                 'specs.gpu256': 'Grafik: 256MB NVIDIA GeForce 8600 veya ATI Radeon X1900',
                 'specs.gpunv': 'NVIDIA GeForce 8800 GTS veya AMD Radeon 3850',
                 'copyright': 'Tüm hakları saklıdır &copy; 2025 SYR I VIBE Ekibi',
-                'loadmore': 'Daha Fazla Yükle'
+                'loadmore': 'Daha Fazla Yükle',
+                'friday.title': 'Mübarek Cuma',
+                'friday.next': 'Sonraki',
+                'friday.messages': [
+                    {text: 'Şüphesiz Allah ve melekleri Peygambere salât ediyorlar. Ey iman edenler! Siz de ona salât edin, selâm edin.', duration: 8000},
+                    {text: 'Peygambere (sallallahu aleyhi ve sellem) çokça salavat getirin, çünkü ona salavat getirmek kabirde nur, Sırat köprüsünde nur ve cennette nurdur.', duration: 10000},
+                    {text: 'Kim bana bir salavat getirirse, Allah ona on rahmet verir.', duration: 6000},
+                    {text: 'Allah\'ım, Efendimiz Muhammed\'e, onun ailesine ve tüm ashabına salât, selam ve rahmet eyle.', duration: 7000},
+                    {text: 'İslam nimeti için Allah\'a hamd olsun, bu nimet yeterlidir.', duration: 5000},
+                    {text: 'Allah\'ım, bizi zikreden ve şükredenlerden eyle, bizi bağışla ve bize merhamet eyle, ey merhametlilerin en merhametlisi.', duration: 9000},
+                    {text: 'Cuma günü günlerin efendisidir, onda Âdem yaratıldı, ona cennete girdi ve ondan çıkarıldı.', duration: 8000},
+                    {text: 'Kim: "Sübhânallahi ve bi hamdihî" derse, onun için cennette bir hurma ağacı dikilir.', duration: 6000}
+                ]
             }
         };
 
@@ -1734,6 +2010,9 @@
 
             // تهيئة نظام التحميل التدريجي
             initLazyLoading();
+
+            // تهيئة رسالة الجمعة
+            initFridayMessage();
         });
 
         // وظيفة تغيير اللغة
@@ -1944,6 +2223,115 @@
 
             // إضافة مستمع الحدث للزر
             loadMoreBtn.addEventListener('click', loadMoreCards);
+        }
+
+        // نظام رسالة الجمعة الدينية
+        function initFridayMessage() {
+    const fridayMessage = document.getElementById('fridayMessage');
+    const closeBtn = document.getElementById('closeFridayMessage');
+    const nextBtn = document.getElementById('nextMessageBtn');
+    const fridayText = document.getElementById('fridayText');
+    
+    // التحقق من الوقت (الأحد 10:40 مساءً)
+    const now = new Date();
+    const isFriday = now.getDay() === 0; // 0 هو الأحد
+    const isTime = now.getHours() === 10 && now.getMinutes() >= 0;
+    
+    // التحقق مما إذا كان المستخدم قد أغلق الرسالة اليوم
+    const lastClosedDate = localStorage.getItem('fridayMessageLastClosed');
+    const lastClosed = lastClosedDate ? new Date(lastClosedDate) : null;
+    const isSameDay = lastClosed && 
+                     lastClosed.getDate() === now.getDate() && 
+                     lastClosed.getMonth() === now.getMonth() && 
+                     lastClosed.getFullYear() === now.getFullYear();
+    
+    if (isSunday && isTime && !isSameDay) {
+        setTimeout(() => {
+            showFridayMessage();
+        }, 3000); // تأخير 3 ثواني بعد تحميل الصفحة
+    }
+            
+            // إغلاق الرسالة
+            closeBtn.addEventListener('click', function() {
+                fridayMessage.style.display = 'none';
+                // حفظ تاريخ الإغلاق
+                localStorage.setItem('fridayMessageLastClosed', new Date().toISOString());
+            });
+            
+            // الزر التالي
+            nextBtn.addEventListener('click', function() {
+                showNextMessage();
+            });
+            
+            // عرض رسالة الجمعة
+            function showFridayMessage() {
+                fridayMessage.style.display = 'flex';
+                // تشغيل صوت الأذان (اختياري)
+                const adhanSound = document.getElementById('adhan-sound');
+                adhanSound.play().catch(e => console.log('Auto-play prevented:', e));
+                
+                // عرض أول رسالة
+                currentMessageIndex = 0;
+                showMessage(currentMessageIndex);
+            }
+            
+            let currentMessageIndex = 0;
+            let messageTimeout;
+            
+            // عرض رسالة معينة
+            function showMessage(index) {
+                const lang = localStorage.getItem('language') || 'ar';
+                const messages = translations[lang]['friday.messages'];
+                
+                if (index >= messages.length) {
+                    currentMessageIndex = 0; // العودة للرسالة الأولى
+                }
+                
+                const message = messages[currentMessageIndex];
+                
+                // تأثير الكتابة
+                typeWriter(fridayText, message.text, () => {
+                    // بعد انتهاء الكتابة، ضع مؤقتًا للانتقال التلقائي للرسالة التالية
+                    messageTimeout = setTimeout(() => {
+                        showNextMessage();
+                    }, message.duration);
+                });
+            }
+            
+            // عرض الرسالة التالية
+            function showNextMessage() {
+                clearTimeout(messageTimeout); // إلغاء المؤقت السابق
+                
+                const lang = localStorage.getItem('language') || 'ar';
+                const messages = translations[lang]['friday.messages'];
+                
+                currentMessageIndex++;
+                if (currentMessageIndex >= messages.length) {
+                    currentMessageIndex = 0; // العودة للرسالة الأولى
+                }
+                
+                showMessage(currentMessageIndex);
+            }
+            
+            // تأثير الكتابة على النص
+            function typeWriter(element, text, onComplete) {
+                let i = 0;
+                element.textContent = '';
+                element.classList.add('typing-text');
+                
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(type, 50); // سرعة الكتابة
+                    } else {
+                        element.classList.remove('typing-text');
+                        if (onComplete) onComplete();
+                    }
+                }
+                
+                type();
+            }
         }
     </script>
 </body>
