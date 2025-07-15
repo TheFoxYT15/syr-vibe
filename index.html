@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -154,6 +155,225 @@
                 display: none;
             }
         }
+        
+        /* أنماط الألعاب الأكثر تحميلاً */
+.most-downloaded {
+    padding: 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.2rem;
+    color: #fff;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin: 2rem auto;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--btn-primary), transparent);
+    border-radius: 10px;
+}
+
+/* لجعل الخط والنص متجاوب على الشاشات الصغيرة */
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 1.5rem;
+        padding: 0 5px 0.5rem;
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .section-title::after {
+        width: 90%;
+    }
+}
+
+.featured-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.featured-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+    animation: pulseBorder 3s infinite;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+@keyframes pulseBorder {
+    0% { border-color: transparent; }
+    50% { border-color: var(--btn-primary); }
+    100% { border-color: transparent; }
+}
+
+.featured-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.featured-card .card-img-container {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-card .card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.featured-card:hover .card-img-container img {
+    transform: scale(1.1);
+}
+
+.download-count {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+}
+
+.featured-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.featured-content h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 1.5rem;
+    color: var(--price-color);
+}
+
+.rating i {
+    font-size: 1.1rem;
+}
+
+.rating span {
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.featured-btn {
+    background: linear-gradient(45deg, var(--btn-primary), var(--btn-primary-hover));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.featured-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    background: linear-gradient(45deg, var(--btn-primary-hover), var(--btn-primary));
+}
+
+/* تأثيرات خاصة للكرت الأول */
+.featured-cards .featured-card:first-child {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.featured-cards .featured-card:first-child .featured-badge {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+}
+
+/* نيون أحمر للكرت الثاني (Outlast 2) */
+.featured-cards .featured-card:nth-child(2) {
+    box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+    border: 2px solid #ff0000; /* تأكيد اللون على الإطار */
+}
+
+/* تأثيرات للكرت الثالث */
+.featured-cards .featured-card:nth-child(3) .featured-badge {
+    background: linear-gradient(45deg, #00B4DB, #0083B0);
+}
+
+@media (max-width: 768px) {
+    .featured-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
 
         header {
             background: var(--header-bg); 
@@ -1277,6 +1497,102 @@
         <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput" data-translate="search.placeholder">
         <i class="fas fa-search search-icon"></i>
     </div>
+    
+    <!-- أضف هذا الجزء بعد عنصر البحث وقبل قسم المنتجات -->
+<section class="most-downloaded">
+    <h2 class="section-title translate" data-translate="mostdownloaded.title">الألعاب الأكثر تحميلاً</h2>
+    <div class="featured-cards">
+        <!-- الكرت الأول -->
+        <div class="featured-card" data-downloads="12500">
+            <div class="featured-badge">
+                <i class="fas fa-crown"></i>
+                <span class="translate" data-translate="mostdownloaded.top">الأعلى تحميلاً</span>
+            </div>
+            <div class="card-img-container">
+                <div class="game-size">Size_801MB</div>
+                <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="GTA SA">
+                <div class="download-count">
+                    <i class="fas fa-download"></i>
+                    <span class="count">12,500+</span>
+                </div>
+            </div>
+            <div class="featured-content">
+                <h3>GTA SAN ANDREAS</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>4.7</span>
+                </div>
+                <button class="featured-btn" onclick="window.location.href='https://www.mediafire.com/file/ck49btn79egpx22/GTA.San.Andreas%255Bfoxy15studio%255D.rar/file'">
+                    <span class="translate" data-translate="card.get">احصل عليه مجانًا</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- الكرت الثاني -->
+        <div class="featured-card" data-downloads="9800">
+            <div class="featured-badge">
+                <i class="fas fa-fire"></i>
+                <span class="translate" data-translate="mostdownloaded.trending">رائج</span>
+            </div>
+            <div class="card-img-container">
+                <div class="game-size">Size_12.83GB</div>
+                <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2">
+                <div class="download-count">
+                    <i class="fas fa-download"></i>
+                    <span class="count">9,800+</span>
+                </div>
+            </div>
+            <div class="featured-content">
+                <h3>Outlast 2</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>4.2</span>
+                </div>
+                <button class="featured-btn" onclick="window.location.href='https://thefoxyt15.github.io/outlast2/'">
+                    <span class="translate" data-translate="card.get">احصل عليه مجانًا</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- الكرت الثالث -->
+        <div class="featured-card" data-downloads="8700">
+            <div class="featured-badge">
+                <i class="fas fa-bolt"></i>
+                <span class="translate" data-translate="mostdownloaded.popular">شائع</span>
+            </div>
+            <div class="card-img-container">
+                <div class="game-size">Size_5.18GB</div>
+                <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="Blur">
+                <div class="download-count">
+                    <i class="fas fa-download"></i>
+                    <span class="count">8,700+</span>
+                </div>
+            </div>
+            <div class="featured-content">
+                <h3>Blur</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>5.0</span>
+                </div>
+                <button class="featured-btn" onclick="window.location.href='https://www.mediafire.com/file/xh1sb7eip3buqoi/Blur_Setup.zip/file'">
+                    <span class="translate" data-translate="card.get">احصل عليه مجانًا</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 
     <main>
         <!-- إعلان Social Bar -->
@@ -1803,6 +2119,10 @@
         const translations = {
             'ar': {
                 'search.placeholder': 'ابحث عن التطبيقات أو الألعاب...',
+                'mostdownloaded.title': 'الألعاب الأكثر تحميلاً',
+                'mostdownloaded.top': 'الأعلى تحميلاً',
+                'mostdownloaded.trending': 'رائج',
+                'mostdownloaded.popular': 'شائع',
                 'card.free': 'مجاناً',
                 'card.get': 'احصل عليه مجانًا',
                 'card.driver': 'برنامج تحديث التعريفات | حماية من الأعطال | تسريع النظام',
@@ -1863,6 +2183,10 @@
             },
             'en': {
                 'search.placeholder': 'Search for apps or games...',
+                'mostdownloaded.title': 'Most Downloaded Games',
+                'mostdownloaded.top': 'Top Download',
+                'mostdownloaded.trending': 'Trending',
+                'mostdownloaded.popular': 'Popular',
                 'card.free': 'Free',
                 'card.get': 'Get it for free',
                 'card.driver': 'Driver updater | Protection from malfunctions | System acceleration',
@@ -1923,7 +2247,11 @@
             },
             'tr': {
                 'search.placeholder': 'Uygulama veya oyun ara...',
+                'mostdownloaded.title': 'En Çok İndirilen Oyunlar',
+                'mostdownloaded.top': 'En Çok İndirilen',
+                'mostdownloaded.trending': 'Popüler',
                 'card.free': 'Ücretsiz',
+                'mostdownloaded.popular': 'Trend',
                 'card.get': 'Ücretsiz Edinin',
                 'card.driver': 'Sürücü güncelleyici | Arızalardan koruma | Sistem hızlandırma',
                 'card.mta': 'MTA oyunu için çoklu özelliklerle güçlü hile betiği',
