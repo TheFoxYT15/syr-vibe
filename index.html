@@ -72,7 +72,7 @@
             --hamburger-btn-hover: linear-gradient(45deg, #6e45c1, #9e65ed);
         }
         
-        /* ثيم نيون */
+        /* ثيم نيون (الأصلي) */
         .theme-neon {
             --primary-bg: linear-gradient(to bottom right, #0a0a1a, #050510);
             --overlay-color: rgba(0, 0, 0, 0.7);
@@ -86,6 +86,22 @@
             --btn-secondary: #ff00ff;
             --hamburger-btn-bg: linear-gradient(45deg, #00f0ff, #ff00ff);
             --hamburger-btn-hover: linear-gradient(45deg, #00d0e0, #e000e0);
+        }
+
+        /* ثيم نيون جديد (Cyberpunk) */
+        .theme-cyberpunk {
+            --primary-bg: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --overlay-color: rgba(0, 0, 0, 0.6);
+            --header-bg: rgba(32, 18, 85, 0.95);
+            --card-bg: rgba(20, 15, 45, 0.9);
+            --text-color: #ffffff;
+            --search-bg: rgba(40, 30, 70, 0.9);
+            --price-color: #ff0080;
+            --btn-primary: linear-gradient(45deg, #ff0080, #ff8c00);
+            --btn-primary-hover: linear-gradient(45deg, #e60073, #ff7b00);
+            --btn-secondary: linear-gradient(45deg, #00ffcc, #00ccff);
+            --hamburger-btn-bg: linear-gradient(45deg, #ff0080, #ff8c00);
+            --hamburger-btn-hover: linear-gradient(45deg, #e60073, #ff7b00);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
@@ -108,9 +124,9 @@
             transition: all 0.3s ease;
         }
 
-        /* أنماط الألعاب الأكثر تحميلاً */
+        /* أنماط الألعاب الأكثر تحميلاً - مخففة */
         .most-downloaded {
-            padding: 2rem;
+            padding: 1.5rem;
             max-width: 1800px;
             margin: 0 auto;
             position: relative;
@@ -118,69 +134,39 @@
         }
 
         .section-title {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #fff;
-            position: relative;
+            margin: 1.5rem auto;
             padding-bottom: 0.5rem;
-            margin: 2rem auto;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--btn-primary), transparent);
-            border-radius: 10px;
+            border-bottom: 2px solid var(--btn-primary);
         }
 
         @media (max-width: 600px) {
             .section-title {
                 font-size: 1.5rem;
-                padding: 0 5px 0.5rem;
-                white-space: normal;
-                word-break: break-word;
-            }
-
-            .section-title::after {
-                width: 90%;
             }
         }
 
         .featured-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .featured-card {
             background: var(--card-bg);
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
             position: relative;
-            border: 2px solid transparent;
-            animation: pulseBorder 3s infinite;
         }
 
         .featured-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-        }
-
-        @keyframes pulseBorder {
-            0% { border-color: transparent; }
-            50% { border-color: var(--btn-primary); }
-            100% { border-color: transparent; }
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         .featured-badge {
@@ -191,17 +177,14 @@
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 5px;
             z-index: 2;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .featured-card .card-img-container {
-            height: 200px;
+            height: 180px;
             position: relative;
             overflow: hidden;
         }
@@ -214,7 +197,7 @@
         }
 
         .featured-card:hover .card-img-container img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .download-count {
@@ -225,21 +208,18 @@
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            font-size: 0.8rem;
             z-index: 2;
         }
 
         .featured-content {
-            padding: 1.5rem;
+            padding: 1.2rem;
             text-align: center;
         }
 
         .featured-content h3 {
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
             color: var(--text-color);
         }
 
@@ -247,13 +227,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 5px;
-            margin-bottom: 1.5rem;
+            gap: 3px;
+            margin-bottom: 1rem;
             color: var(--price-color);
         }
 
         .rating i {
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .rating span {
@@ -265,52 +245,32 @@
             background: linear-gradient(45deg, var(--btn-primary), var(--btn-primary-hover));
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .featured-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
             background: linear-gradient(45deg, var(--btn-primary-hover), var(--btn-primary));
         }
 
-        /* تأثيرات خاصة للكرت الأول */
-        .featured-cards .featured-card:first-child {
-            animation: glow 2s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            }
-            to {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
-            }
-        }
-
+        /* تأثيرات مخففة للكرت الأول */
         .featured-cards .featured-card:first-child .featured-badge {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000;
         }
 
-        /* نيون أحمر للكرت الثاني (Outlast 2) */
+        /* تأثيرات مخففة للكرت الثاني */
         .featured-cards .featured-card:nth-child(2) {
-            box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
-            border: 2px solid #ff0000;
+            border: 1px solid #ff0000;
         }
 
-        /* تأثيرات للكرت الثالث */
+        /* تأثيرات مخففة للكرت الثالث */
         .featured-cards .featured-card:nth-child(3) .featured-badge {
             background: linear-gradient(45deg, #00B4DB, #0083B0);
         }
@@ -619,7 +579,7 @@
             opacity: 0.9;
         }
 
-        /* حجم اللعبة */
+        /* حجم اللعبة - تم التعديل هنا */
         .game-size {
             position: absolute;
             top: 10px;
@@ -630,6 +590,23 @@
             border-radius: 4px;
             font-size: 0.8rem;
             z-index: 2;
+        }
+
+        /* أيقونة نظام التشغيل - تم التعديل هنا */
+        .system-icon {
+            position: absolute;
+            left: 10px;
+            top: 35px; /* تم التغيير من top: 10px إلى top: 35px */
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            backdrop-filter: blur(5px);
         }
 
         /* مواصفات اللعبة عند hover */
@@ -774,25 +751,158 @@
             position: absolute;
             top: 60px;
             right: 0;
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.95);
             border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            width: 200px;
+            z-index: 1001;
         }
-        
+
         .theme-option {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             cursor: pointer;
             border: 2px solid white;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         
         .theme-option:hover {
             transform: scale(1.1);
+        }
+
+        /* أنماط رفع الصورة المخصصة */
+        .custom-bg-options {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+
+        .custom-bg-option {
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid #4CAF50;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4CAF50;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .custom-bg-option:hover {
+            background: rgba(76, 175, 80, 0.2);
+            transform: scale(1.02);
+        }
+
+        .custom-bg-option.upload {
+            border-color: #2196F3;
+            color: #2196F3;
+            background: rgba(33, 150, 243, 0.1);
+        }
+
+        .custom-bg-option.upload:hover {
+            background: rgba(33, 150, 243, 0.2);
+        }
+
+        /* نافذة رفع الصورة المخصصة */
+        .custom-bg-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-bg-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .custom-bg-content h3 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .bg-upload-area {
+            border: 2px dashed #4CAF50;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .bg-upload-area:hover {
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .bg-upload-area i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .bg-url-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #2196F3;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .bg-url-input::placeholder {
+            color: #888;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .modal-btn.apply {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .modal-btn.cancel {
+            background: #f44336;
+            color: white;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* قائمة الهامبرغر */
@@ -824,10 +934,10 @@
             position: fixed;
             top: 80px;
             left: 20px;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             border-radius: 12px;
             padding: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
             width: 250px;
             max-height: 400px;
             overflow-y: auto;
@@ -902,6 +1012,32 @@
             margin-top: 20px;
             font-size: 0.9rem;
             direction: ltr;
+            position: relative;
+        }
+
+        /* زر العودة إلى الأعلى */
+        .back-to-top {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #ffd700;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: translateY(-50%) scale(1.1);
         }
         
         /* أنماط زر تحميل المزيد */
@@ -999,6 +1135,31 @@
             position: relative;
             display: inline-block;
         }
+
+        /* إشعارات */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .notification.error {
+            background: #f44336;
+        }
         
         /* التكيف مع الشاشات الصغيرة */
         @media (max-width: 1200px) {
@@ -1058,6 +1219,7 @@
             
             .theme-options {
                 top: 50px;
+                width: 180px;
             }
 
             .hamburger-btn {
@@ -1070,6 +1232,13 @@
                 top: 70px;
                 left: 10px;
                 width: 200px;
+            }
+
+            .back-to-top {
+                position: static;
+                transform: none;
+                margin: 10px auto;
+                display: inline-flex;
             }
         }
     </style>
@@ -1088,9 +1257,52 @@
             <div class="theme-option" style="background: linear-gradient(to bottom right, #3a5f0b, #6b8e23);" data-theme="nature" title="Nature"></div>
             <div class="theme-option" style="background: linear-gradient(to bottom right, #5e35b1, #9575cd);" data-theme="purple" title="Purple"></div>
             <div class="theme-option" style="background: linear-gradient(45deg, #00f0ff, #ff00ff);" data-theme="neon" title="Neon"></div>
+            <div class="theme-option" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);" data-theme="cyberpunk" title="Cyberpunk"></div>
             <div class="theme-option" style="background: url('https://k.top4top.io/p_3405vm4cc1.jpg') center/cover;" data-theme="default" title="Default"></div>
+            
+            <!-- خيارات رفع صورة مخصصة -->
+            <div class="custom-bg-options">
+                <div class="custom-bg-option upload" id="uploadImageBtn">
+                    <i class="fas fa-upload"></i>
+                    <span style="margin-right: 8px;">رفع صورة</span>
+                </div>
+                <div class="custom-bg-option" id="enterImageUrlBtn">
+                    <i class="fas fa-link"></i>
+                    <span style="margin-right: 8px;">رابط صورة</span>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- نافذة رفع الصورة المخصصة -->
+    <div class="custom-bg-modal" id="customBgModal">
+        <div class="custom-bg-content">
+            <h3>تخصيص خلفية الموقع</h3>
+            
+            <div class="bg-upload-area" id="bgUploadArea">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>اسحب وأفلت صورة هنا أو انقر للاختيار</p>
+                <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">
+                    يدعم: JPG, PNG, GIF, WebP, SVG
+                </p>
+                <input type="file" id="bgImageUpload" accept="image/*" style="display: none;">
+            </div>
+            
+            <div style="text-align: center; margin: 15px 0; font-weight: bold; color: #333;">
+                أو
+            </div>
+            
+            <input type="text" id="bgImageUrl" class="bg-url-input" placeholder="أدخل رابط الصورة...">
+            
+            <div class="modal-buttons">
+                <button class="modal-btn cancel" id="cancelBgBtn">إلغاء</button>
+                <button class="modal-btn apply" id="applyBgBtn">تطبيق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- إشعارات -->
+    <div class="notification" id="notification"></div>
 
     <header>
         <div class="social-container">
@@ -1098,11 +1310,12 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="hamburger-content" id="hamburgerContent">
-                <a href="https://example.com/games" oneclick="_blank"><i class="fas fa-desktop"></i>الألعاب</a>
-                <a href="https://example.com/tools" oneclick="_blank"><i class="fas fa-tools"></i> الأدوات</a>
-                <a href="https://example.com/apps" oneclick="_blank"><i class="fas fa-mobile-alt"></i>العاب_تطبيقات_الأدوات</a>
-                <a href="https://thefoxyt15.github.io/about/" oneclick="_blank"><i class="fas fa-info-circle"></i> حول الموقع</a>
-                <a href="https://thefoxyt15.github.io/support/" oneclick="_blank"><i class="fas fa-envelope"></i> اتصل بنا</a>
+                <a href="https://example.com/games" target="_blank"><i class="fas fa-desktop"></i>الألعاب</a>
+                <a href="https://thefoxyt15.github.io/syr-vibe-mini_games/" target="_blank"><i class="fas fa-gamepad"></i>Mini Games</a>
+                <a href="https://example.com/tools" target="_blank"><i class="fas fa-tools"></i> الأدوات</a>
+                <a href="https://example.com/apps" target="_blank"><i class="fas fa-mobile-alt"></i>العاب_تطبيقات_الأدوات</a>
+                <a href="https://thefoxyt15.github.io/syr-vibe-about/" target="_blank"><i class="fas fa-info-circle"></i> حول الموقع</a>
+                <a href="https://thefoxyt15.github.io/syr-vibe-support/" target="_blank"><i class="fas fa-headset"></i> اتصل بنا</a>
             </div>
         </div>
         <h1>
@@ -1137,6 +1350,11 @@
                 </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_801MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل - تم التعديل هنا أيضا -->
+                    <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
+                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="GTA SA">
                     <div class="download-count">
                         <i class="fas fa-download"></i>
@@ -1167,6 +1385,10 @@
                 </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_12.83GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل - تم التعديل هنا أيضا -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2">
                     <div class="download-count">
                         <i class="fas fa-download"></i>
@@ -1197,6 +1419,10 @@
                 </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_5.18GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل - تم التعديل هنا أيضا -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="Blur">
                     <div class="download-count">
                         <i class="fas fa-download"></i>
@@ -1227,6 +1453,10 @@
             <div class="card" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام driver updater protection from malfunctions system acceleration sürücü güncelleyici arızalardan koruma sistem hızlandırma">
                 <div class="card-img-container">
                     <div class="game-size">Size_24MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://a.top4top.io/p_3405i5y8w1.jpg" alt="Driver Booster 1">
@@ -1264,6 +1494,10 @@
             <div class="card" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة mta cheat script strong cheat for mta game with multiple features mta hile betik güçlü hile mta oyunu için çoklu özellikler">
                 <div class="card-img-container">
                     <div class="game-size">Size_5.09MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://f.top4top.io/p_340636fzo1.jpg" alt="MTA Cheat 1">
@@ -1300,6 +1534,11 @@
             <div class="card" data-search="lightshot لقطة شاشة screenshot ekran görüntüsü">
                 <div class="card-img-container">
                     <div class="game-size">Size_2.31MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
+                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://c.top4top.io/p_3413ye91n1.jpg" alt="Lightshot 1">
@@ -1336,6 +1575,10 @@
             <div class="card" data-search="Mcenter ماين كرافت minecraft">
                 <div class="card-img-container">
                     <div class="game-size">Size_173.78KB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://i.top4top.io/p_3408km6461.jpg" alt="Mcenter 1">
@@ -1373,6 +1616,10 @@
             <div class="card" data-search="Outlast 2 رعب horror korku">
                 <div class="card-img-container">
                     <div class="game-size">Size_12.83GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="Outlast 2 1">
@@ -1410,6 +1657,10 @@
             <div class="card" data-search="Outlast رعب horror korku">
                 <div class="card-img-container">
                     <div class="game-size">Size_4.97GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://a.top4top.io/p_3408ia7y61.jpg" alt="Outlast 1">
@@ -1447,6 +1698,10 @@
             <div class="card" data-search="araya رعب horror korku">
                 <div class="card-img-container">
                     <div class="game-size">Size_3.35GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="Araya 1">
@@ -1484,6 +1739,11 @@
             <div class="card" data-search="GTA SA|جي تي اي سان اندريس|grand theft auto san andreas|gta san andreas">
                 <div class="card-img-container">
                     <div class="game-size">Size_801MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
+                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://f.top4top.io/p_3408ri85z1.jpg" alt="GTA SA 1">
@@ -1525,6 +1785,11 @@
             <div class="card" data-search="Discord ديسكورد discord">
                 <div class="card-img-container">
                     <div class="game-size">Size_126.84MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
+                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://i.top4top.io/p_3443u5hl20.png" alt="Discord Unlocker 1">
@@ -1561,6 +1826,10 @@
             <div class="card" data-search="MKGold|mortal kombat gold|ölümcül dövüş altın">
                 <div class="card-img-container">
                     <div class="game-size">Size_450MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="MK Gold 1">
@@ -1598,6 +1867,10 @@
             <div class="card" data-search="Blur|سباق|race|yarış">
                 <div class="card-img-container">
                     <div class="game-size">Size_5.18GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://j.top4top.io/p_3444tgh0k1.jpg" alt="Blur 1">
@@ -1635,6 +1908,10 @@
             <div class="card" data-search="MK9|mortal kombat komplete|ölümcül dövüş tam">
                 <div class="card-img-container">
                     <div class="game-size">Size_8.66GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://c.top4top.io/p_3444lxk6b1.jpg" alt="MK9 1">
@@ -1670,39 +1947,41 @@
             </div>
 
             <!-- الصف الرابع - الكروت الأربعة الجديدة -->
-            <div class="card" data-search="Need for Speed|NFS|سباق سيارات|race cars">
+            <div class="card" data-search="Meev Spoofer">
                 <div class="card-img-container">
-                    <div class="game-size">Size_3.5GB</div>
+                    <div class="game-size">Size_520.16MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
-                            <img src="https://a.top4top.io/p_3408ri85z1.jpg" alt="NFS 1">
+                            <img src="https://g.top4top.io/p_36405wck01.jpeg" alt="spoofer 1">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://j.top4top.io/p_3408k7aj31.jpg" alt="NFS 2">
+                            <img src="https://g.top4top.io/p_3640gfw0n1.png" alt="spoofer 2">
                         </div>
                         <div class="carousel-slide">
-                            <img src="https://c.top4top.io/p_3408pcz1y1.jpg" alt="NFS 3">
+                            <img src="https://h.top4top.io/p_3640uidau2.png" alt="spoofer 3">
                         </div>
                     </div>
                     <div class="game-specs">
                         <h4>مواصفات التشغيل</h4>
                         <ul>
-                            <li>نظام التشغيل: Windows 7/8/10</li>
-                            <li>المعالج: Intel Core 2 Duo 2.4GHz</li>
+                            <li>نظام التشغيل: Windows 10</li>
                             <li>الذاكرة: 2GB RAM</li>
-                            <li>كرت الشاشة: NVIDIA GeForce 8800 GT</li>
-                            <li>مساحة التخزين: 5GB متوفرة</li>
+                            <li>مساحة التخزين: 5MB متوفرة</li>
                         </ul>
                     </div>
                     <div class="close-specs" onclick="hideSpecs(this)"></div>
                     <div class="nav-arrow left" onclick="changeSlide(this, -1)"><i class="fas fa-chevron-right"></i></div>
                     <div class="nav-arrow right" onclick="changeSlide(this, 1)"><i class="fas fa-chevron-left"></i></div>
                 </div>
-                <h3>Need for Speed Most Wanted</h3>
-                <p>سباق سيارات | مطاردة | أكشن</p>
+                <h3>Meev Spoofer</h3>
+                <p>قم بتغيير سريالك بأمان Mta</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.open('https://example.com/nfs-download', '_blank')">GET FREE</button>
+                    <button class="free-btn" onclick="window.open('https://mega.nz/file/xbMGnYQa#EyRfnEz_p2nJuqfEQWgtmgDigihJoogkJWfL9BRXjt0', '_blank')">GET FREE</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
@@ -1710,6 +1989,11 @@
             <div class="card" data-search="Minecraft|ماين كرافت|بناء|survival">
                 <div class="card-img-container">
                     <div class="game-size">Size_150MB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
+                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://i.top4top.io/p_3408km6461.jpg" alt="Minecraft 1">
@@ -1747,6 +2031,10 @@
             <div class="card" data-search="Call of Duty|COD|رماية|أكشن">
                 <div class="card-img-container">
                     <div class="game-size">Size_6.5GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://b.top4top.io/p_3444mpcmq1.png" alt="COD 1">
@@ -1784,6 +2072,10 @@
             <div class="card" data-search="FIFA|كرة قدم|football|sports">
                 <div class="card-img-container">
                     <div class="game-size">Size_8.2GB</div>
+                    <!-- إضافة أيقونة نظام التشغيل -->
+                    <div class="system-icon" title="متوفر للكمبيوتر فقط">
+                        <i class="fas fa-desktop"></i>
+                    </div>
                     <div class="carousel">
                         <div class="carousel-slide active">
                             <img src="https://c.top4top.io/p_3444lxk6b1.jpg" alt="FIFA 1">
@@ -1829,7 +2121,10 @@
     </main>
 
     <footer class="copyright">
-        <div class="copyright">
+        <div class="back-to-top" id="backToTopBtn" title="العودة إلى الأعلى">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="copyright-content">
             <img src="https://c.top4top.io/p_34821v3zm1.png" alt="Logo" style="width: 100px; height: 100px; vertical-align: middle; margin-left: 6px;">
             جميع الحقوق محفوظة &copy; 2025 لفريق عمل SYR I VIBE
         </div>
@@ -1866,12 +2161,30 @@
                     const theme = this.getAttribute('data-theme');
                     body.className = 'theme-' + theme;
                     localStorage.setItem('selectedTheme', theme);
+                    
+                    // إظهار رسالة إشعار للثيم الجديد
+                    const notification = document.getElementById('notification');
+                    notification.textContent = `تم تطبيق ثيم ${this.getAttribute('title')}`;
+                    notification.className = 'notification';
+                    notification.classList.add('show');
+                    
+                    setTimeout(() => {
+                        notification.classList.remove('show');
+                    }, 2000);
                 });
             });
             
+            // تحميل الصورة المخصصة المحفوظة
+            const customBg = localStorage.getItem('customBackground');
+            if (customBg && savedTheme === 'default') {
+                document.documentElement.style.setProperty('--primary-bg', `url('${customBg}')`);
+            }
+            
             // إغلاق خيارات الثيمات عند النقر خارجها
-            document.addEventListener('click', function() {
-                themeOptions.style.display = 'none';
+            document.addEventListener('click', function(e) {
+                if (!themeOptions.contains(e.target) && e.target !== themeTrigger) {
+                    themeOptions.style.display = 'none';
+                }
             });
 
             // قائمة الهامبرغر
@@ -1890,8 +2203,164 @@
                 }
             });
 
+            // زر العودة إلى الأعلى
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // إظهار/إخفاء زر العودة إلى الأعلى عند التمرير
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+            });
+
             // تهيئة نظام التحميل التدريجي
             initLazyLoading();
+        });
+
+        // نظام رفع الصور المخصصة
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadImageBtn = document.getElementById('uploadImageBtn');
+            const enterImageUrlBtn = document.getElementById('enterImageUrlBtn');
+            const customBgModal = document.getElementById('customBgModal');
+            const cancelBgBtn = document.getElementById('cancelBgBtn');
+            const applyBgBtn = document.getElementById('applyBgBtn');
+            const bgUploadArea = document.getElementById('bgUploadArea');
+            const bgImageUpload = document.getElementById('bgImageUpload');
+            const bgImageUrl = document.getElementById('bgImageUrl');
+            const notification = document.getElementById('notification');
+
+            // فتح نافذة رفع الصورة
+            uploadImageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                customBgModal.style.display = 'flex';
+                themeOptions.style.display = 'none';
+            });
+
+            // فتح نافذة إدخال رابط الصورة
+            enterImageUrlBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                customBgModal.style.display = 'flex';
+                themeOptions.style.display = 'none';
+                bgImageUrl.focus();
+            });
+
+            // إغلاق نافذة رفع الصورة
+            cancelBgBtn.addEventListener('click', function() {
+                customBgModal.style.display = 'none';
+                bgImageUrl.value = '';
+            });
+
+            // تطبيق الصورة المخصصة
+            applyBgBtn.addEventListener('click', function() {
+                const url = bgImageUrl.value.trim();
+                
+                if (url) {
+                    // التحقق من أن الرابط هو رابط صورة
+                    if (isValidImageUrl(url)) {
+                        applyCustomBackground(url);
+                        customBgModal.style.display = 'none';
+                        bgImageUrl.value = '';
+                        showNotification('تم تطبيق الخلفية المخصصة بنجاح!');
+                    } else {
+                        showNotification('الرجاء إدخال رابط صورة صالح (JPG, PNG, GIF, WebP, SVG)', true);
+                    }
+                } else if (bgImageUpload.files.length > 0) {
+                    // إذا تم رفع صورة من الجهاز
+                    const file = bgImageUpload.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            applyCustomBackground(e.target.result);
+                            customBgModal.style.display = 'none';
+                            showNotification('تم تطبيق الخلفية المخصصة بنجاح!');
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        showNotification('الرجاء اختيار ملف صورة صالح (JPG, PNG, GIF, WebP, SVG)', true);
+                    }
+                } else {
+                    showNotification('الرجاء إدخال رابط صورة أو اختيار ملف', true);
+                }
+            });
+
+            // سحب وإفلات الصور
+            bgUploadArea.addEventListener('click', function() {
+                bgImageUpload.click();
+            });
+
+            bgUploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.background = 'rgba(76, 175, 80, 0.2)';
+            });
+
+            bgUploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.style.background = '';
+            });
+
+            bgUploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.background = '';
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const file = files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        bgImageUpload.files = files;
+                        showNotification(`تم اختيار الصورة: ${file.name}`);
+                    } else {
+                        showNotification('الرجاء سحب ملف صورة فقط', true);
+                    }
+                }
+            });
+
+            // التحقق من صحة رابط الصورة
+            function isValidImageUrl(url) {
+                try {
+                    const parsedUrl = new URL(url);
+                    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
+                    const path = parsedUrl.pathname.toLowerCase();
+                    return imageExtensions.some(ext => path.endsWith(ext)) || 
+                           parsedUrl.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i);
+                } catch {
+                    return false;
+                }
+            }
+
+            // تطبيق الخلفية المخصصة
+            function applyCustomBackground(imageSource) {
+                // حفظ الصورة في localStorage
+                localStorage.setItem('customBackground', imageSource);
+                localStorage.setItem('selectedTheme', 'default');
+                
+                // تطبيق الصورة
+                document.documentElement.style.setProperty('--primary-bg', `url('${imageSource}')`);
+                document.body.className = 'theme-default';
+            }
+
+            // إظهار الإشعارات
+            function showNotification(message, isError = false) {
+                notification.textContent = message;
+                notification.className = 'notification';
+                if (isError) {
+                    notification.classList.add('error');
+                }
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
         });
 
         // إظهار المواصفات عند hover على الأيقونة
@@ -2068,4 +2537,4 @@
         }
     </script>
 </body>
-                            </html>
+</html>
