@@ -21,7 +21,6 @@
             --hamburger-btn-hover: linear-gradient(45deg, #ffa000, #ff6d00);
         }
 
-        /* ثيم Trello (أزرق) */
         .theme-trello {
             --primary-bg: linear-gradient(to bottom right, #0079bf, #5ba4cf);
             --overlay-color: rgba(0, 0, 0, 0.1);
@@ -33,7 +32,6 @@
             --hamburger-btn-hover: linear-gradient(45deg, #004a80, #2d7bb8);
         }
 
-        /* ثيم داكن */
         .theme-dark {
             --primary-bg: linear-gradient(to bottom right, #1d2125, #2b3137);
             --overlay-color: rgba(0, 0, 0, 0.5);
@@ -46,7 +44,6 @@
             --hamburger-btn-hover: linear-gradient(45deg, #5e35b1, #8e44ad);
         }
 
-        /* ثيم أخضر (طبيعي) */
         .theme-nature {
             --primary-bg: linear-gradient(to bottom right, #3a5f0b, #6b8e23);
             --overlay-color: rgba(0, 0, 0, 0.2);
@@ -59,7 +56,6 @@
             --hamburger-btn-hover: linear-gradient(45deg, #3a7f19, #5b7e13);
         }
 
-        /* ثيم بنفسجي */
         .theme-purple {
             --primary-bg: linear-gradient(to bottom right, #5e35b1, #9575cd);
             --overlay-color: rgba(0, 0, 0, 0.2);
@@ -71,8 +67,7 @@
             --hamburger-btn-bg: linear-gradient(45deg, #7e55d1, #ae75fd);
             --hamburger-btn-hover: linear-gradient(45deg, #6e45c1, #9e65ed);
         }
-        
-        /* ثيم نيون (الأصلي) */
+
         .theme-neon {
             --primary-bg: linear-gradient(to bottom right, #0a0a1a, #050510);
             --overlay-color: rgba(0, 0, 0, 0.7);
@@ -88,7 +83,6 @@
             --hamburger-btn-hover: linear-gradient(45deg, #00d0e0, #e000e0);
         }
 
-        /* ثيم نيون جديد (Cyberpunk) */
         .theme-cyberpunk {
             --primary-bg: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             --overlay-color: rgba(0, 0, 0, 0.6);
@@ -124,7 +118,6 @@
             transition: all 0.3s ease;
         }
 
-        /* أنماط الألعاب الأكثر تحميلاً - مخففة */
         .most-downloaded {
             padding: 1.5rem;
             max-width: 1800px;
@@ -140,6 +133,7 @@
             margin: 1.5rem auto;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--btn-primary);
+            transition: all 0.4s ease;
         }
 
         @media (max-width: 600px) {
@@ -153,6 +147,8 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
+            transition: all 0.4s ease;
+            direction: rtl;
         }
 
         .featured-card {
@@ -259,18 +255,15 @@
             background: linear-gradient(45deg, var(--btn-primary-hover), var(--btn-primary));
         }
 
-        /* تأثيرات مخففة للكرت الأول */
         .featured-cards .featured-card:first-child .featured-badge {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000;
         }
 
-        /* تأثيرات مخففة للكرت الثاني */
         .featured-cards .featured-card:nth-child(2) {
             border: 1px solid #ff0000;
         }
 
-        /* تأثيرات مخففة للكرت الثالث */
         .featured-cards .featured-card:nth-child(3) .featured-badge {
             background: linear-gradient(45deg, #00B4DB, #0083B0);
         }
@@ -293,7 +286,7 @@
             text-align: center; 
             position: relative; 
             transition: all 0.3s ease;
-            z-index: 99;
+            z-index: 999;
         }
         header h1 { display: inline-block; }
         .social-container {
@@ -304,7 +297,7 @@
             display: flex;
             gap: 1rem;
             align-items: center;
-            z-index: 101;
+            z-index: 999;
         }
         .social-icons { 
             display: flex;
@@ -378,7 +371,6 @@
             transform: scale(1.05);
         }
 
-        /* تأثير القلوب */
         .hearts-container {
             position: absolute;
             top: 0;
@@ -411,7 +403,6 @@
             }
         }
 
-        /* شريط البحث */
         .search-container {
             display: flex;
             flex-wrap: wrap;
@@ -421,7 +412,7 @@
             width: 90%;
             max-width: 800px;
             position: relative;
-            z-index: 999;
+            z-index: 998;
         }
 
         .search-wrapper {
@@ -457,10 +448,6 @@
             color: #6e48aa;
             font-size: 1.3rem;
         }
-
-        /* ============================================================
-           نظام الفلترة الاحترافي
-           ============================================================ */
 
         .filter-container {
             position: relative;
@@ -567,6 +554,41 @@
             }
         }
 
+        /* زر المفضلات - على اليمين */
+        .favorite-toggle-btn {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #1a1a2e;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            white-space: nowrap;
+            position: relative;
+            z-index: 888;
+            font-weight: bold;
+        }
+
+        .favorite-toggle-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .favorite-toggle-btn.active {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 0 25px rgba(238, 90, 36, 0.6);
+        }
+
+        .favorite-toggle-btn i {
+            font-size: 1.1rem;
+        }
+
         .no-results {
             display: none;
             text-align: center;
@@ -617,12 +639,10 @@
             height: 100%;
         }
         
-        /* الكروت المخفية نهائياً (لنظام التحميل التدريجي) */
         .card.lazy-hidden {
             display: none !important;
         }
         
-        /* الكروت المخفية مؤقتاً (للبحث والفلترة) */
         .card.filter-hidden {
             display: none !important;
         }
@@ -730,7 +750,6 @@
             opacity: 0.9;
         }
 
-        /* حجم اللعبة - تم التعديل هنا */
         .game-size {
             position: absolute;
             top: 10px;
@@ -743,11 +762,10 @@
             z-index: 2;
         }
 
-        /* أيقونة نظام التشغيل - تم التعديل هنا */
         .system-icon {
             position: absolute;
             left: 10px;
-            top: 35px; /* تم التغيير من top: 10px إلى top: 35px */
+            top: 35px;
             background: rgba(0, 0, 0, 0.7);
             color: white;
             padding: 5px 10px;
@@ -760,7 +778,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* مواصفات اللعبة عند hover */
         .game-specs {
             position: absolute;
             top: 0;
@@ -812,7 +829,6 @@
             right: 0;
         }
 
-        /* أيقونة إغلاق المواصفات */
         .close-specs {
             position: absolute;
             top: 10px;
@@ -831,7 +847,6 @@
             opacity: 1;
         }
 
-        /* أسهم التنقل بين الصور */
         .nav-arrow {
             position: absolute;
             top: 50%;
@@ -871,7 +886,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* نظام اختيار الثيمات */
         .theme-selector {
             position: fixed;
             top: 20px;
@@ -925,7 +939,6 @@
             transform: scale(1.1);
         }
 
-        /* أنماط رفع الصورة المخصصة */
         .custom-bg-options {
             margin-top: 10px;
             padding-top: 10px;
@@ -963,7 +976,6 @@
             background: rgba(33, 150, 243, 0.2);
         }
 
-        /* نافذة رفع الصورة المخصصة */
         .custom-bg-modal {
             display: none;
             position: fixed;
@@ -1056,7 +1068,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* قائمة الهامبرغر */
         .hamburger-btn {
             width: 50px;
             height: 50px;
@@ -1154,7 +1165,6 @@
             color: #ffd700;
         }
         
-        /* حقوق النشر */
         .copyright {
             text-align: center;
             padding: 20px;
@@ -1166,7 +1176,6 @@
             position: relative;
         }
 
-        /* زر العودة إلى الأعلى */
         .back-to-top {
             position: absolute;
             left: 20px;
@@ -1191,7 +1200,6 @@
             transform: translateY(-50%) scale(1.1);
         }
         
-        /* أنماط زر تحميل المزيد */
         .load-more-container {
             text-align: center;
             margin: 30px 0;
@@ -1237,7 +1245,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* الأيقونات الجديدة */
         .specs-icon {
             width: 30px;
             height: 30px;
@@ -1282,7 +1289,6 @@
             display: inline-block;
         }
 
-        /* إشعارات */
         .notification {
             position: fixed;
             bottom: 20px;
@@ -1306,8 +1312,94 @@
         .notification.error {
             background: #f44336;
         }
-        
-        /* التكيف مع الشاشات الصغيرة */
+
+        /* زر النجمة داخل الكرت - الحجم الصحيح */
+        .favorite-star {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1;
+        }
+
+        .favorite-star i {
+            font-size: 0.85rem;
+        }
+
+        .favorite-star:hover {
+            transform: scale(1.1);
+        }
+
+        .favorite-star.active {
+            color: #ffd700;
+            text-shadow: 0 0 12px #ffd700, 0 0 25px #ffd70066;
+            border-color: #ffd700;
+            background: rgba(255, 215, 0, 0.15);
+        }
+
+        /* رسالة لا توجد مفضلات */
+        #noFavoritesMsg {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-color);
+            grid-column: 1 / -1;
+        }
+
+        #noFavoritesMsg i {
+            font-size: 3rem;
+            opacity: 0.4;
+            color: #ffd700;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        #noFavoritesMsg h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        #noFavoritesMsg p {
+            opacity: 0.6;
+            font-size: 0.95rem;
+        }
+
+        /* تعديل لعرض المفضلات فقط */
+        .featured-cards.favorites-mode .featured-card {
+            display: none;
+        }
+
+        .featured-cards.favorites-mode .featured-card.favorite-visible {
+            display: block;
+        }
+
+        /* تعديل لعرض رسالة فارغة */
+        .featured-cards.favorites-mode.empty .featured-card {
+            display: none;
+        }
+
+        .featured-cards.favorites-mode.empty #noFavoritesMsg {
+            display: block !important;
+        }
+
+        #noFavoritesMsg.show {
+            display: block !important;
+        }
+
         @media (max-width: 1200px) {
             .products {
                 grid-template-columns: repeat(3, 1fr);
@@ -1361,6 +1453,11 @@
             
             .search-wrapper {
                 min-width: unset;
+            }
+
+            .favorite-toggle-btn {
+                width: 100%;
+                justify-content: center;
             }
         }
         
@@ -1437,7 +1534,6 @@
 </head>
 <body class="theme-neon">
 
-    <!-- نظام اختيار الثيمات -->
     <div class="theme-selector">
         <div class="theme-trigger" id="themeTrigger">
             <i class="fas fa-palette"></i>
@@ -1451,7 +1547,6 @@
             <div class="theme-option" style="background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);" data-theme="cyberpunk" title="Cyberpunk"></div>
             <div class="theme-option" style="background: url('https://k.top4top.io/p_3405vm4cc1.jpg') center/cover;" data-theme="default" title="Default"></div>
             
-            <!-- خيارات رفع صورة مخصصة -->
             <div class="custom-bg-options">
                 <div class="custom-bg-option upload" id="uploadImageBtn">
                     <i class="fas fa-upload"></i>
@@ -1465,7 +1560,6 @@
         </div>
     </div>
 
-    <!-- نافذة رفع الصورة المخصصة -->
     <div class="custom-bg-modal" id="customBgModal">
         <div class="custom-bg-content">
             <h3>تخصيص خلفية الموقع</h3>
@@ -1492,7 +1586,6 @@
         </div>
     </div>
 
-    <!-- إشعارات -->
     <div class="notification" id="notification"></div>
 
     <header>
@@ -1500,11 +1593,10 @@
             <button class="hamburger-btn" id="hamburgerBtn">
                 <i class="fas fa-bars"></i>
             </button>
-              <div class="hamburger-content" id="hamburgerContent">
-                <a href="https://thefoxyt15.github.io/syr-vibe-mini_games/" oneclick="_blank" data-translate="menu.games"><i class="fas fa-gamepad"></i><span class="translate">Mini Games</span></a>
-                <a href="https://thefoxyt15.github.io/syr-vibe-about/" oneclick="_blank" data-translate="menu.about"><i class="fas fa-info-circle"></i><span class="translate">About Web</span></a>
-                <a href="https://thefoxyt15.github.io/syr-vibe-support/" oneclick="_blank" data-translate="menu.contact"><i class="fas fa-headset"></i><span class="translate">Contact us</span></a>
-            </div>
+            <div class="hamburger-content" id="hamburgerContent">
+                <a href="https://thefoxyt15.github.io/syr-vibe-mini_games/" target="_blank"><i class="fas fa-gamepad"></i><span>Mini Games</span></a>
+                <a href="https://thefoxyt15.github.io/syr-vibe-about/" target="_blank"><i class="fas fa-info-circle"></i><span>About Web</span></a>
+                <a href="https://thefoxyt15.github.io/syr-vibe-support/" target="_blank"><i class="fas fa-headset"></i><span>Contact us</span></a>
             </div>
         </div>
         <h1>
@@ -1521,14 +1613,12 @@
         </div>
     </header>
 
-    <!-- شريط البحث مع الفلترة -->
     <div class="search-container">
         <div class="search-wrapper">
             <input type="text" class="search-bar" placeholder="ابحث عن التطبيقات أو الألعاب..." id="searchInput">
             <i class="fas fa-search search-icon"></i>
         </div>
         
-        <!-- زر الفلترة -->
         <div class="filter-container">
             <button class="filter-btn" id="filterBtn">
                 <i class="fas fa-filter"></i>
@@ -1553,14 +1643,17 @@
                 </div>
             </div>
         </div>
+
+        <button class="favorite-toggle-btn" id="favoriteToggleBtn">
+            <i class="fas fa-star"></i>
+            <span>مفضلاتي</span>
+        </button>
     </div>
     
-    <!-- قسم الألعاب الأكثر تحميلاً -->
-    <section class="most-downloaded">
-        <h2 class="section-title">الألعاب الأكثر تحميلاً</h2>
-        <div class="featured-cards">
-            <!-- الكرت الأول -->
-            <div class="featured-card" data-downloads="12500" data-type="game">
+    <section class="most-downloaded" id="featuredSection">
+        <h2 class="section-title" id="featuredTitle">الألعاب الأكثر تحميلاً</h2>
+        <div class="featured-cards" id="featuredCards">
+            <div class="featured-card" data-downloads="12500" data-type="game" data-game-id="gta_sa">
                 <div class="featured-badge">
                     <i class="fas fa-crown"></i>
                     <span>الأعلى تحميلاً</span>
@@ -1593,8 +1686,7 @@
                 </div>
             </div>
             
-            <!-- الكرت الثاني -->
-            <div class="featured-card" data-downloads="9800" data-type="game">
+            <div class="featured-card" data-downloads="9800" data-type="game" data-game-id="outlast2">
                 <div class="featured-badge">
                     <i class="fas fa-fire"></i>
                     <span>رائج</span>
@@ -1626,8 +1718,7 @@
                 </div>
             </div>
             
-            <!-- الكرت الثالث -->
-            <div class="featured-card" data-downloads="8700" data-type="game">
+            <div class="featured-card" data-downloads="8700" data-type="game" data-game-id="blur">
                 <div class="featured-badge">
                     <i class="fas fa-bolt"></i>
                     <span>شائع</span>
@@ -1658,13 +1749,17 @@
                     </button>
                 </div>
             </div>
+
+            <div id="noFavoritesMsg">
         </div>
     </section>
 
     <main>
-        <section class="products">
-            <!-- الصف الأول -->
-            <div class="card" data-type="app" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام driver updater protection from malfunctions system acceleration sürücü güncelleyici arızalardan koruma sistem hızlandırma">
+        <section class="products" id="productsContainer">
+            <div class="card" data-type="app" data-game-id="driver_booster" data-search="driver booster برنامج تحديث التعريفات حماية من الأعطال تسريع النظام driver updater protection from malfunctions system acceleration sürücü güncelleyici arızalardan koruma sistem hızlandırma">
+                <div class="favorite-star" data-game-id="driver_booster" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_24MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -1704,7 +1799,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="pack" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة mta cheat script strong cheat for mta game with multiple features mta hile betik güçlü hile mta oyunu için çoklu özellikler">
+            <div class="card" data-type="pack" data-game-id="mta_cheat" data-search="mta cheat سكريبت غش قوي للعبة mta مع مميزات متعددة mta cheat script strong cheat for mta game with multiple features mta hile betik güçlü hile mta oyunu için çoklu özellikler">
+                <div class="favorite-star" data-game-id="mta_cheat" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_5.09MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -1743,7 +1841,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="app" data-search="lightshot لقطة شاشة screenshot ekran görüntüsü">
+            <div class="card" data-type="app" data-game-id="lightshot" data-search="lightshot لقطة شاشة screenshot ekran görüntüsü">
+                <div class="favorite-star" data-game-id="lightshot" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_2.31MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
@@ -1783,7 +1884,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="pack" data-search="Mcenter ماين كرافت minecraft">
+            <div class="card" data-type="pack" data-game-id="mcenter" data-search="Mcenter ماين كرافت minecraft">
+                <div class="favorite-star" data-game-id="mcenter" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_173.78KB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -1816,8 +1920,10 @@
                 </div>
             </div>
             
-            <!-- الصف الثاني -->
-            <div class="card" data-type="game" data-search="Outlast 2 رعب horror korku">
+            <div class="card" data-type="game" data-game-id="outlast2_game" data-search="Outlast 2 رعب horror korku">
+                <div class="favorite-star" data-game-id="outlast2_game" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_12.83GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -1852,12 +1958,15 @@
                 <p>رعب | تختيم | استكشاف</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.location.href='https://drive.google.com/file/d/1g5mtjPRn5oEkDTfXf3teinix7InygBqT/view?usp=drive_link', '_blank'">GET FREE</button>
+                    <button class="free-btn" onclick="window.location.href='https://thefoxyt15.github.io/outlast2/', '_blank'">GET FREE</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="Outlast رعب horror korku">
+            <div class="card" data-type="game" data-game-id="outlast1_game" data-search="Outlast رعب horror korku">
+                <div class="favorite-star" data-game-id="outlast1_game" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_4.97GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -1892,12 +2001,15 @@
                 <p>رعب | تختيم | استكشاف</p>
                 <p class="price">Free</p>
                 <div class="btn-container">
-                    <button class="free-btn" onclick="window.location.href='https://www.mediafire.com/file/mug8p9mobijflle/OutlastWhistleblowerDLC%255Bfoxy15studio%255D.zip/file', '_blank'">GET FREE</button>
+                    <button class="free-btn" onclick="window.location.href='https://thefoxyt15.github.io/outlast/', '_blank'">GET FREE</button>
                     <div class="specs-icon" onmouseover="showSpecs(this)" onmouseout="hideSpecsIcon(this)"></div>
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="araya رعب horror korku">
+            <div class="card" data-type="game" data-game-id="araya_game" data-search="araya رعب horror korku">
+                <div class="favorite-star" data-game-id="araya_game" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_3.35GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -1937,7 +2049,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="GTA SA|جي تي اي سان اندريس|grand theft auto san andreas|gta san andreas">
+            <div class="card" data-type="game" data-game-id="gta_sa_game" data-search="GTA SA|جي تي اي سان اندريس|grand theft auto san andreas|gta san andreas">
+                <div class="favorite-star" data-game-id="gta_sa_game" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_801MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
@@ -1980,8 +2095,10 @@
                 </div>
             </div>
 
-            <!-- الصف الثالث - الكروت الإضافية -->
-            <div class="card" data-type="app" data-search="Discord ديسكورد discord">
+            <div class="card" data-type="app" data-game-id="discord_unlocker" data-search="Discord ديسكورد discord">
+                <div class="favorite-star" data-game-id="discord_unlocker" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_126.84MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
@@ -2015,7 +2132,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="MKGold|mortal kombat gold|ölümcül dövüş altın">
+            <div class="card" data-type="game" data-game-id="mk_gold" data-search="MKGold|mortal kombat gold|ölümcül dövüş altın">
+                <div class="favorite-star" data-game-id="mk_gold" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_450MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -2055,7 +2175,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="Blur|سباق|race|yarış">
+            <div class="card" data-type="game" data-game-id="blur_game" data-search="Blur|سباق|race|yarış">
+                <div class="favorite-star" data-game-id="blur_game" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_5.18GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -2095,7 +2218,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="MK9|mortal kombat komplete|ölümcül dövüş tam">
+            <div class="card" data-type="game" data-game-id="mk9_komplete" data-search="MK9|mortal kombat komplete|ölümcül dövüş tam">
+                <div class="favorite-star" data-game-id="mk9_komplete" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_8.66GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -2135,8 +2261,10 @@
                 </div>
             </div>
 
-            <!-- الصف الرابع - الكروت الأربعة الجديدة -->
-            <div class="card" data-type="pack" data-search="Meev Spoofer">
+            <div class="card" data-type="pack" data-game-id="meev_spoofer" data-search="Meev Spoofer">
+                <div class="favorite-star" data-game-id="meev_spoofer" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_3.5GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -2171,7 +2299,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="Minecraft|ماين كرافت|بناء|survival">
+            <div class="card" data-type="game" data-game-id="wemod_pro" data-search="Minecraft|ماين كرافت|بناء|survival">
+                <div class="favorite-star" data-game-id="wemod_pro" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_150MB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر والهاتف">
@@ -2212,7 +2343,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="Call of Duty|COD|رماية|أكشن">
+            <div class="card" data-type="game" data-game-id="cod_mw" data-search="Call of Duty|COD|رماية|أكشن">
+                <div class="favorite-star" data-game-id="cod_mw" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_6.5GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -2252,7 +2386,10 @@
                 </div>
             </div>
             
-            <div class="card" data-type="game" data-search="FIFA|كرة قدم|football|sports">
+            <div class="card" data-type="game" data-game-id="fifa23" data-search="FIFA|كرة قدم|football|sports">
+                <div class="favorite-star" data-game-id="fifa23" onclick="toggleFavorite(this)">
+                    <i class="fas fa-star"></i>
+                </div>
                 <div class="card-img-container">
                     <div class="game-size">Size_8.2GB</div>
                     <div class="system-icon" title="متوفر للكمبيوتر فقط">
@@ -2293,7 +2430,6 @@
             </div>
         </section>
 
-        <!-- زر تحميل المزيد -->
         <div class="load-more-container">
             <button class="load-more-btn" id="loadMoreBtn">
                 <span class="text">تحميل المزيد</span>
@@ -2321,214 +2457,123 @@
     <audio id="notification-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_52cc1fa3ab.mp3" preload="auto"></audio>
 
     <script>
-        // ============================================================
-        // نظام الثيمات
-        // ============================================================
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeTrigger = document.getElementById('themeTrigger');
-            const themeOptions = document.getElementById('themeOptions');
-            const body = document.body;
+        // ================================================================
+        //  نظام المفضلات
+        // ================================================================
+        const FAVORITES_KEY = 'syr_vibe_favorites';
+        const MAX_FAVORITES = 6;
+
+        function getFavorites() {
+            try {
+                const data = localStorage.getItem(FAVORITES_KEY);
+                return data ? JSON.parse(data) : [];
+            } catch { return []; }
+        }
+
+        function saveFavorites(list) {
+            localStorage.setItem(FAVORITES_KEY, JSON.stringify(list));
+        }
+
+        function isFavorite(gameId) {
+            const favs = getFavorites();
+            return favs.includes(gameId);
+        }
+
+        function toggleFavorite(element) {
+            const gameId = element.getAttribute('data-game-id');
+            if (!gameId) return;
             
-            const savedTheme = localStorage.getItem('selectedTheme') || 'neon';
-            body.className = 'theme-' + savedTheme;
+            let favs = getFavorites();
+            const index = favs.indexOf(gameId);
             
-            themeTrigger.addEventListener('click', function(e) {
-                e.stopPropagation();
-                themeOptions.style.display = themeOptions.style.display === 'flex' ? 'none' : 'flex';
-            });
+            if (index > -1) {
+                favs.splice(index, 1);
+                saveFavorites(favs);
+                element.classList.remove('active');
+                showNotification('🗑️ تمت إزالة اللعبة من المفضلة');
+            } else {
+                if (favs.length >= MAX_FAVORITES) {
+                    showNotification(`⚠️ يمكنك إضافة ${MAX_FAVORITES} ألعاب فقط إلى المفضلة`, true);
+                    return;
+                }
+                favs.push(gameId);
+                saveFavorites(favs);
+                element.classList.add('active');
+                showNotification('✅ تمت إضافة اللعبة إلى المفضلة');
+            }
             
-            document.querySelectorAll('.theme-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    const theme = this.getAttribute('data-theme');
-                    body.className = 'theme-' + theme;
-                    localStorage.setItem('selectedTheme', theme);
-                    
-                    const notification = document.getElementById('notification');
-                    notification.textContent = `تم تطبيق ثيم ${this.getAttribute('title')}`;
-                    notification.className = 'notification';
-                    notification.classList.add('show');
-                    
-                    setTimeout(() => {
-                        notification.classList.remove('show');
-                    }, 2000);
+            updateFeaturedSection();
+            updateFavoriteButtonState();
+        }
+
+        // ================================================================
+        //  تحديث قسم المفضلات
+        // ================================================================
+        let showingFavorites = false;
+
+        function updateFeaturedSection() {
+            const favs = getFavorites();
+            const featuredCards = document.querySelectorAll('.featured-card');
+            const noFavMsg = document.getElementById('noFavoritesMsg');
+            const title = document.getElementById('featuredTitle');
+            const container = document.getElementById('featuredCards');
+
+            if (showingFavorites) {
+                title.textContent = 'مفضلاتي ⭐';
+                let hasFav = false;
+                
+                featuredCards.forEach(card => {
+                    const id = card.getAttribute('data-game-id');
+                    if (favs.includes(id)) {
+                        card.style.display = 'block';
+                        hasFav = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
                 });
-            });
-            
-            const customBg = localStorage.getItem('customBackground');
-            if (customBg && savedTheme === 'default') {
-                document.documentElement.style.setProperty('--primary-bg', `url('${customBg}')`);
-            }
-            
-            document.addEventListener('click', function(e) {
-                if (!themeOptions.contains(e.target) && e.target !== themeTrigger) {
-                    themeOptions.style.display = 'none';
-                }
-            });
 
-            // قائمة الهامبرغر
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const hamburgerContent = document.getElementById('hamburgerContent');
-
-            hamburgerBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                hamburgerContent.style.display = hamburgerContent.style.display === 'block' ? 'none' : 'block';
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!hamburgerContent.contains(e.target) && e.target !== hamburgerBtn) {
-                    hamburgerContent.style.display = 'none';
-                }
-            });
-
-            // زر العودة إلى الأعلى
-            const backToTopBtn = document.getElementById('backToTopBtn');
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    backToTopBtn.style.opacity = '1';
-                    backToTopBtn.style.pointerEvents = 'auto';
+                if (hasFav && favs.length > 0) {
+                    noFavMsg.style.display = 'none';
+                    container.classList.remove('empty');
                 } else {
-                    backToTopBtn.style.opacity = '0';
-                    backToTopBtn.style.pointerEvents = 'none';
+                    noFavMsg.style.display = 'block';
+                    container.classList.add('empty');
                 }
-            });
+            } else {
+                title.textContent = 'الألعاب الأكثر تحميلاً';
+                featuredCards.forEach(card => card.style.display = 'block');
+                noFavMsg.style.display = 'none';
+                container.classList.remove('empty');
+            }
+        }
 
-            // تهيئة الأنظمة
-            initLazyLoading();
-            initFilterSystem();
-        });
+        function updateFavoriteButtonState() {
+            const btn = document.getElementById('favoriteToggleBtn');
+            const favs = getFavorites();
+            if (showingFavorites) {
+                btn.classList.add('active');
+                btn.innerHTML = '<i class="fas fa-star"></i><span>الكل</span>';
+            } else {
+                btn.classList.remove('active');
+                btn.innerHTML = `<i class="fas fa-star"></i><span>مفضلاتي (${favs.length})</span>`;
+            }
+        }
 
-        // ============================================================
-        // نظام رفع الصور المخصصة
-        // ============================================================
-        document.addEventListener('DOMContentLoaded', function() {
-            const uploadImageBtn = document.getElementById('uploadImageBtn');
-            const enterImageUrlBtn = document.getElementById('enterImageUrlBtn');
-            const customBgModal = document.getElementById('customBgModal');
-            const cancelBgBtn = document.getElementById('cancelBgBtn');
-            const applyBgBtn = document.getElementById('applyBgBtn');
-            const bgUploadArea = document.getElementById('bgUploadArea');
-            const bgImageUpload = document.getElementById('bgImageUpload');
-            const bgImageUrl = document.getElementById('bgImageUrl');
-            const notification = document.getElementById('notification');
-
-            uploadImageBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                customBgModal.style.display = 'flex';
-                themeOptions.style.display = 'none';
-            });
-
-            enterImageUrlBtn.addEventListener('click', function(e) {
-                e.stopPropagation();
-                customBgModal.style.display = 'flex';
-                themeOptions.style.display = 'none';
-                bgImageUrl.focus();
-            });
-
-            cancelBgBtn.addEventListener('click', function() {
-                customBgModal.style.display = 'none';
-                bgImageUrl.value = '';
-            });
-
-            applyBgBtn.addEventListener('click', function() {
-                const url = bgImageUrl.value.trim();
-                
-                if (url) {
-                    if (isValidImageUrl(url)) {
-                        applyCustomBackground(url);
-                        customBgModal.style.display = 'none';
-                        bgImageUrl.value = '';
-                        showNotification('تم تطبيق الخلفية المخصصة بنجاح!');
-                    } else {
-                        showNotification('الرجاء إدخال رابط صورة صالح (JPG, PNG, GIF, WebP, SVG)', true);
-                    }
-                } else if (bgImageUpload.files.length > 0) {
-                    const file = bgImageUpload.files[0];
-                    if (file && file.type.startsWith('image/')) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            applyCustomBackground(e.target.result);
-                            customBgModal.style.display = 'none';
-                            showNotification('تم تطبيق الخلفية المخصصة بنجاح!');
-                        };
-                        reader.readAsDataURL(file);
-                    } else {
-                        showNotification('الرجاء اختيار ملف صورة صالح (JPG, PNG, GIF, WebP, SVG)', true);
-                    }
+        function initFavoriteStars() {
+            const favs = getFavorites();
+            document.querySelectorAll('.favorite-star').forEach(star => {
+                const id = star.getAttribute('data-game-id');
+                if (favs.includes(id)) {
+                    star.classList.add('active');
                 } else {
-                    showNotification('الرجاء إدخال رابط صورة أو اختيار ملف', true);
+                    star.classList.remove('active');
                 }
             });
+        }
 
-            bgUploadArea.addEventListener('click', function() {
-                bgImageUpload.click();
-            });
-
-            bgUploadArea.addEventListener('dragover', function(e) {
-                e.preventDefault();
-                this.style.background = 'rgba(76, 175, 80, 0.2)';
-            });
-
-            bgUploadArea.addEventListener('dragleave', function(e) {
-                e.preventDefault();
-                this.style.background = '';
-            });
-
-            bgUploadArea.addEventListener('drop', function(e) {
-                e.preventDefault();
-                this.style.background = '';
-                
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    const file = files[0];
-                    if (file && file.type.startsWith('image/')) {
-                        bgImageUpload.files = files;
-                        showNotification(`تم اختيار الصورة: ${file.name}`);
-                    } else {
-                        showNotification('الرجاء سحب ملف صورة فقط', true);
-                    }
-                }
-            });
-
-            function isValidImageUrl(url) {
-                try {
-                    const parsedUrl = new URL(url);
-                    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
-                    const path = parsedUrl.pathname.toLowerCase();
-                    return imageExtensions.some(ext => path.endsWith(ext)) || 
-                           parsedUrl.pathname.match(/\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i);
-                } catch {
-                    return false;
-                }
-            }
-
-            function applyCustomBackground(imageSource) {
-                localStorage.setItem('customBackground', imageSource);
-                localStorage.setItem('selectedTheme', 'default');
-                document.documentElement.style.setProperty('--primary-bg', `url('${imageSource}')`);
-                document.body.className = 'theme-default';
-            }
-
-            function showNotification(message, isError = false) {
-                notification.textContent = message;
-                notification.className = 'notification';
-                if (isError) {
-                    notification.classList.add('error');
-                }
-                notification.classList.add('show');
-                
-                setTimeout(() => {
-                    notification.classList.remove('show');
-                }, 3000);
-            }
-        });
-
-        // ============================================================
-        // دوال المواصفات والكاروسل
-        // ============================================================
+        // ================================================================
+        //  دوال المواصفات والكاروسل
+        // ================================================================
         function showSpecs(icon) {
             const card = icon.closest('.card');
             const specs = card.querySelector('.game-specs');
@@ -2573,20 +2618,9 @@
             slides[newIndex].classList.add('active');
         }
 
-        function showPopup(link) {
-            const popup = document.getElementById('payment-popup');
-            const sound = document.getElementById('notification-sound');
-            popup.style.display = 'flex';
-            sound.play();
-            setTimeout(() => {
-                popup.style.display = 'none';
-                window.open(link, '_blank');
-            }, 3000);
-        }
-
-        // ============================================================
-        // نظام القلوب
-        // ============================================================
+        // ================================================================
+        //  القلوب
+        // ================================================================
         const donationBtn = document.querySelector('.donation-btn');
         const heartsContainer = document.getElementById('heartsContainer');
 
@@ -2616,23 +2650,19 @@
             });
         }
 
-        // ============================================================
-        // نظام الفلترة الاحترافي (المعدل)
-        // ============================================================
+        // ================================================================
+        //  نظام الفلترة
+        // ================================================================
         function initFilterSystem() {
             const filterBtn = document.getElementById('filterBtn');
             const filterDropdown = document.getElementById('filterDropdown');
             const filterOptions = document.querySelectorAll('.filter-option');
             const searchInput = document.getElementById('searchInput');
             const productsSection = document.querySelector('.products');
-            
-            // جلب جميع الكروت (بما فيها المخفية)
             const allCards = document.querySelectorAll('.card');
-            
             let currentFilter = 'all';
             let currentSearch = '';
-            
-            // إنشاء عنصر "لا توجد نتائج"
+
             let noResultsElement = document.querySelector('.no-results');
             if (!noResultsElement) {
                 noResultsElement = document.createElement('div');
@@ -2644,38 +2674,39 @@
                 `;
                 productsSection.appendChild(noResultsElement);
             }
-            
-            // دالة تطبيق الفلترة والبحث
+
             function applyFilters() {
                 let visibleCount = 0;
                 const filter = currentFilter;
                 const search = currentSearch.toLowerCase().trim();
-                
+
                 allCards.forEach(card => {
-                    // التحقق مما إذا كان الكرت محمّلاً (lazy-hidden) أم لا
                     const isLazyHidden = card.classList.contains('lazy-hidden');
-                    
-                    // إذا كان الكرت مخفياً بشكل دائم (لنظام التحميل التدريجي)، نتجاوزه
                     if (isLazyHidden) {
-                        // نضمن أنه مخفي
                         card.classList.add('filter-hidden');
                         return;
                     }
                     
+                    if (showingFavorites) {
+                        const id = card.getAttribute('data-game-id');
+                        const favs = getFavorites();
+                        if (!favs.includes(id)) {
+                            card.classList.add('filter-hidden');
+                            return;
+                        }
+                    }
+
                     const cardType = card.getAttribute('data-type') || 'game';
                     const searchData = card.getAttribute('data-search') || '';
                     const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
-                    const description = card.querySelector('p')?.textContent?.toLowerCase() || '';
-                    
+                    const desc = card.querySelector('p')?.textContent?.toLowerCase() || '';
+
                     let typeMatch = (filter === 'all') || (cardType === filter);
-                    
                     let searchMatch = true;
                     if (search !== '') {
-                        searchMatch = searchData.includes(search) || 
-                                     title.includes(search) || 
-                                     description.includes(search);
+                        searchMatch = searchData.includes(search) || title.includes(search) || desc.includes(search);
                     }
-                    
+
                     if (typeMatch && searchMatch) {
                         card.classList.remove('filter-hidden');
                         visibleCount++;
@@ -2683,95 +2714,72 @@
                         card.classList.add('filter-hidden');
                     }
                 });
-                
-                // إظهار/إخفاء رسالة "لا توجد نتائج"
-                if (visibleCount === 0) {
-                    noResultsElement.style.display = 'block';
-                } else {
-                    noResultsElement.style.display = 'none';
-                }
-                
-                // تحديث زر الفلترة مع العدد
+
+                if (visibleCount === 0) noResultsElement.style.display = 'block';
+                else noResultsElement.style.display = 'none';
+
                 const countSpan = filterBtn.querySelector('.filter-count');
-                if (countSpan) {
-                    countSpan.textContent = visibleCount;
-                }
+                if (countSpan) countSpan.textContent = visibleCount;
             }
-            
-            // إضافة العداد إلى زر الفلترة
+
             const countSpan = document.createElement('span');
             countSpan.className = 'filter-count';
             countSpan.textContent = '0';
             filterBtn.appendChild(countSpan);
-            
-            // تبديل القائمة المنسدلة
+
             filterBtn.addEventListener('click', function(e) {
                 e.stopPropagation();
                 filterDropdown.classList.toggle('show');
             });
-            
-            // إغلاق القائمة عند النقر خارجها
+
             document.addEventListener('click', function(e) {
                 if (!filterBtn.contains(e.target) && !filterDropdown.contains(e.target)) {
                     filterDropdown.classList.remove('show');
                 }
             });
-            
-            // اختيار خيار من القائمة
+
             filterOptions.forEach(option => {
                 option.addEventListener('click', function() {
                     filterOptions.forEach(opt => opt.classList.remove('active'));
                     this.classList.add('active');
-                    
                     currentFilter = this.getAttribute('data-filter');
-                    
                     const icon = this.querySelector('i').cloneNode(true);
                     const text = this.querySelector('span').textContent;
                     filterBtn.innerHTML = '';
                     filterBtn.appendChild(icon);
                     filterBtn.innerHTML += ` <span>${text}</span>`;
-                    
                     const newCount = document.createElement('span');
                     newCount.className = 'filter-count';
                     newCount.textContent = '0';
                     filterBtn.appendChild(newCount);
-                    
                     filterDropdown.classList.remove('show');
                     applyFilters();
                 });
             });
-            
-            // ربط البحث بالفلترة
+
             if (searchInput) {
                 searchInput.addEventListener('input', function() {
                     currentSearch = this.value;
                     applyFilters();
                 });
             }
-            
-            // تعيين الخيار الافتراضي
+
             const defaultOption = document.querySelector('.filter-option[data-filter="all"]');
-            if (defaultOption) {
-                defaultOption.classList.add('active');
-            }
-            
-            // جعل الدالة متاحة عالمياً
+            if (defaultOption) defaultOption.classList.add('active');
+
             window.applyFilters = applyFilters;
-            
-            // تطبيق الفلترة بعد تحميل الصفحة
             setTimeout(applyFilters, 200);
         }
 
-        // ============================================================
-        // نظام التحميل التدريجي (المعدل)
-        // ============================================================
+        // ================================================================
+        //  نظام التحميل التدريجي
+        // ================================================================
         function initLazyLoading() {
             let currentBatch = 1;
             const batchSize = 8;
             const allCards = Array.from(document.querySelectorAll('.card'));
             const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-            // إخفاء الكروت التي تتجاوز الـ 8 الأولى باستخدام class مخصص
             allCards.forEach((card, index) => {
                 if (index >= batchSize) {
                     card.classList.add('lazy-hidden');
@@ -2779,7 +2787,6 @@
                 }
             });
 
-            // إخفاء الزر إذا كانت كل الكروت معروضة
             if (allCards.length <= batchSize) {
                 loadMoreBtn.style.display = 'none';
             }
@@ -2793,22 +2800,18 @@
                     const endIndex = Math.min(startIndex + batchSize, allCards.length);
                     
                     for (let i = startIndex; i < endIndex; i++) {
-                        // إزالة الـ lazy-hidden لإظهار الكرت
                         allCards[i].classList.remove('lazy-hidden');
-                        // إضافة تأثير ظهور
                         allCards[i].style.animation = 'fadeIn 0.5s ease';
                     }
                     
                     currentBatch++;
                     
-                    // إخفاء الزر إذا تم تحميل كل الكروت
                     if (endIndex >= allCards.length) {
                         btn.style.display = 'none';
                     }
                     
                     btn.classList.remove('loading');
                     
-                    // إعادة تطبيق الفلترة بعد التحميل لإظهار الكروت المناسبة
                     if (window.applyFilters) {
                         setTimeout(window.applyFilters, 100);
                     }
@@ -2816,10 +2819,207 @@
             }
 
             loadMoreBtn.addEventListener('click', loadMoreCards);
-            
-            // جعل الدالة متاحة عالمياً
             window.loadMoreCards = loadMoreCards;
         }
+
+        // ================================================================
+        //  الإشعارات
+        // ================================================================
+        function showNotification(message, isError = false) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification';
+            if (isError) notification.classList.add('error');
+            notification.classList.add('show');
+            setTimeout(() => notification.classList.remove('show'), 3000);
+        }
+
+        // ================================================================
+        //  تهيئة الصفحة
+        // ================================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // ====== الثيمات ======
+            const themeTrigger = document.getElementById('themeTrigger');
+            const themeOptions = document.getElementById('themeOptions');
+            const body = document.body;
+            const savedTheme = localStorage.getItem('selectedTheme') || 'neon';
+            body.className = 'theme-' + savedTheme;
+
+            themeTrigger.addEventListener('click', function(e) {
+                e.stopPropagation();
+                themeOptions.style.display = themeOptions.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            document.querySelectorAll('.theme-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    body.className = 'theme-' + theme;
+                    localStorage.setItem('selectedTheme', theme);
+                    showNotification(`تم تطبيق ثيم ${this.getAttribute('title')}`);
+                });
+            });
+
+            const customBg = localStorage.getItem('customBackground');
+            if (customBg && savedTheme === 'default') {
+                document.documentElement.style.setProperty('--primary-bg', `url('${customBg}')`);
+            }
+
+            document.addEventListener('click', function(e) {
+                if (!themeOptions.contains(e.target) && e.target !== themeTrigger) {
+                    themeOptions.style.display = 'none';
+                }
+            });
+
+            // ====== هامبورغر ======
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const hamburgerContent = document.getElementById('hamburgerContent');
+
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                hamburgerContent.style.display = hamburgerContent.style.display === 'block' ? 'none' : 'block';
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!hamburgerContent.contains(e.target) && e.target !== hamburgerBtn) {
+                    hamburgerContent.style.display = 'none';
+                }
+            });
+
+            // ====== زر العودة للأعلى ======
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.opacity = '1';
+                    backToTopBtn.style.pointerEvents = 'auto';
+                } else {
+                    backToTopBtn.style.opacity = '0';
+                    backToTopBtn.style.pointerEvents = 'none';
+                }
+            });
+
+            // ====== رفع الصورة المخصصة ======
+            const uploadImageBtn = document.getElementById('uploadImageBtn');
+            const enterImageUrlBtn = document.getElementById('enterImageUrlBtn');
+            const customBgModal = document.getElementById('customBgModal');
+            const cancelBgBtn = document.getElementById('cancelBgBtn');
+            const applyBgBtn = document.getElementById('applyBgBtn');
+            const bgUploadArea = document.getElementById('bgUploadArea');
+            const bgImageUpload = document.getElementById('bgImageUpload');
+            const bgImageUrl = document.getElementById('bgImageUrl');
+
+            uploadImageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                customBgModal.style.display = 'flex';
+                themeOptions.style.display = 'none';
+            });
+
+            enterImageUrlBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                customBgModal.style.display = 'flex';
+                themeOptions.style.display = 'none';
+                bgImageUrl.focus();
+            });
+
+            cancelBgBtn.addEventListener('click', function() {
+                customBgModal.style.display = 'none';
+                bgImageUrl.value = '';
+            });
+
+            applyBgBtn.addEventListener('click', function() {
+                const url = bgImageUrl.value.trim();
+                
+                if (url) {
+                    if (url.match(/\.(jpg|jpeg|png|gif|webp|svg)(\?.*)?$/i)) {
+                        applyCustomBackground(url);
+                        customBgModal.style.display = 'none';
+                        bgImageUrl.value = '';
+                        showNotification('تم تطبيق الخلفية المخصصة بنجاح!');
+                    } else {
+                        showNotification('الرجاء إدخال رابط صورة صالح (JPG, PNG, GIF, WebP, SVG)', true);
+                    }
+                } else if (bgImageUpload.files.length > 0) {
+                    const file = bgImageUpload.files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            applyCustomBackground(e.target.result);
+                            customBgModal.style.display = 'none';
+                            showNotification('تم تطبيق الخلفية المخصصة بنجاح!');
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        showNotification('الرجاء اختيار ملف صورة صالح', true);
+                    }
+                } else {
+                    showNotification('الرجاء إدخال رابط صورة أو اختيار ملف', true);
+                }
+            });
+
+            bgUploadArea.addEventListener('click', function() {
+                bgImageUpload.click();
+            });
+
+            bgUploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.style.background = 'rgba(76, 175, 80, 0.2)';
+            });
+
+            bgUploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.style.background = '';
+            });
+
+            bgUploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.style.background = '';
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const file = files[0];
+                    if (file && file.type.startsWith('image/')) {
+                        bgImageUpload.files = files;
+                        showNotification(`تم اختيار الصورة: ${file.name}`);
+                    } else {
+                        showNotification('الرجاء سحب ملف صورة فقط', true);
+                    }
+                }
+            });
+
+            function applyCustomBackground(imageSource) {
+                localStorage.setItem('customBackground', imageSource);
+                localStorage.setItem('selectedTheme', 'default');
+                document.documentElement.style.setProperty('--primary-bg', `url('${imageSource}')`);
+                document.body.className = 'theme-default';
+            }
+
+            // ====== تهيئة النجوم والمفضلات ======
+            initFavoriteStars();
+            updateFavoriteButtonState();
+            updateFeaturedSection();
+
+            // ====== زر تبديل المفضلات ======
+            document.getElementById('favoriteToggleBtn').addEventListener('click', function() {
+                showingFavorites = !showingFavorites;
+                updateFavoriteButtonState();
+                updateFeaturedSection();
+                if (window.applyFilters) setTimeout(window.applyFilters, 100);
+            });
+
+            // ====== تهيئة الفلترة والتحميل ======
+            initFilterSystem();
+            initLazyLoading();
+        });
+
+        // جعل الدوال عامة
+        window.showSpecs = showSpecs;
+        window.hideSpecsIcon = hideSpecsIcon;
+        window.hideSpecs = hideSpecs;
+        window.changeSlide = changeSlide;
+        window.toggleFavorite = toggleFavorite;
+        window.showNotification = showNotification;
     </script>
 </body>
 </html>
